@@ -1,16 +1,49 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flip {
+  perspective: 1000px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.flip.lg {
+  width: 176px;
+  height: 176px;
 }
 
-* {
-  box-sizing: border-box;
+.flip.sm {
+  width: 72px;
+  height: 72px;
+}
+
+.flip-inner {
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.header:hover .flip-inner,
+.header.active .flip-inner {
+  transform: rotateY(-180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+h1,
+h2 {
+  @apply font-sans;
+}
+
+p {
+  @apply font-mono;
 }
