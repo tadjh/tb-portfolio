@@ -32,7 +32,7 @@ export default function Card({
   return (
     <div
       className={clsx(
-        "group relative flex flex-col overflow-hidden rounded-lg border bg-blue-gulf text-black/90",
+        "group relative flex flex-col overflow-hidden rounded-lg border border-blue-200 bg-blue-gulf text-black/90 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white/90",
         className
       )}
     >
@@ -50,7 +50,7 @@ export default function Card({
         <h3 className="transition-transform group-hover:-translate-y-1.5">
           {title}
         </h3>
-        <hr className="w-1/5 border-black/90 transition-transform group-hover:scale-150" />
+        <hr className="w-1/5 border-black/90 transition-transform group-hover:scale-150 dark:border-white/90" />
         <p className="transition-transform group-hover:translate-y-1.5">
           {description}
         </p>
