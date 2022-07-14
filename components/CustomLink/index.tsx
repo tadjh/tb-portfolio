@@ -6,7 +6,7 @@ export default function CustomLink({
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
     <a
-      className="flex flex-row items-center gap-x-2 transition-colors duration-300 hover:cursor-pointer hover:text-blue-600 hover:underline"
+      className="flex flex-row items-center gap-x-2 text-inherit hover:cursor-pointer hover:text-blue-600 hover:underline"
       href={href}
       target="_blank"
       rel="noreferrer"

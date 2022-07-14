@@ -11,6 +11,7 @@ export default function Socials() {
           href={url}
           target="_blank"
           rel="noreferrer"
+          className="text-inherit"
         >
           <FontAwesomeIcon icon={icon} className="h-10 w-10" />
         </a>
