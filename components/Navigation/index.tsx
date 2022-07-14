@@ -12,9 +12,6 @@ export default function Navigation() {
   const buttonRef = useRef<SVGSVGElement | null>(null);
 
   function toggleOpen() {
-    if (!isOpen) {
-      setPosition();
-    }
     setIsOpen((prevState) => !prevState);
   }
 
@@ -51,11 +48,14 @@ export default function Navigation() {
       </div>
       <FontAwesomeIcon
         ref={buttonRef}
-        onClick={toggleOpen}
         icon={isOpen ? faXmark : faBars}
+        onMouseEnter={setPosition}
+        onClick={toggleOpen}
         className={clsx(
-          "z-20 h-6 w-6 cursor-pointer transition hover:scale-110 active:-rotate-90 md:h-8 md:w-8",
-          isOpen ? "fixed text-white/90" : "hover:text-orange-tadjh"
+          "z-20 cursor-pointer transition active:-rotate-90",
+          isOpen
+            ? "absolute h-7 w-6 text-white/90 md:h-9 md:w-8"
+            : "h-6 w-6 hover:text-orange-tadjh md:h-8 md:w-8"
         )}
       />
     </div>
