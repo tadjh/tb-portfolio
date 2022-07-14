@@ -6,6 +6,7 @@ import Main from "../components/Main";
 import Card from "../components/Card";
 import { projects } from "../config/projects";
 import Page from "../components/Page";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,17 +20,26 @@ export default function Home() {
       <Header />
 
       <Main>
-        <h2>Projects</h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-8">
-          {projects.map(({ name }, index) => (
-            <Card key={`${name}-${index + 1}`}>
-              <h3 className="text-2xl font-bold">{name}</h3>
-            </Card>
-          ))}
+        <h2>
+          <Link href="/projects">Projects</Link>
+        </h2>
+        <div className="max-w-screen grid grid-cols-1 gap-4 md:-mx-[10%] md:grid-cols-2">
+          {projects.map(
+            ({ name, image, description, link, repository }, index) => (
+              <Card
+                key={`${name}-${index + 1}`}
+                image={image}
+                title={name}
+                description={description}
+                link={link}
+                repository={repository}
+              />
+            )
+          )}
         </div>
       </Main>
 
-      <Footer />
+      <Footer simple={true} />
     </Page>
   );
 }

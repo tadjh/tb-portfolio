@@ -1,11 +1,11 @@
-import { StaticImageData } from "next/image";
-// import Image from "next/image";
 import Head from "next/head";
 import { TITLE_HOME, META_DESCRIPTION } from "../config/constants";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Page from "../components/Page";
+import Card from "../components/Card";
+import { projects } from "../config/projects";
 
 export default function Projects() {
   return (
@@ -20,20 +20,20 @@ export default function Projects() {
 
       <Main>
         <h2>Projects</h2>
-        Coming soon
-        {/* <div className="grid grid-cols-2 gap-x-4">
-        {projects.map(({ name, image }, index) => (
-            <div
-            key={`project-${index + 1}`}
-            className="relative h-96 w-full overflow-hidden rounded-lg border border-slate-400 bg-neutral-900 shadow-lg"
-            >
-            <div className="absolute top-[15%] scale-125">
-            <Image src={image} alt={name}></Image>
-            </div>
-            <h3 className="text-slate-300">{name}</h3>
-            </div>
-            ))}
-        </div> */}
+        <div className="max-w-screen grid grid-cols-1 gap-4 md:-mx-[10%] md:grid-cols-2">
+          {projects.map(
+            ({ name, image, description, link, repository }, index) => (
+              <Card
+                key={`${name}-${index + 1}`}
+                image={image}
+                title={name}
+                description={description}
+                link={link}
+                repository={repository}
+              />
+            )
+          )}
+        </div>
       </Main>
 
       <Footer />

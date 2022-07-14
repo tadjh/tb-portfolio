@@ -16,6 +16,9 @@ module.exports = {
         orange: {
           tadjh: "#f26522",
         },
+        blue: {
+          gulf: "#C9DFEC",
+        },
       },
       fontFamily: {
         sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
