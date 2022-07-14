@@ -19,7 +19,7 @@ export default function Projects() {
       <Header size="sm" />
 
       <Main>
-        <h2 className="text-3xl font-semibold uppercase">Projects</h2>
+        <h2>Projects</h2>
         Coming soon
         {/* <div className="grid grid-cols-2 gap-x-4">
         {projects.map(({ name, image }, index) => (
