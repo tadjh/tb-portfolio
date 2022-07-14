@@ -7,6 +7,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    transitionDuration: {
+      DEFAULT: "300ms",
+    },
     extend: {
       colors: {
         orange: {
