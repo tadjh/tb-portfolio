@@ -41,7 +41,9 @@ export default function Navigation() {
               key={composeKey("nav", index)}
               className="text-3xl font-bold uppercase md:text-5xl"
             >
-              <CustomLink href={url}>{vanity}</CustomLink>
+              <CustomLink href={url} link={true}>
+                {vanity}
+              </CustomLink>
             </li>
           ))}
         </ul>

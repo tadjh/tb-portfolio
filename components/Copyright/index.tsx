@@ -1,7 +1,7 @@
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import { config } from "../../config";
+import CustomLink from "../CustomLink";
 
 export default function Copyright() {
   return (
@@ -11,9 +11,9 @@ export default function Copyright() {
         className="h-4 w-4 transition-transform group-hover:scale-110"
       />
       {new Date().getFullYear()}{" "}
-      <span className=" hover:text-blue-600 hover:underline">
-        <Link href={config.url.domain}>{config.url.vanity}</Link>
-      </span>
+      <CustomLink href="/" link={true}>
+        {config.url.vanity}
+      </CustomLink>
     </span>
   );
 }
