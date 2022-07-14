@@ -3,10 +3,10 @@ import profilePictureSquare from "../../public/img/tadjh_profile_square.jpg";
 import profilePicturePortrait from "../../public/img/tadjh_profile_4x5.jpg";
 
 interface ProfileProps {
-  aspectRatio: "square" | "portrait";
+  aspectRatio?: "square" | "portrait";
 }
 
-export default function Profile({ aspectRatio }: ProfileProps) {
+export default function Profile({ aspectRatio = "square" }: ProfileProps) {
   if (aspectRatio === "portrait")
     return (
       <div className="relative min-h-[400px]">
