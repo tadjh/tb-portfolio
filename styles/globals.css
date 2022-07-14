@@ -6,14 +6,7 @@
   background-color: rgba(0, 0, 0, 0.05);
 } */
 
-h1,
-h2,
-h3,
-.subtitle,
-p,
-span,
-a,
-svg {
+body {
   @apply text-black/90 transition-colors dark:text-white/90;
 }
 
@@ -30,11 +23,11 @@ h2 {
 }
 
 h3 {
-  @apply text-3xl font-bold leading-[0.78];
+  @apply text-xl font-bold md:text-4xl;
 }
 
 p {
-  @apply font-mono;
+  @apply font-mono text-xs md:text-base;
 }
 
 .subtitle.lg {

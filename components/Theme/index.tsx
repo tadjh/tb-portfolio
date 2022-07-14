@@ -50,7 +50,7 @@ export default function Theme() {
     >
       <FontAwesomeIcon
         icon={icon}
-        className="h-4 w-10 text-black/80 dark:text-white/80"
+        className="h-4 w-10 text-black/90 dark:text-white/90"
       />
     </span>
   );

@@ -39,7 +39,7 @@ export default function Navigation() {
           {navigation.map(({ url, vanity }, index) => (
             <li
               key={composeKey("nav", index)}
-              className="text-3xl font-bold uppercase text-inherit md:text-5xl"
+              className="text-3xl font-bold uppercase md:text-5xl"
             >
               <CustomLink href={url}>{vanity}</CustomLink>
             </li>

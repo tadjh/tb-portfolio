@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { AnchorHTMLAttributes } from "react";
 
 type CustomLinkProps = {
@@ -8,11 +9,15 @@ export default function CustomLink({
   href,
   children,
   external = false,
+  className,
 }: CustomLinkProps) {
   if (external) {
     return (
       <a
-        className="flex flex-row items-center gap-x-2 text-inherit hover:cursor-pointer hover:text-blue-600 hover:underline"
+        className={clsx(
+          "flex flex-row items-center gap-x-2 hover:cursor-pointer hover:text-blue-600 hover:underline",
+          className
+        )}
         href={href}
         target="_blank"
         rel="noreferrer"
@@ -23,7 +28,10 @@ export default function CustomLink({
   }
   return (
     <a
-      className="flex flex-row items-center gap-x-2 text-inherit hover:cursor-pointer hover:text-blue-600 hover:underline"
+      className={clsx(
+        "flex flex-row items-center gap-x-2 hover:cursor-pointer hover:text-blue-600 hover:underline",
+        className
+      )}
       href={href}
     >
       {children}
