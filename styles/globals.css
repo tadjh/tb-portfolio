@@ -12,37 +12,49 @@ h3,
 .subtitle,
 p,
 span,
-a {
+a,
+svg {
   @apply text-black/90 transition-colors dark:text-white/90;
-}
-
-h1,
-h2 {
-  @apply font-sans;
 }
 
 h1.lg {
   @apply text-[13vw] md:text-[8vw];
 }
 
+h1.sm {
+  @apply text-[13vw] md:text-[3.5vw];
+}
+
 h2 {
-  @apply text-[12vw] font-semibold uppercase leading-[0.78] md:text-[5vw];
+  @apply text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw];
 }
 
 h3 {
-  @apply text-3xl font-semibold leading-[0.78];
+  @apply text-3xl font-bold leading-[0.78];
 }
 
 p {
   @apply font-mono;
 }
 
-.subtitle {
+.subtitle.lg {
   @apply text-[4vw] tracking-[0.05rem] md:text-[2.33vw] lg:tracking-[0.22rem];
+}
+
+.subtitle.sm {
+  @apply text-[4vw] tracking-[0.05rem] md:text-[1.05vw] lg:tracking-[0.08rem];
 }
 
 .flip {
   perspective: 1000px;
+}
+
+.flip.lg {
+  @apply w-[25vw] md:w-[15.5vw];
+}
+
+.flip.sm {
+  @apply w-[25vw] md:w-[6.8vw];
 }
 
 .flip-inner {
@@ -66,4 +78,12 @@ p {
 
 .flip-back {
   transform: rotateY(180deg);
+}
+
+.navigation {
+  @apply translate-x-full;
+}
+
+.navigation.active {
+  @apply translate-x-0;
 }
