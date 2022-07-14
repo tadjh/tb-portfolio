@@ -16,7 +16,7 @@ export default function Card({
   return (
     <div
       className={clsx(
-        "aspect-square rounded-lg border border-stone-200  bg-stone-100 p-4 shadow",
+        "aspect-square rounded-lg border border-neutral-200  bg-neutral-100 p-4 shadow",
         className
       )}
     >
