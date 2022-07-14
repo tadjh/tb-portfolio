@@ -1,14 +1,13 @@
-import Image from "next/image";
-import tbLogo from "../../public/tb_logo.svg";
-import profilePicture from "../../public/img/tadjh_profile_square.jpg";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import clsx from "clsx";
+import { composeKey } from "../../utils";
+import { config } from "../../config";
+import Logo from "../Logo";
+import Profile from "../Profile";
 
 interface HeaderProps {
   size?: "lg" | "sm";
 }
-
-const JOB_TITLE = "Software Engineer";
 
 export default function Header({ size = "lg" }: HeaderProps) {
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -34,58 +33,27 @@ export default function Header({ size = "lg" }: HeaderProps) {
     return () => clearInterval(timer);
   });
 
-  const logoSize = size === "lg" ? 176 : 72;
-
   return (
-    <div
-      ref={headerRef}
-      className="header flex flex-row items-center justify-start gap-x-4"
-    >
-      <div className={`flip ${size}`}>
+    <div ref={headerRef} className="header flex flex-row gap-x-2 md:gap-x-6">
+      <div className="flip w-[25vw] md:w-[15.5vw]">
         <div className="flip-inner">
           <div className="flip-front">
-            <Image
-              className="front"
-              src={tbLogo}
-              alt="Tadjh Brooks Logo"
-              width={logoSize}
-              height={logoSize}
-              quality={100}
-            />
+            <Logo />
           </div>
           <div className="flip-back">
-            <Image
-              src={profilePicture}
-              alt="Tadjh Brooks Profile Picture"
-              width={logoSize}
-              height={logoSize}
-              className="rounded-lg"
-              quality={100}
-            />
+            <Profile />
           </div>
         </div>
       </div>
       <div>
-        <h1
-          className={clsx(
-            "font-black leading-[0.78]",
-            size === "lg" && "text-8xl",
-            size === "sm" && "text-3xl"
-          )}
-        >
-          Tadjh
-          <br />
-          Brooks
+        <h1 className={clsx("flex flex-col font-black leading-[0.78]", size)}>
+          {config.siteTitle.split(" ").map((name, index) => (
+            <span key={composeKey("name", index)}>{name}</span>
+          ))}
         </h1>
-        <span
-          className={clsx(
-            "font-light uppercase",
-            size === "lg" && "text-2xl tracking-[0.35rem]",
-            size === "sm" && "text-sm"
-          )}
-        >
-          {JOB_TITLE}
-        </span>
+        <div className={clsx("subtitle font-light uppercase", size)}>
+          {config.jobTitle}
+        </div>
       </div>
     </div>
   );
