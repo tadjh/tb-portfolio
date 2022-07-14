@@ -8,7 +8,12 @@ export interface Project {
   tasks: string[];
 }
 
-export interface Socials {
+export interface SocialLink {
   url: string;
   icon: IconDefinition;
+}
+
+export interface NavigationItem {
+  url: string;
+  vanity: string;
 }

@@ -15,7 +15,7 @@ export default function Socials() {
         >
           <FontAwesomeIcon
             icon={icon}
-            className="h-10 w-10 transition-transform hover:scale-110"
+            className="h-10 w-10 text-inherit transition-transform hover:scale-110"
           />
         </a>
       ))}

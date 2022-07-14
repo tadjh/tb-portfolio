@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     transitionDuration: {
       DEFAULT: "300ms",
+      1000: "1000ms",
     },
     extend: {
       colors: {

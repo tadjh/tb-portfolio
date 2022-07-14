@@ -14,18 +14,29 @@ export default function Footer() {
         <div className="flex flex-col gap-y-8 p-6 md:p-10">
           <div className="flex flex-1 flex-col gap-y-8">
             <h2 className="text-inherit">Hi I&apos;m Tadjh</h2>
-            <h3 className="text-inherit">
-              <CustomLink href="mailTo:info@tadjh.dev">
-                <FontAwesomeIcon icon={faEnvelope} className="h-8 w-8" />
+            <h3 className="group text-inherit">
+              <a
+                href="mailTo:info@tadjh.dev"
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-row items-center gap-x-2 text-inherit hover:cursor-pointer hover:underline"
+              >
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="h-8 w-8 text-inherit transition-transform group-hover:scale-110"
+                />
                 hello@tadjh.dev
-              </CustomLink>
+              </a>
             </h3>
           </div>
           <p className="indent-12 text-inherit">{config.bio}</p>
           <div className="font-mono text-xl">
             <div>Tadjh Brooks</div>
-            <div className="flex flex-row items-center gap-x-2">
-              <FontAwesomeIcon icon={faLocationDot} className="h-6 w-6" />
+            <div className="group flex flex-row items-center gap-x-2">
+              <FontAwesomeIcon
+                icon={faLocationDot}
+                className="h-6 w-6 text-inherit transition-transform group-hover:scale-110"
+              />
               Sherman Oaks, CA
             </div>
           </div>
