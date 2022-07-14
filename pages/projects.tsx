@@ -5,10 +5,11 @@ import { TITLE_HOME, META_DESCRIPTION } from "../config/constants";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
+import Page from "../components/Page";
 
 export default function Projects() {
   return (
-    <div className="flex min-h-full max-w-3xl flex-col items-stretch gap-y-10">
+    <Page>
       <Head>
         <title>{`${TITLE_HOME} - Projects`}</title>
         <meta name="description" content={META_DESCRIPTION} />
@@ -36,6 +37,6 @@ export default function Projects() {
       </Main>
 
       <Footer />
-    </div>
+    </Page>
   );
 }
