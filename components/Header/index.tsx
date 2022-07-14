@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useEffect, useRef } from "react";
 import AnimatedLogo from "../AnimatedLogo";
+import Navigation from "../Navigation";
 import SiteTitle from "../SiteTitle";
 
 export interface HeaderProps {
@@ -45,6 +46,7 @@ export default function Header({ size = "lg" }: HeaderProps) {
         <AnimatedLogo size={size} />
         <SiteTitle size={size} />
       </div>
+      <Navigation />
     </div>
   );
 }
