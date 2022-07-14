@@ -44,7 +44,10 @@ export default function Theme() {
   const icon = theme === "dark" ? faMoon : faSun;
 
   return (
-    <span onClick={toggleTheme}>
+    <span
+      onClick={toggleTheme}
+      className="cursor-pointer transition-transform hover:scale-125"
+    >
       <FontAwesomeIcon
         icon={icon}
         className="h-4 w-10 text-black/80 dark:text-white/80"

@@ -13,7 +13,10 @@ export default function Socials() {
           rel="noreferrer"
           className="text-inherit"
         >
-          <FontAwesomeIcon icon={icon} className="h-10 w-10" />
+          <FontAwesomeIcon
+            icon={icon}
+            className="h-10 w-10 transition-transform hover:scale-110"
+          />
         </a>
       ))}
     </div>
