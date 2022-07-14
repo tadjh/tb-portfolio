@@ -2,11 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import CustomLink from "../../components/CustomLink";
 import Socials from "../Socials";
-import Image from "next/image";
-import profilePicture from "../../public/img/tadjh_profile_4x5.jpg";
 import Copyright from "../Copyright";
 import { config } from "../../config";
 import Theme from "../Theme";
+import Profile from "../Profile";
 
 export default function Footer() {
   return (
@@ -32,16 +31,7 @@ export default function Footer() {
           </div>
           <Socials />
         </div>
-        <div className="relative min-h-[400px]">
-          <Image
-            src={profilePicture}
-            alt="Tadjh Brooks Profile Picutre"
-            width={1600}
-            height={2000}
-            layout="fill"
-            className="object-cover transition-transform duration-300 hover:scale-110"
-          />
-        </div>
+        <Profile aspectRatio="portrait" />
       </div>
       <div className="flex justify-between">
         <Theme />
