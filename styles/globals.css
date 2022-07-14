@@ -2,18 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+  background-color: rgba(0, 0, 0, 0.05);
+} */
+
+body {
+  @apply text-black/90 transition-colors dark:text-white/90;
+}
+
+h1.lg {
+  @apply text-[13vw] md:text-[8vw];
+}
+
+h1.sm {
+  @apply text-[13vw] md:text-[3.5vw];
+}
+
+h2 {
+  @apply text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw];
+}
+
+h3 {
+  @apply text-xl font-bold md:text-4xl;
+}
+
+p {
+  @apply font-mono text-xs md:text-base;
+}
+
+.subtitle.lg {
+  @apply text-[4vw] tracking-[0.05rem] md:text-[2.33vw] lg:tracking-[0.22rem];
+}
+
+.subtitle.sm {
+  @apply text-[4vw] tracking-[0.05rem] md:text-[1.05vw] lg:tracking-[0.08rem];
+}
+
 .flip {
   perspective: 1000px;
+  cursor: pointer;
 }
 
 .flip.lg {
-  width: 176px;
-  height: 176px;
+  @apply w-[25vw] md:w-[15.5vw];
 }
 
 .flip.sm {
-  width: 72px;
-  height: 72px;
+  @apply w-[25vw] md:w-[6.8vw];
 }
 
 .flip-inner {
@@ -39,11 +74,10 @@
   transform: rotateY(180deg);
 }
 
-h1,
-h2 {
-  @apply font-sans;
+.navigation {
+  @apply translate-x-full;
 }
 
-p {
-  @apply font-mono;
+.navigation.active {
+  @apply translate-x-0;
 }

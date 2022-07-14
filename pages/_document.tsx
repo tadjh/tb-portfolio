@@ -9,7 +9,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="flex min-h-screen justify-center py-10">
+      <body className="dark:bg-neutral-900">
         <Main />
         <NextScript />
       </body>
