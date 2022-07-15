@@ -9,4 +9,8 @@ export const navigation: NavigationItem[] = [
     url: "/projects",
     vanity: "Projects",
   },
+  {
+    url: "/about",
+    vanity: "About",
+  },
 ];

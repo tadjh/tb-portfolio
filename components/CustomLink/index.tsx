@@ -6,6 +6,7 @@ type CustomLinkProps = {
   href: string;
   external?: boolean;
   link?: boolean;
+  inline?: boolean;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export default function CustomLink({
@@ -14,9 +15,11 @@ export default function CustomLink({
   external = false,
   className: parentClassName,
   link = false,
+  inline = false,
 }: CustomLinkProps) {
   const className = clsx(
-    "flex cursor-pointer flex-row items-center gap-x-2 hover:text-blue-600 hover:underline dark:hover:text-blue-gulf",
+    "cursor-pointer hover:text-blue-600 hover:underline dark:hover:text-blue-gulf",
+    inline || "flex flex-row items-center gap-x-2",
     parentClassName
   );
 

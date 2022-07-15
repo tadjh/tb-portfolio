@@ -1,6 +1,8 @@
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import { config } from "../../config";
+import CustomLink from "../CustomLink";
 import Profile from "../Profile";
 import Socials from "../Socials";
 
@@ -25,7 +27,12 @@ export default function CallToAction() {
             </a>
           </h3>
         </div>
-        <p className="indent-12">{config.bio}</p>
+        <p className="indent-12">
+          {config.bio}{" "}
+          <CustomLink href="/about" inline>
+            Learn More &rarr;
+          </CustomLink>
+        </p>
         <div className="font-mono text-xl">
           <div>{config.siteTitle}</div>
           <div className="group flex flex-row items-center gap-x-2">
