@@ -12,7 +12,7 @@ export default function CallToAction() {
           <h2>{`Hi I'm ${config.siteTitle.split(" ")[0]}`}</h2>
           <h3 className="group">
             <a
-              href="mailTo:info@tadjh.dev"
+              href="mailTo:hello@tadjh.dev"
               target="_blank"
               rel="noreferrer"
               className="flex flex-row items-center gap-x-2 hover:cursor-pointer hover:underline"
