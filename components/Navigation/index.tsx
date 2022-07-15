@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { composeKey } from "../../utils";
 import { navigation } from "../../config/navigation";
 import CustomLink from "../CustomLink";
@@ -22,8 +22,8 @@ export default function Navigation() {
     <div>
       <div
         className={clsx(
-          "navigation group fixed top-0 left-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-orange-tadjh p-10 text-white/90 transition-transform duration-1000",
-          isOpen && "active"
+          "group fixed top-0 left-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-orange-tadjh p-10 text-white/90 transition-transform duration-1000",
+          isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="flex flex-1 items-center">
@@ -48,7 +48,7 @@ export default function Navigation() {
             })}
           </ul>
         </div>
-        <hr className="h-2 w-1/6 transition-transform group-hover:scale-x-125"></hr>
+        <hr />
         <Socials />
         <Copyright />
       </div>

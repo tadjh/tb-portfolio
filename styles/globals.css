@@ -26,6 +26,10 @@ h3 {
   @apply text-xl font-bold md:text-4xl;
 }
 
+hr {
+  @apply w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90;
+}
+
 p {
   @apply font-mono text-xs md:text-base;
 }
@@ -72,14 +76,6 @@ p {
 
 .flip-back {
   transform: rotateY(180deg);
-}
-
-.navigation {
-  @apply translate-x-full;
-}
-
-.navigation.active {
-  @apply translate-x-0;
 }
 
 .bingo {

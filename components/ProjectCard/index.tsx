@@ -13,7 +13,7 @@ type ProjectCardProps = {
 } & HTMLAttributes<HTMLElement>;
 
 export default function ProjectCard({
-  project: { name, description, repository, link, animation },
+  project: { title: name, description, repository, link, animation },
   className,
   ...props
 }: ProjectCardProps) {
@@ -31,11 +31,7 @@ export default function ProjectCard({
         <h3 className="transition-transform group-hover:-translate-y-1.5">
           {name}
         </h3>
-        {animation ? (
-          <div className={clsx("h-24 w-24", animation)} />
-        ) : (
-          <hr className="w-1/5 border-black/90 transition-transform group-hover:scale-150 dark:border-white/90" />
-        )}
+        {animation ? <div className={clsx("h-24 w-24", animation)} /> : <hr />}
         <p className="transition-transform group-hover:translate-y-1.5">
           {description}
         </p>

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -19,7 +19,7 @@ export default function Theme() {
     setTheme("light");
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) &&

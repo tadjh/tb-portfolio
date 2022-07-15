@@ -2,7 +2,8 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { StaticImageData } from "next/image";
 
 export interface Project {
-  name: string;
+  slug: string;
+  title: string;
   description: string;
   image?: StaticImageData;
   hype: string[];

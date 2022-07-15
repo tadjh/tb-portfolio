@@ -1,6 +1,5 @@
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import { config } from "../../config";
 import CustomLink from "../CustomLink";
 import Profile from "../Profile";

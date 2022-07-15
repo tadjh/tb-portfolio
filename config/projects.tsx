@@ -1,9 +1,9 @@
 import { Project } from "../types";
-// import bingoPic from "../public/img/webp/bingo_featured.webp";
 
 export const projects: Project[] = [
   {
-    name: "Bingo Multiplayer React App",
+    slug: "bingo-multiplayer-react-app",
+    title: "Bingo Multiplayer React App",
     description:
       "Mobile multiplayer bingo game built on web sockets featuring private rooms, invitations and single-player mode.",
     hype: ["628 Hours", "10735 lines of codes"],
@@ -19,7 +19,8 @@ export const projects: Project[] = [
     animation: "bingo",
   },
   {
-    name: "Interactive Chart Firebase App",
+    slug: "interactive-chart-firebase-app",
+    title: "Interactive Chart Firebase App",
     description:
       "Relational chart for managing and displaying real-time faction relationships on the nopixel roleplay server.",
     hype: ["156 Hours", "4451 lines of codes"],
