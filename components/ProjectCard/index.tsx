@@ -42,14 +42,14 @@ export default function ProjectCard({
         <div className="flex flex-row gap-x-4">
           <CustomLink
             href={repository}
-            external={true}
+            external
             className="transition-transform group-hover:translate-y-2"
           >
             <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
           </CustomLink>
           <CustomLink
             href={link}
-            external={true}
+            external
             className="transition-transform group-hover:translate-y-2"
           >
             <FontAwesomeIcon
