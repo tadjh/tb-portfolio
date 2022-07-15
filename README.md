@@ -13,3 +13,4 @@ My NextJS Portfolio Web Application
 - TODO Add socials to navigation menu
 - TODO Add animation to navigation links
 - TODO Fix Navigation: active page different link color
+- TODO Fix Flash of unstyled dark mode
