@@ -7,7 +7,7 @@
 } */
 
 body {
-  @apply text-black/90 transition-colors dark:text-white/90;
+  @apply text-black/90 dark:text-white/90;
 }
 
 h1.lg {
