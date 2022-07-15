@@ -4,11 +4,12 @@ import { StaticImageData } from "next/image";
 export interface Project {
   name: string;
   description: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   hype: string[];
   tasks: string[];
   repository: string;
   link: string;
+  animation?: string;
 }
 
 export interface SocialLink {
