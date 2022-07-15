@@ -1,6 +1,7 @@
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { config } from "../../config";
+import CustomLink from "../CustomLink";
 import Profile from "../Profile";
 import Socials from "../Socials";
 
@@ -12,7 +13,7 @@ export default function CallToAction() {
           <h2>{`Hi I'm ${config.siteTitle.split(" ")[0]}`}</h2>
           <h3 className="group">
             <a
-              href="mailTo:info@tadjh.dev"
+              href="mailTo:hello@tadjh.dev"
               target="_blank"
               rel="noreferrer"
               className="flex flex-row items-center gap-x-2 hover:cursor-pointer hover:underline"
@@ -25,7 +26,12 @@ export default function CallToAction() {
             </a>
           </h3>
         </div>
-        <p className="indent-12">{config.bio}</p>
+        <p className="indent-12">
+          {config.bio}{" "}
+          <CustomLink href="/about" inline>
+            Learn More &rarr;
+          </CustomLink>
+        </p>
         <div className="font-mono text-xl">
           <div>{config.siteTitle}</div>
           <div className="group flex flex-row items-center gap-x-2">

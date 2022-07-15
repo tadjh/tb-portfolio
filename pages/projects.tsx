@@ -4,8 +4,9 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Page from "../components/Page";
-import Card from "../components/Card";
 import { projects } from "../config/projects";
+import ProjectCard from "../components/ProjectCard";
+import { composeKey } from "../utils";
 
 export default function Projects() {
   return (
@@ -21,18 +22,9 @@ export default function Projects() {
       <Main>
         <h2>Projects</h2>
         <div className="max-w-screen grid grid-cols-1 gap-4 md:-mx-[10%] md:grid-cols-2">
-          {projects.map(
-            ({ name, image, description, link, repository }, index) => (
-              <Card
-                key={`${name}-${index + 1}`}
-                image={image}
-                title={name}
-                description={description}
-                link={link}
-                repository={repository}
-              />
-            )
-          )}
+          {projects.map((project, index) => (
+            <ProjectCard key={composeKey("project", index)} project={project} />
+          ))}
         </div>
       </Main>
 

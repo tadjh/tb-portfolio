@@ -1,6 +1,6 @@
 import Image from "next/image";
-import profilePictureSquare from "../../public/img/tadjh_profile_square.jpg";
-import profilePicturePortrait from "../../public/img/tadjh_profile_4x5.jpg";
+import profilePictureSquare from "../../public/img/jpg/tadjh_profile_square.jpg";
+import profilePicturePortrait from "../../public/img/jpg/tadjh_profile_4x5.jpg";
 
 interface ProfileProps {
   aspectRatio?: "square" | "portrait";
@@ -13,10 +13,9 @@ export default function Profile({ aspectRatio = "square" }: ProfileProps) {
         <Image
           src={profilePicturePortrait}
           alt="Tadjh Brooks Profile Picutre Portrait"
-          width={1600}
-          height={2000}
           layout="fill"
           className="object-cover transition-transform hover:scale-110"
+          priority
         />
       </div>
     );

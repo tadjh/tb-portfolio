@@ -2,13 +2,15 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { StaticImageData } from "next/image";
 
 export interface Project {
-  name: string;
+  slug: string;
+  title: string;
   description: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   hype: string[];
   tasks: string[];
   repository: string;
   link: string;
+  animation?: string;
 }
 
 export interface SocialLink {

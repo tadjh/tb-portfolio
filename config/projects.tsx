@@ -1,12 +1,11 @@
 import { Project } from "../types";
-import bingoPic1 from "../public/img/bingo_featured.webp";
 
 export const projects: Project[] = [
   {
-    name: "Bingo Multiplayer React App",
+    slug: "bingo-multiplayer-react-app",
+    title: "Bingo Multiplayer React App",
     description:
       "Mobile multiplayer bingo game built on web sockets featuring private rooms, invitations and single-player mode.",
-    image: bingoPic1,
     hype: ["628 Hours", "10735 lines of codes"],
     tasks: [
       "Leveraged Socket.io to create an event-driven multiplayer room-based bingo game. Also available in singleplayer.",
@@ -17,12 +16,13 @@ export const projects: Project[] = [
     ],
     repository: "https://github.com/tadjh/np-bingo",
     link: "https://np-bingo-client.herokuapp.com/",
+    animation: "bingo",
   },
   {
-    name: "Interactive Chart Firebase App",
+    slug: "interactive-chart-firebase-app",
+    title: "Interactive Chart Firebase App",
     description:
       "Relational chart for managing and displaying real-time faction relationships on the nopixel roleplay server.",
-    image: bingoPic1,
     hype: ["156 Hours", "4451 lines of codes"],
     tasks: [
       "Architected a Firestore nosql database to handle many-to-many relational documents.",
