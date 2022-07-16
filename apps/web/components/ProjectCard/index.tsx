@@ -6,7 +6,6 @@ import { HTMLAttributes } from "react";
 import { Project } from "../../types";
 import Card from "../Card";
 import CustomLink from "../CustomLink";
-import Image from "next/image";
 
 type ProjectCardProps = {
   project: Project;
