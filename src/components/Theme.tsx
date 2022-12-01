@@ -5,47 +5,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 type Themes = "light" | "dark" | undefined;
 
 export default function Theme() {
-  const [theme, setTheme] = useState<Themes>(undefined);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
 
-  function enableDarkMode() {
-    localStorage.theme = "dark";
-    document.documentElement.classList.add("dark");
-    setTheme("dark");
-  }
-
-  function disableDarkMode() {
-    localStorage.theme = "light";
-    document.documentElement.classList.remove("dark");
-    setTheme("light");
+  function handleClick() {
+    setTheme(theme === "light" ? "dark" : "light");
   }
 
   useEffect(() => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      return enableDarkMode();
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
-    return disableDarkMode();
-  }, []);
-
-  //   function deleteStorage() {
-  //     localStorage.removeItem("theme");
-  //     return setTheme(undefined);
-  //   }
-
-  function toggleTheme() {
-    if (theme === "dark") return disableDarkMode();
-    return enableDarkMode();
-  }
-
-  const icon = theme === "dark" ? faMoon : faSun;
+  const icon = theme === "light" ? faMoon : faSun;
 
   return (
     <span
-      onClick={toggleTheme}
+      onClick={handleClick}
       className="cursor-pointer transition-transform hover:scale-125"
     >
       <FontAwesomeIcon
