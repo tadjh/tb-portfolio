@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header";
+import { META_DESCRIPTION, TITLE_HOME } from "../config/constants";
+import Footer from "../components/Footer.astro";
+import Main from "../components/Main";
+import { projects } from "../config/projects";
+import Page from "../components/Page";
+import ProjectCard from "../components/ProjectCard";
+---
+
+<Layout title={TITLE_HOME} description={META_DESCRIPTION}>
+  <Page>
+    <Header client:load />
+    <Main>
+      <h1 class="text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw]">
+        <a href="/projects">Projects</a>
+      </h1>
+      <div
+        class="max-w-screen grid grid-cols-1 gap-4 md:-mx-[10%] md:grid-cols-2"
+      >
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </Main>
+    <Footer simple={true} />
+  </Page>
+</Layout>

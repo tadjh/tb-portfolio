@@ -1,0 +1,19 @@
+---
+import Copyright from "./Copyright";
+import Theme from "./Theme";
+import CallToAction from "./CallToAction";
+
+interface Props {
+  simple?: boolean;
+}
+
+const { simple } = Astro.props;
+---
+
+<footer class="flex flex-col">
+  {simple && <CallToAction />}
+  <div class="flex justify-between">
+    <Theme client:load />
+    <Copyright client:load />
+  </div>
+</footer>
