@@ -1,0 +1,63 @@
+---
+import { TITLE_HOME, META_DESCRIPTION } from "../../config/constants";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header";
+import Main from "../../components/Main";
+import Page from "../../components/Page";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import CustomLink from "../../components/CustomLink";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../config/projects";
+import type { Project } from "../../types";
+
+export function getStaticPaths() {
+  return projects.map(({ slug, ...props }) => {
+    return {
+      params: { slug },
+      props,
+    };
+  });
+}
+
+type Props = Project;
+
+const { title, description, hype, tasks, repository, link } = Astro.props;
+---
+
+<Layout title={`${TITLE_HOME} - ${title}`} description={META_DESCRIPTION}>
+  <Page>
+    <Header size="sm" client:load />
+    <Main>
+      <h1 class="text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw]">
+        {title}
+      </h1>
+      <p>{description}</p>
+      {hype.map((entry: string) => <span>{entry}</span>)}
+      <ul>
+        {tasks.map((task: string) => <li>{task}</li>)}
+      </ul>
+      <div>
+        <CustomLink href={repository} external>
+          <FontAwesomeIcon
+            icon={faGithub}
+            className="h-10 w-10 transition-transform hover:scale-110"
+          />
+        </CustomLink>
+        <CustomLink
+          href={link}
+          external
+          className="transition-transform group-hover:translate-y-2"
+        >
+          <FontAwesomeIcon
+            icon={faArrowUpRightFromSquare}
+            className="h-6 w-6"
+          />
+          Visit this project
+        </CustomLink>
+      </div>
+    </Main>
+    <Footer />
+  </Page>
+</Layout>

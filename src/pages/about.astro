@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header";
+import { META_DESCRIPTION, TITLE_HOME } from "../config/constants";
+import { peopleSkills, technicalSkills } from "../config/about";
+import Footer from "../components/Footer.astro";
+import Main from "../components/Main";
+import Page from "../components/Page";
+import { config } from "../config";
+import Ribbon from "../components/Ribbon";
+import tajMahal from "/img/svg/taj_mahal.svg";
+import TagList from "../components/TagList";
+---
+
+<Layout title={`${TITLE_HOME} - About`} description={META_DESCRIPTION}>
+  <Page>
+    <Header size="sm" client:load />
+    <Main>
+      <h1 class="text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw]">
+        About
+      </h1>
+      <p class="indent-12 font-mono text-xs md:text-base">{config.bio}</p>
+      <div class="group flex -translate-x-6 flex-row gap-x-8">
+        <Ribbon label="Fun Fact">
+          Tadjh is pronounced “taj” like the taj mahal
+        </Ribbon>
+        <div class="-translate-y-2">
+          <img src={tajMahal} alt="Taj Mahal" width={65} height={50} />
+        </div>
+      </div>
+      <TagList label="People Skills" tags={peopleSkills} />
+      <TagList label="Technical Skills" tags={technicalSkills} />
+    </Main>
+    <Footer />
+  </Page>
+</Layout>
