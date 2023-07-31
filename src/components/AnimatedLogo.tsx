@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import type { HeaderProps } from "./Header";
+import type { SizeProps } from "./Header";
 import Logo from "./Logo";
 import Profile from "./Profile";
 
-export default function AnimatedLogo({ size }: HeaderProps) {
+export default function AnimatedLogo({ size }: SizeProps) {
   return (
     <a href="/">
       <div

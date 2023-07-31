@@ -1,0 +1,445 @@
+---
+import Landing from "../layouts/Landing.astro";
+import profilePicture from "/img/png/Andi-Jones-Profile-Picture-1310x1832px.png";
+import taglinePicture from "/img/png/How-Could-Andi-Jones-Do-This-2190x1168px.png";
+import courtHousePicture from "/img/jpg/Court-House.jpg";
+import parksAndRecPicture from "/img/jpg/Parks-and-Rec-Department.jpg";
+import policeDeptPicture from "/img/jpg/Police-Department.jpg";
+import signaturePicture from "/img/png/Andi-Jones-signature.png";
+import chibiPicture from "/img/png/Andi-Jones-Chibi-Square.png";
+import chairPicture from "/img/png/Andi-Jones-Leaning-Back-In-Chair.png";
+import logoLight from "/img/png/Andi-Jones-Logo.png";
+import signSVG from "/img/svg/signs-post-solid.svg";
+import bullhornSVG from "/img/svg/bullhorn-solid.svg";
+import receiptSVG from "/img/svg/receipt-solid.svg";
+import legacySVG from "/img/svg/clock-rotate-left-solid.svg";
+import trophySVG from "/img/svg/trophy-solid.svg";
+---
+
+<Landing
+  title="Andi Jones for Mayor"
+  description="The Three-Time Back-To-Back Mayoral Champion"
+>
+  <header class="bg-[#00ccff] border-[#00ccff] border-b-8">
+    <div
+      class="min-h-[90vh] md:min-h-screen flex flex-col-reverse md:flex-row justify-between md:items-center w-11/12 mx-auto pt-4"
+    >
+      <div class="relative z-[1]">
+        <img
+          src={profilePicture}
+          alt="Andi Jones For Mayor of Los Santos 2023"
+        />
+      </div>
+      <div class="mt-4 md:-ml-28 md:mt-0">
+        <img
+          src={taglinePicture}
+          alt="How could Andi Jones do this? Let me tell you how!"
+        />
+      </div>
+    </div>
+    <div class="bg-[#151e42] text-white flex justify-center items-center py-4">
+      <ul class="flex flex-col md:flex-row gap-6 uppercase font-bold text-lg">
+        <li><a href="#my-plans" class="hover:underline">My Plans</a></li>
+        <li><a href="#platform" class="hover:underline">Platform</a></li>
+        <li>
+          <a href="#qualifications" class="hover:underline">Qualifications</a>
+        </li>
+        <li><a href="#legacy" class="hover:underline">Legacy</a></li>
+        <li>
+          <a href="#accomplishments" class="hover:underline">Accomplishments</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main id="top" class="max-w-4xl mx-auto px-4">
+    <section id="my-plans" class="py-6">
+      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+        <i
+          style=`background-image: url(${signSVG})`
+          class="mr-4 mt-1 w-6 md:w-10 inline-block aspect-square bg-contain bg-no-repeat"
+        ></i>My Plans
+      </h2>
+      <img
+        src={parksAndRecPicture}
+        alt="Court House"
+        class="mb-6 rounded shadow-lg"
+      />
+      <h3 class="text-4xl font-bold leading-[0.78] my-6">
+        Revive the Parks and Rec Department
+      </h3>
+      <p class="mb-6">
+        Encouraging more events as well as running my own (open to all
+        citizens).
+      </p>
+      <div class="my-20">&nbsp;</div>
+      <img
+        src={courtHousePicture}
+        alt="Court House"
+        class="mb-6 rounded shadow-lg"
+      />
+      <h3 class="text-4xl font-bold leading-[0.78] my-6">
+        Implement Several New Governmental Departments
+      </h3>
+      <p class="mb-6">
+        Focused on giving civilians new interactive and creative jobs to sink
+        their teeth into.
+      </p>
+      <p class="mb-6">
+        Get rid of the grant application form, but still maintain the
+        opportunity for grants, instead holding consistent meetings with
+        businesses or event planners who are seeking funding in order to promote
+        interaction as well as a more fine-tuned system to ensure the money is
+        being used responsibly and going toward a good cause.
+      </p>
+      <p class="mb-6">
+        Draft and push legislation surrounding voter fraud, as well as help
+        ensure the aviation legislation/charges are completed if not already
+        finished by the time I (hopefully) take office.
+      </p>
+      <h4
+        class="text-3xl max-w-3xl text-center font-bold leading-[0.78] my-6 mx-auto border-t border-b border-blue-950 py-8"
+      >
+        Weekly town hall meetings to keep up-to-date with the concerns of
+        citizens.
+      </h4>
+      <div class="my-20">&nbsp;</div>
+      <img
+        src={policeDeptPicture}
+        alt="Court House"
+        class="mb-6 rounded shadow-lg"
+      />
+      <h3 class="text-4xl font-bold leading-[0.78] my-6">
+        Meet Consistently With All Governmental Positions
+      </h3>
+      <p class="mb-6">
+        Meet with Police, Health Care Professionals, DOC, and DOJ to ensure that
+        I’m in the loop with their current situations and doing everything I can
+        to help.
+      </p>
+      <p class="mb-6">
+        I’m a workaholic and extremely good at being organized, consistent, and
+        to the point and will continue to function this way when handling all
+        matters that land on my desk.
+      </p>
+      <p class="mb-6">
+        I give a shit about the people that live here and the experience they’re
+        having in their day to day lives. I genuinely only want to do this again
+        to try and improve the quality of life for every person who will let me.
+      </p>
+      <p class="mb-6">
+        More specific goals will be formulated throughout the campaign as I meet
+        with groups and individuals. I encourage everyone interested to give me
+        a call and see what I’ve got on my list, or to help add to it.
+      </p>
+    </section>
+    <section id="platform" class="py-6">
+      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+        <i
+          style=`background-image: url(${bullhornSVG})`
+          class="mr-4 mt-1 w-6 md:w-10 inline-block aspect-square bg-contain bg-no-repeat"
+        ></i>Platform
+      </h2>
+      <img
+        src={chairPicture}
+        alt="Andi Jones Leaning Back In Chair"
+        class="w-1/2 float-right ml-6 mb-6"
+      />
+      <p class="mb-6">
+        First and foremost, <strong>civilians</strong> would be my focus for
+        this term, and have been my focus for the past few months. I want to run
+        not only more of my own events that are civilian friendly and open to
+        everyone, but also support those who have ideas of their own and help
+        however I can to make their ideas a reality through the revival of the
+        <strong>Parks & Recreation</strong> department. I would like to
+        implement several government departments specifically designed for
+        interesting <strong>new jobs</strong> for civilians, including creative
+        positions in the <strong>Department of Public Health</strong>,
+        introducing <strong>The Postal Service</strong>, and much more.
+      </p>
+      <p class="mb-6">
+        Within the Mayor’s office itself, I aim to make some changes that will
+        encourage <strong>interaction</strong> and <strong
+          >relationship-building</strong
+        > between myself, my team, and the entities and individuals that seek
+        out our assistance. I want to meet with the people that need me, and be
+        actively in the loop as to what we can do to help, not simply rely on
+        digital interaction via automated forms. In addition, I will be holding
+        a weekly town hall to hear from the citizens, as well as, at a different
+        time, hold an open floor for businesses or events that are seeking
+        funding to present their ideas in front of a panel who are ready and
+        willing to help those that they feel could bring something <strong
+          >unique and wonderful</strong
+        > to the city.
+      </p>
+      <p class="mb-6">
+        When it comes to governmental entities, I have always loved checking in
+        on the <strong>Police Departments</strong>, the <strong
+          >Department of Corrections</strong
+        >, the <strong>Department of Justice</strong>, and healthcare positions
+        to make sure I’m up to date on anything and everything I can do to lend
+        a hand, and I will continue that trend through this term as I did in my
+        first two.
+      </p>
+      <p class="mb-6">
+        Above all else, I know I can promise <strong>
+          efficiency, organization, and hard work
+        </strong> in my term. I hold myself to a higher standard than what’s
+        probably realistic, but I love to help people, and I will always do
+        everything in my power to perform quick, efficient, and detailed work in
+        my efforts to make this city <strong>a better place to live</strong>.
+      </p>
+      <p class="mb-6">
+        This platform will be subject to additions as the campaign moves forward
+        and as I speak to more groups and entities around the city to hear what
+        everyone is looking for more specifically from their next Mayor to help
+        improve their time in our lovely state. I encourage everyone to reach
+        out to me personally to see what else I’ve been able to identify that
+        I’d like to work on or add to the city.
+      </p>
+    </section>
+    <section id="qualifications" class="py-6">
+      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+        <i
+          style=`background-image: url(${receiptSVG})`
+          class="mr-4 mt-1 w-6 md:w-10 text-blue-950 inline-block aspect-square bg-contain bg-no-repeat"
+        ></i>Qualifications
+      </h2>
+      <ul class="list-disc ml-1 md:ml-6 list-inside">
+        <li class="mb-2">
+          <strong>First</strong> Mayor of Los Santos, serving <strong>
+            two consecutive terms</strong
+          >.
+        </li>
+        <li class="mb-2">
+          <strong>Built the Mayor’s office</strong> from the ground up, turning
+          it into a workable station to benefit not only the Mayors that came
+          after me, but to <strong>benefit all citizens.</strong>.
+        </li>
+        <li class="mb-2">
+          Knowledge of how the State Account operates, including incoming and
+          outgoing payments.
+        </li>
+        <li class="mb-2">
+          Knowledge of what tax rates can be adjusted, as well as experience in
+          adjusting them to maintain a well-balanced economy.
+        </li>
+        <li class="mb-2">
+          In my previous time holding office, I built relationships with
+          individuals in other governmental positions quickly and developed a
+          good rapport, relationships I still maintain to this day even as a
+          civilian.
+        </li>
+        <li class="mb-2">
+          Have also developed relationships with those who may be newer to
+          governmental positions since I last held office, and am in good
+          standing with them as well.
+        </li>
+        <li class="mb-2">
+          2+ years employee of <strong>San Andreas State Construction</strong>,
+          a position in which I was the only employee for over a year, and have
+          general knowledge as to what is possible and what isn’t when hearing
+          out bigger and brighter ideas from citizens.
+        </li>
+        <li class="mb-2">
+          Extensive experience in civilian life, especially in event-planning,
+          and am able to quickly grasp the image people have for what they are
+          looking to accomplish in our city as well as offer advice on how to
+          best navigate those waters.
+        </li>
+        <li class="mb-2">
+          Absolute expert in all things paperwork, spreadsheet, scheduling, and
+          planning related.
+        </li>
+        <li class="mb-2">
+          Excel greatly in fundraising and brainstorming to raise money for
+          businesses or events that may need it (including raising over
+          <strong>$17,000,000</strong> during a one hour event for the Liquid
+          Library).
+        </li>
+      </ul>
+    </section>
+    <section id="legacy" class="py-6">
+      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+        <i
+          style=`background-image: url(${legacySVG})`
+          class="mr-4 mt-1 w-6 md:w-10 text-blue-950 inline-block aspect-square bg-contain bg-no-repeat"
+        ></i>Legacy
+      </h2>
+      <ul class="list-disc ml-1 md:ml-6 list-inside">
+        <li class="mb-2">
+          Helped to create the Andi Jones Farmer’s Market and Dean World.
+        </li>
+        <li class="mb-2">Class Three Hunting Rifle charge rework.</li>
+        <li class="mb-2">
+          Passed the Dispensary Business Guidelines and Requirements.
+        </li>
+        <li class="mb-2">Drafted and passed the Employee Protection Act.</li>
+        <li class="mb-2">
+          Created the Parks & Recreation department, as well as drafted and
+          passed the Parks and Recreation Guidelines.
+        </li>
+        <li class="mb-2">
+          Drafted and implemented the Deputy Mayor Expectations of Office and
+          Responsibilities.
+        </li>
+        <li class="mb-2">
+          Drafted and implemented the Expectations of Mayor Elect.
+        </li>
+        <li class="mb-2">Lowered taxes.</li>
+        <li class="mb-2">Increased pay for Government workers.</li>
+        <li class="mb-2">Drafted and pushed the Farmer’s Market Guidelines.</li>
+        <li class="mb-2">
+          Pushed forward and passed removals from the Tax Code.
+        </li>
+        <li class="mb-2">Formed the Department of Public Health.</li>
+        <li class="mb-2">
+          Aided in adjusting tax codes in order to better suit what the people
+          are looking for.
+        </li>
+        <li class="mb-2">
+          Compiled transactions and sought out assistance to understand the
+          state budget and attempt to figure out how much the state could afford
+          (back when loan companies drew from the state account, and back when
+          the state account was given to me at -$7,000,000).
+        </li>
+        <li class="mb-2">
+          Attempted to financially (from my personal account) assist with
+          serious issues when people were struggling or in need (businesses in
+          need, CVPI repairs, etc.).
+        </li>
+        <li class="mb-2">
+          Maintained (for the majority) a friendly attitude with anyone who
+          sought out my assistance.
+        </li>
+        <li class="mb-2">
+          Had read and/or worked with over 160 business proposals/new businesses
+        </li>
+      </ul>
+    </section>
+    <section id="accomplishments" class="py-6">
+      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+        <i
+          style=`background-image: url(${trophySVG})`
+          class="hidden mr-4 mt-1 w-6 md:w-10 text-blue-950 md:inline-block aspect-square bg-contain bg-no-repeat"
+        ></i>Accomplishments
+      </h2>
+      <ul class="list-disc list-inside ml-1 md:ml-6">
+        <li class="mb-2">
+          I have read hundreds more business proposals since leaving office in
+          my capacity as an employee of San Andreas State Construction.
+        </li>
+        <li class="mb-2">
+          Helped form and set up the County Clerk position at City Hall.
+        </li>
+        <li class="mb-2">
+          Helped write many business proposals for others seeking to start their
+          own businesses.
+        </li>
+        <li class="mb-2">
+          Held multiple Mayoral Academies to train potential future Mayors on
+          the ins and outs of the position.
+        </li>
+        <li class="mb-2">
+          I have put on multiple very successful events for the city, all
+          civilian oriented:
+          <ul class="ml-3 md:ml-6 list-inside" style="list-style-type:circle;">
+            <li class="mb-2">
+              Park Tank (an event designed to bring potential storefront owners
+              to pitch their businesses to the HOA to help make Mirror Park a
+              frequently trafficked hub and hang out area).
+            </li>
+            <li class="mb-2">
+              Survivor Season 1: HOA (a week-long event consisting of 24
+              contestants and even more staff).
+            </li>
+            <li class="mb-2">
+              Survivor Season 2: Heroes vs. Villains (a week-long event now
+              opened up to be civilian friendly, consisting of 20 challenges, 24
+              contestants, 20+ members of the crew/audience/volunteers, a
+              $10,000,000 prize pool, and 45 applicants).
+            </li>
+            <li class="mb-2">
+              The Date Auction (raised $17,000,000 to cover construction costs
+              for the Liquid Library and put the extra into AK Events, a
+              non-profit, to fund future prize pools and other events).
+            </li>
+            <li class="mb-2">
+              Shark Tank (a civilian focused event where businesses and those
+              who are looking to run events could come and pitch their idea to
+              people who had cash to invest and advise these individuals in
+              their endeavors and help make them a reality).
+            </li>
+          </ul>
+        </li>
+        <li class="mb-2">
+          Proposed and helped draft the Marriage Legislation.
+        </li>
+        <li class="mb-2">Trained as a Legal Aid.</li>
+        <li class="mb-2">
+          Successfully earned my BAR license, becoming a fully licensed lawyer.
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="mt-20">
+    <section
+      class="flex justify-center py-10 bg-[#00ccff] border border-t-8 border-[#151e42]"
+    >
+      <div class="max-w-[350px]">
+        <img
+          src={chibiPicture}
+          alt="Andi Jones Chibi Square"
+          class="mx-auto px-6"
+        />
+        <ul
+          class="font-mono border border-black rounded-md p-4 text-left bg-white drop-shadow-2xl"
+        >
+          <li class="text-center">
+            <span class="text-xs">Offical Signature</span>
+            <img
+              src={signaturePicture}
+              alt="Andi Jones Signature"
+              class="mx-auto"
+            />
+          </li>
+          <li><strong>Name:</strong> Andi Jones</li>
+          <li><strong>State ID:</strong> 1449</li>
+          <li><strong>Phone:</strong> 628-191-1072</li>
+          <li><strong>Party Affiliation:</strong> Independent</li>
+        </ul>
+      </div>
+    </section>
+    <section
+      class="flex items-center flex-col bg-blue-950 py-24 px-3 border border-t-8 border-white"
+    >
+      <img
+        src={logoLight}
+        alt="Andi Jones for Mayor Logo"
+        class="max-w-lg mb-6 w-full"
+      />
+      <ul class="flex flex-col md:flex-row gap-6 text-lg text-white">
+        <li><a href="#my-plans" class="hover:underline">My Plans</a></li>
+        <li><a href="#platform" class="hover:underline">Platform</a></li>
+        <li>
+          <a href="#qualifications" class="hover:underline">Qualifications</a>
+        </li>
+        <li><a href="#legacy" class="hover:underline">Legacy</a></li>
+        <li>
+          <a href="#accomplishments" class="hover:underline">Accomplishments</a>
+        </li>
+      </ul>
+      <div class="font-bold text-center text-white mt-6">
+        Funded by The Andi Jones For Mayor Political Action Comimittee &copy;
+        2023.
+      </div>
+    </section>
+  </footer>
+  <a
+    href="#top"
+    class="fixed bottom-2 right-4 z-50 flex items-center rounded bg-[#00ccff] px-2 uppercase text-white drop-shadow-2xl"
+  >
+    <div class="mr-1 -translate-y-0.5 text-3xl">&uarr;</div>
+    <div class="font-bold">Top</div>
+    <a> </a>
+  </a>
+</Landing>

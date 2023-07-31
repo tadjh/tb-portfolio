@@ -4,8 +4,12 @@ import AnimatedLogo from "./AnimatedLogo";
 import Navigation from "./Navigation";
 import SiteTitle from "./SiteTitle";
 
-export interface HeaderProps {
+export interface SizeProps {
   size?: "lg" | "sm";
+}
+
+interface HeaderProps extends SizeProps {
+  "client:load": boolean;
 }
 
 export default function Header({ size = "lg" }: HeaderProps) {

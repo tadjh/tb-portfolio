@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { config } from "../config";
 import { composeKey } from "../utils";
-import type { HeaderProps } from "./Header";
+import type { SizeProps } from "./Header";
 
-export default function SiteTitle({ size }: HeaderProps) {
+export default function SiteTitle({ size }: SizeProps) {
   return (
     <div>
       <h1
