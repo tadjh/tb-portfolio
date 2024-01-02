@@ -15,7 +15,7 @@ export const projects: Project[] = [
       "Sound effects and music recorded and edited in Ableton Live.",
     ],
     repository: "https://github.com/tadjh/np-bingo",
-    link: "https://np-bingo-client.herokuapp.com/",
+    link: "https://np-bingo-client.herokuapp.com/play/solo",
     animation: "bingo",
   },
   {
