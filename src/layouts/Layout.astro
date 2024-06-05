@@ -11,6 +11,59 @@ const { title, description } = Astro.props;
   </head>
   <body class="text-black/90 dark:bg-neutral-900 dark:text-white/90">
     <slot />
+    <style is:global>
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @apply font-display;
+      }
+
+      .header:hover .flip-inner,
+      .header.active .flip-inner {
+        transform: rotateY(-180deg);
+      }
+
+      .bingo {
+        background-image: url("../assets/images/bingo-ball.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation-name: bingo-reverse;
+        animation-duration: 0.5s;
+      }
+
+      .project:hover .bingo {
+        animation-name: bingo;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes bingo {
+        0%,
+        100% {
+          transform: none;
+          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+        50% {
+          transform: translateY(-25%);
+          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+      }
+
+      @keyframes bingo-reverse {
+        from {
+          transform: translateY(-25%);
+          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        to {
+          transform: none;
+          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+      }
+    </style>
     <script is:inline>
       const theme = (() => {
         if (
