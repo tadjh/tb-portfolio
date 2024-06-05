@@ -11,5 +11,5 @@ module.exports = {
       },
     },
   ],
-  tailwindFunctions: ["clsx"],
+  tailwindFunctions: ["twMerge"],
 };

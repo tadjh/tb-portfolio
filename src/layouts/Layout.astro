@@ -1,99 +1,36 @@
 ---
-export interface Props {
-  title: string;
-  description: string;
-}
+import BaseHead from "../components/BaseHead.astro";
 
 const { title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-    <link rel="icon" href="/favicon.ico" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&family=Poppins:wght@400;700&family=Roboto+Mono:wght@400&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <BaseHead title={title} description={description} />
   </head>
   <body class="text-black/90 dark:bg-neutral-900 dark:text-white/90">
     <slot />
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+      window.localStorage.setItem("theme", theme);
+    </script>
   </body>
 </html>
-<style is:global>
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-display;
-  }
-
-  .header:hover .flip-inner,
-  .header.active .flip-inner {
-    transform: rotateY(-180deg);
-  }
-
-  .bingo {
-    background-image: url("/img/png/bingo_ball.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    animation-name: bingo-reverse;
-    animation-duration: 0.5s;
-  }
-
-  .project:hover .bingo {
-    animation-name: bingo;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: forwards;
-  }
-
-  @keyframes bingo {
-    0%,
-    100% {
-      transform: none;
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-    50% {
-      transform: translateY(-25%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    }
-  }
-
-  @keyframes bingo-reverse {
-    from {
-      transform: translateY(-25%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    }
-    to {
-      transform: none;
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-  }
-</style>
-<script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  })();
-
-  if (theme === "light") {
-    document.documentElement.classList.remove("dark");
-  } else {
-    document.documentElement.classList.add("dark");
-  }
-  window.localStorage.setItem("theme", theme);
-</script>

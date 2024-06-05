@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header";
-import { META_DESCRIPTION, TITLE_HOME } from "../config/constants";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../config/constants";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main";
 import { projects } from "../config/projects";
@@ -9,7 +9,7 @@ import Page from "../components/Page";
 import ProjectCard from "../components/ProjectCard";
 ---
 
-<Layout title={`${TITLE_HOME} - Projects`} description={META_DESCRIPTION}>
+<Layout title={`${SITE_TITLE} - Projects`} description={SITE_DESCRIPTION}>
   <Page>
     <Header client:load />
     <Main>

@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header";
-import { META_DESCRIPTION, TITLE_HOME } from "../config/constants";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../config/constants";
 import { peopleSkills, technicalSkills } from "../config/about";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main";
@@ -12,7 +12,7 @@ import tajMahal from "/img/svg/taj_mahal.svg";
 import TagList from "../components/TagList";
 ---
 
-<Layout title={`${TITLE_HOME} - About`} description={META_DESCRIPTION}>
+<Layout title={`${SITE_TITLE} - About`} description={SITE_DESCRIPTION}>
   <Page>
     <Header client:load />
     <Main>
@@ -21,7 +21,7 @@ import TagList from "../components/TagList";
       </h1>
       <p class="indent-12 text-sm md:text-lg">{config.bio}</p>
       <div
-        class="group flex -translate-x-1 md:-translate-x-6 flex-row gap-2 md:gap-x-8"
+        class="group flex -translate-x-1 flex-row gap-2 md:-translate-x-6 md:gap-x-8"
       >
         <Ribbon label="Fun Fact">
           Tadjh is pronounced "taj" like the taj mahal
