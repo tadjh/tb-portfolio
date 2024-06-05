@@ -1,8 +1,10 @@
 ---
 import AnimatedHeader from "./AnimatedHeader";
 import AnimatedLogo from "./AnimatedLogo.astro";
+
+const { level } = Astro.props;
 ---
 
 <header class="flex flex-row justify-center gap-x-2 md:gap-x-6">
-  <AnimatedHeader client:load><AnimatedLogo /></AnimatedHeader>
+  <AnimatedHeader client:load level={level}><AnimatedLogo /></AnimatedHeader>
 </header>
