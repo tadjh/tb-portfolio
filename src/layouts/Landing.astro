@@ -2,9 +2,10 @@
 export interface Props {
   title: string;
   description: string;
+  className: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, className } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -12,7 +13,6 @@ const { title, description } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <link rel="icon" href="/favicon.ico" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&family=Roboto+Mono:wght@400;700&display=swap"
@@ -22,25 +22,7 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="text-blue-950 bg-white">
+  <body class={`text-blue-950 bg-white ${className}`}>
     <slot />
   </body>
 </html>
-<!-- <script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  })();
-
-  if (theme === "light") {
-    document.documentElement.classList.remove("dark");
-  } else {
-    document.documentElement.classList.add("dark");
-  }
-  window.localStorage.setItem("theme", theme);
-</script> -->
