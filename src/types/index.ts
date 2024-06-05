@@ -10,4 +10,6 @@ export interface Project {
   animation?: string;
   image?: string;
   categories?: string[];
+  color?: string;
+  className?: string;
 }

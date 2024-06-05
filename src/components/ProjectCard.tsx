@@ -12,12 +12,26 @@ type ProjectCardProps = {
 } & HTMLAttributes<HTMLElement>;
 
 export default function ProjectCard({
-  project: { title: name, description, repository, link, animation, slug },
+  project: {
+    title: name,
+    description,
+    repository,
+    link,
+    animation,
+    slug,
+    image,
+    color,
+    className: projectClassName,
+  },
   className,
   ...props
 }: ProjectCardProps) {
   return (
-    <Card {...props} className={className}>
+    <Card
+      {...props}
+      className={twMerge("project", className, projectClassName)}
+      style={{ backgroundColor: color }}
+    >
       {/* {image && (
         <Image
           src={image}
@@ -32,6 +46,11 @@ export default function ProjectCard({
         </h3>
         {animation ? (
           <div className={twMerge("h-24 w-24", animation)} />
+        ) : image ? (
+          <img
+            src={`src/assets/images/${image}`}
+            className="rounded-full"
+          ></img>
         ) : (
           <hr className="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90" />
         )}
