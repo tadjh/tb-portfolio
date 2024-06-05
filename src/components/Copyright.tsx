@@ -11,9 +11,7 @@ export default function Copyright() {
         className="h-4 w-4 transition-transform group-hover:scale-110"
       />
       {new Date().getFullYear()}
-      <CustomLink href="/" link>
-        {config.url.vanity}
-      </CustomLink>
+      <CustomLink href="/">{config.url.vanity}</CustomLink>
     </div>
   );
 }

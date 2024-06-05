@@ -53,12 +53,7 @@ export default function Navigation() {
                   key={composeKey("nav", index)}
                   className="text-3xl font-bold uppercase md:text-5xl"
                 >
-                  <CustomLink
-                    href={url}
-                    link
-                    // isActive={isActive}
-                    className="underline-offset-2"
-                  >
+                  <CustomLink href={url} className="underline-offset-2">
                     {vanity}
                   </CustomLink>
                 </li>
