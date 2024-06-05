@@ -1,5 +1,3 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
 export interface Project {
   slug: string;
   title: string;
@@ -12,14 +10,4 @@ export interface Project {
   animation?: string;
   image?: string;
   categories?: string[];
-}
-
-export interface SocialLink {
-  url: string;
-  icon: IconDefinition;
-}
-
-export interface NavigationItem {
-  url: string;
-  vanity: string;
 }

@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config/constants";
-import { peopleSkills, technicalSkills } from "../config/about";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main";
 import Page from "../components/Page";
@@ -10,6 +9,23 @@ import { config } from "../config";
 import Ribbon from "../components/Ribbon";
 import tajMahal from "/img/svg/taj_mahal.svg";
 import TagList from "../components/TagList";
+
+const peopleSkills = [
+  "Self-Motivated",
+  "Problem Solver",
+  "Strong Work Ethic",
+  "Organized",
+  "Thorough",
+];
+
+const technicalSkills = [
+  "Typescript",
+  "React",
+  "ReactNative",
+  "Javascript",
+  "CSS",
+  "HTML",
+];
 ---
 
 <Layout title={`${SITE_TITLE} - About`} description={SITE_DESCRIPTION}>

@@ -3,10 +3,29 @@ import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { composeKey } from "../utils";
-import { navigation } from "../config/navigation";
 import CustomLink from "./CustomLink";
 import Copyright from "./Copyright";
 import Socials from "./Socials";
+
+export interface NavigationItem {
+  url: string;
+  vanity: string;
+}
+
+export const navigation: NavigationItem[] = [
+  {
+    url: "/",
+    vanity: "Home",
+  },
+  {
+    url: "/projects",
+    vanity: "Projects",
+  },
+  {
+    url: "/about",
+    vanity: "About",
+  },
+];
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
