@@ -4,9 +4,8 @@ import Header from "../components/Header";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config/constants";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main";
-import { projects } from "../config/projects";
 import Page from "../components/Page";
-import ProjectCard from "../components/ProjectCard";
+import ProjectsArchive from "../components/ProjectsArchive";
 ---
 
 <Layout title={`${SITE_TITLE} - Projects`} description={SITE_DESCRIPTION}>
@@ -16,11 +15,7 @@ import ProjectCard from "../components/ProjectCard";
       <h1 class="text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw]">
         Projects
       </h1>
-      <div
-        class="max-w-screen grid grid-cols-1 gap-4 md:-mx-[10%] md:grid-cols-2"
-      >
-        {projects.map((project) => <ProjectCard project={project} />)}
-      </div>
+      <ProjectsArchive />
     </Main>
     <Footer />
   </Page>
