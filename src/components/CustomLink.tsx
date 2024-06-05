@@ -19,7 +19,6 @@ export default function CustomLink({
     : undefined;
 
   return (
-    // <span className={className}>
     <a
       href={href}
       className={twMerge(
@@ -31,6 +30,5 @@ export default function CustomLink({
     >
       {children}
     </a>
-    // </span>
   );
 }
