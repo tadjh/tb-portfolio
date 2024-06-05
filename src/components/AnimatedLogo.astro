@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import profilePictureSquare from "../assets/images/tadjh-profile-square.jpg";
 ---
 
-<a href="/">
+<a href="/" title="Lilnk to tadjh.dev home" aria-label="Link to tadjh.dev home">
   <div
     class="w-24 cursor-pointer md:w-32 lg:w-40 xl:w-[196px]"
     style={{ perspective: "1000px" }}
@@ -54,9 +54,10 @@ import profilePictureSquare from "../assets/images/tadjh-profile-square.jpg";
         <Image
           class="rounded-lg"
           src={profilePictureSquare}
-          alt="Tadjh Brooks Profile Picture Square"
-          width={384}
-          height={384}
+          alt="Tadjh Brooks Smiling"
+          width={196}
+          height={196}
+          loading="eager"
         />
       </div>
     </div>

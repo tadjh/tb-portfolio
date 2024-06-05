@@ -45,10 +45,20 @@ export default function ProjectCard({
           Read More
         </CustomLink>
         <div className="flex flex-row gap-x-4 transition-transform group-hover:translate-y-2">
-          <CustomLink href={repository} external>
+          <CustomLink
+            href={repository}
+            external
+            title="View the source code on Github"
+            aria-label="View the source code on Github"
+          >
             <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
           </CustomLink>
-          <CustomLink href={link} external>
+          <CustomLink
+            href={link}
+            external
+            title="Visit this project's webpage"
+            aria-label="Visit this project's webpage"
+          >
             <FontAwesomeIcon
               icon={faArrowUpRightFromSquare}
               className="h-6 w-6"

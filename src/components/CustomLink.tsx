@@ -13,6 +13,7 @@ export default function CustomLink({
   external = false,
   className,
   inline = false,
+  ...props
 }: CustomLinkProps) {
   const externalProps = external
     ? { target: "_blank", rel: "noreferrer" }
@@ -27,6 +28,7 @@ export default function CustomLink({
         className,
       )}
       {...externalProps}
+      {...props}
     >
       {children}
     </a>
