@@ -1,16 +1,11 @@
-import clsx from "clsx";
-import type { SizeProps } from "./Header";
 import Logo from "./Logo";
 import Profile from "./Profile";
 
-export default function AnimatedLogo({ size }: SizeProps) {
+export default function AnimatedLogo() {
   return (
     <a href="/">
       <div
-        className={clsx(
-          "w-[25vw] cursor-pointer",
-          size === "lg" ? "md:w-[15.5vw]" : "md:w-[6.8vw]"
-        )}
+        className="w-24 cursor-pointer md:w-32 lg:w-40 xl:w-[196px]"
         style={{ perspective: "1000px" }}
       >
         <div

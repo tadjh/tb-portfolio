@@ -1,18 +1,13 @@
-import clsx from "clsx";
 import { useEffect, useRef } from "react";
 import AnimatedLogo from "./AnimatedLogo";
 import Navigation from "./Navigation";
 import SiteTitle from "./SiteTitle";
 
-export interface SizeProps {
-  size?: "lg" | "sm";
-}
-
-interface HeaderProps extends SizeProps {
+interface HeaderProps {
   "client:load": boolean;
 }
 
-export default function Header({ size = "lg" }: HeaderProps) {
+export default function Header({}: HeaderProps) {
   const headerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -37,20 +32,15 @@ export default function Header({ size = "lg" }: HeaderProps) {
   });
 
   return (
-    <div
+    <header
       ref={headerRef}
       className="header flex flex-row justify-between gap-x-2 md:gap-x-6"
     >
-      <div
-        className={clsx(
-          "flex flex-row",
-          size === "lg" ? "gap-x-2 md:gap-x-6" : "gap-x-2"
-        )}
-      >
-        <AnimatedLogo size={size} />
-        <SiteTitle size={size} />
+      <div className="flex flex-row gap-x-2 md:gap-x-4 lg:gap-x-5">
+        <AnimatedLogo />
+        <SiteTitle />
       </div>
       <Navigation />
-    </div>
+    </header>
   );
 }
