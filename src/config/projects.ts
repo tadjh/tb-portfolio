@@ -2,11 +2,29 @@ import type { Project } from "../types";
 
 export const projects: Project[] = [
   {
+    slug: "curtis-mayfield-redesign",
+    title: "Curtis Mayfield Redesign",
+    tags: ["Next.js", "React", "Typescript", "Sanity CMS"],
+    categories: ["Portfolio"],
+    description:
+      "Website redesign of legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield",
+    hype: ["270 hours", "11295 lines of codes"],
+    tasks: [
+      "Redesigned entire website portfolio from the ground up with NextJS.",
+      "Utilized React Server Components to query the content api and cache the resulting pages, with client-side re-hydration for interactive pages.",
+      "Leveraged GROQ, a GraphQL-like query language, to request page content from a heavily modified content management system.",
+      "Extended Sanity CMS to manage & create many documents, objects and media types within the customized CMS.",
+      "Designed and created a JSON-based page loading animation using LottieJS inside of Adobe After Effects.",
+    ],
+    repository: "https://github.com/tadjh/curtis-mayfield",
+    link: "https://curtis-mayfield-git-development-tadjh.vercel.app/",
+  },
+  {
     slug: "bingo-multiplayer-react-app",
     title: "Bingo Multiplayer React App",
     description:
       "Mobile multiplayer bingo game built on web sockets featuring private rooms, invitations and single-player mode.",
-    hype: ["628 Hours", "10735 lines of codes"],
+    hype: ["628 hours", "10735 lines of codes"],
     tasks: [
       "Leveraged Socket.io to create an event-driven multiplayer room-based bingo game. Also available in singleplayer.",
       "Server and client are coded in React/Typescript, architected in a yarn monorepo and deployed to Heroku.",
@@ -23,7 +41,7 @@ export const projects: Project[] = [
     title: "Interactive Chart Firebase App",
     description:
       "Relational chart for managing and displaying real-time faction relationships on the nopixel roleplay server.",
-    hype: ["156 Hours", "4451 lines of codes"],
+    hype: ["156 hours", "4451 lines of codes"],
     tasks: [
       "Architected a Firestore nosql database to handle many-to-many relational documents.",
       "Built a custom content management system accessible with Google Sign-in",
