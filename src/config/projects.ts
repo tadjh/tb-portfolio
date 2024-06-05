@@ -1,5 +1,7 @@
 import type { Project } from "../types";
 
+// TODO Convert to MDX
+
 export const projects: Project[] = [
   {
     slug: "curtis-mayfield-redesign",
@@ -7,7 +9,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "React", "Typescript", "Sanity CMS"],
     categories: ["Portfolio"],
     description:
-      "Website redesign of legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield",
+      "Website redesign of legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield.",
     hype: ["270 hours", "11295 lines of codes"],
     tasks: [
       "Redesigned entire website portfolio from the ground up with NextJS.",

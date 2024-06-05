@@ -18,7 +18,7 @@ export default function Ribbon({
           clipPath: "polygon(95% 0%, 100% 50%, 95% 100%, 0% 100%, 0% 0%)",
         }}
       >
-        <span className="h-full bg-black/[0.08] p-2 font-bold">{label} :</span>
+        <span className="h-full bg-black/[0.08] p-2 font-bold">{label}:</span>
         {children}
       </div>
       <div

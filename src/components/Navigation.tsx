@@ -30,14 +30,13 @@ export const navigation: NavigationItem[] = [
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<SVGSVGElement | null>(null);
-  // const router = useRouter();
 
   function toggleOpen() {
     setIsOpen((prevState) => !prevState);
   }
 
   return (
-    <div>
+    <nav>
       <div
         className={twMerge(
           "group fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-orange-tadjh p-10 text-white/90 transition-transform duration-1000",
@@ -47,7 +46,6 @@ export default function Navigation() {
         <div className="flex flex-1 items-center">
           <ul className="flex flex-col gap-y-2 md:gap-y-4">
             {navigation.map(({ url, vanity }, index) => {
-              // const isActive = url === router.pathname;
               return (
                 <li
                   key={composeKey("nav", index)}
@@ -74,6 +72,6 @@ export default function Navigation() {
           isOpen ? "scale-125 text-white/90" : "hover:text-orange-tadjh",
         )}
       />
-    </div>
+    </nav>
   );
 }
