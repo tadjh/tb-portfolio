@@ -4,14 +4,14 @@ import Copyright from "./Copyright";
 import Theme from "./Theme";
 
 interface Props {
-  simple?: boolean;
+  minimal?: boolean;
 }
 
-const { simple } = Astro.props;
+const { minimal } = Astro.props;
 ---
 
 <footer class="flex flex-col">
-  {simple && <CallToAction />}
+  {!minimal && <CallToAction />}
   <div class="mb-10 flex justify-end">
     <Theme client:only="react" />
     <Copyright client:visible />
