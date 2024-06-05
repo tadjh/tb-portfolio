@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header";
+import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config/constants";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main";
@@ -10,7 +10,7 @@ import ProjectsArchive from "../components/ProjectsArchive";
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Page>
-    <Header client:load />
+    <Header />
     <Main>
       <h1 class="text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw]">
         <a href="/projects">Projects</a>

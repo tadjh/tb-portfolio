@@ -1,7 +1,7 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../config/constants";
 import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header";
+import Header from "../../components/Header.astro";
 import Main from "../../components/Main";
 import Page from "../../components/Page";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,7 +28,7 @@ const { title, description, hype, tasks, repository, link } = Astro.props;
 
 <Layout title={`${SITE_TITLE} - ${title}`} description={SITE_DESCRIPTION}>
   <Page>
-    <Header client:load />
+    <Header />
     <Main>
       <h1 class="text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw]">
         {title}

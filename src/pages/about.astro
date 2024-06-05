@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header";
+import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config/constants";
 import Footer from "../components/Footer.astro";
 import Main from "../components/Main";
@@ -36,7 +36,7 @@ const technicalSkills = [
   description="Read about how a GRAMMY Nominated Music Producer became enamoured with Software Engineering & Web Development."
 >
   <Page>
-    <Header client:load />
+    <Header />
     <Main>
       <h1 class="text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw]">
         About

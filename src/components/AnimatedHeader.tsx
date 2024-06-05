@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react";
-import AnimatedLogo from "./AnimatedLogo";
 import Navigation from "./Navigation";
 import SiteTitle from "./SiteTitle";
 
-interface HeaderProps {
+interface AnimatedHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   "client:load": boolean;
 }
 
-export default function Header({}: HeaderProps) {
+export default function AnimatedHeader({ children }: AnimatedHeaderProps) {
   const headerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -32,15 +31,15 @@ export default function Header({}: HeaderProps) {
   });
 
   return (
-    <header
-      ref={headerRef}
-      className="header flex flex-row justify-between gap-x-2 md:gap-x-6"
-    >
-      <div className="flex flex-row gap-x-2 md:gap-x-4 lg:gap-x-5">
-        <AnimatedLogo />
+    <>
+      <div
+        ref={headerRef}
+        className="flip-container flex flex-row gap-x-2 md:gap-x-4 lg:gap-x-5"
+      >
+        {children}
         <SiteTitle />
       </div>
       <Navigation />
-    </header>
+    </>
   );
 }
