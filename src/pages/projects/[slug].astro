@@ -11,6 +11,8 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import Layout from "../../layouts/Layout.astro";
 import { projects } from "../../config/projects";
 import type { Project } from "../../types";
+import Tag from "../../components/Tag";
+import TagList from "../../components/TagList";
 
 export function getStaticPaths() {
   return projects.map(({ slug, ...props }) => {
@@ -23,7 +25,17 @@ export function getStaticPaths() {
 
 type Props = Project;
 
-const { title, description, hype, tasks, repository, link } = Astro.props;
+const {
+  title,
+  description,
+  hype,
+  tasks,
+  repository,
+  link,
+  tags,
+  categories,
+  image,
+} = Astro.props;
 ---
 
 <Layout title={`${SITE_TITLE} - ${title}`} description={SITE_DESCRIPTION}>
@@ -33,9 +45,15 @@ const { title, description, hype, tasks, repository, link } = Astro.props;
       <h1>
         {title}
       </h1>
+      {categories && <TagList label="Categories" tags={categories} />}
+      {tags && <TagList label="Skills" tags={tags} />}
       <p>{description}</p>
-      {hype.map((entry: string) => <span>{entry}</span>)}
-      <ul>
+      <!-- TODO animated numbers in -->
+      <ul class="flex flex-row flex-wrap gap-2">
+        {hype.map((entry: string) => <li>{entry}</li>)}
+      </ul>
+      <!-- TODO animated each list element in -->
+      <ul class="list-disc">
         {tasks.map((task: string) => <li>{task}</li>)}
       </ul>
       <div>
@@ -58,6 +76,6 @@ const { title, description, hype, tasks, repository, link } = Astro.props;
         </CustomLink>
       </div>
     </Main>
-    <Footer />
+    <Footer minimal />
   </Page>
 </Layout>

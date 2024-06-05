@@ -6,8 +6,16 @@ export const projects: Project[] = [
   {
     slug: "curtis-mayfield-redesign",
     title: "Curtis Mayfield Redesign",
-    tags: ["Next.js", "React", "Typescript", "Sanity CMS"],
-    categories: ["Portfolio"],
+    tags: [
+      "Next.js",
+      "React",
+      "Typescript",
+      "Sanity CMS",
+      "GROQ",
+      "Illustrator",
+      "After Effects",
+    ],
+    categories: ["Full-Stack", "Portfolio", "Graphic Design"],
     description:
       "Website redesign of legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield.",
     hype: ["270 hours", "11295 lines of codes"],

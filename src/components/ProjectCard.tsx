@@ -12,12 +12,12 @@ type ProjectCardProps = {
 } & HTMLAttributes<HTMLElement>;
 
 export default function ProjectCard({
-  project: { title: name, description, repository, link, animation },
+  project: { title: name, description, repository, link, animation, slug },
   className,
   ...props
 }: ProjectCardProps) {
   return (
-    <Card {...props} className={twMerge("project", className)}>
+    <Card {...props} className={className}>
       {/* {image && (
         <Image
           src={image}
@@ -38,6 +38,12 @@ export default function ProjectCard({
         <p className="transition-transform group-hover:translate-y-1.5">
           {description}
         </p>
+        <CustomLink
+          href={`projects/${slug}`}
+          className="text-xl transition-transform group-hover:-translate-y-0 group-hover:scale-110 group-hover:text-blue-gulf"
+        >
+          Read More
+        </CustomLink>
         <div className="flex flex-row gap-x-4 transition-transform group-hover:translate-y-2">
           <CustomLink href={repository} external>
             <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
