@@ -1,3 +1,3 @@
-export const TITLE_HOME = "Tadjh Brooks - Self-Taught Software Engineer";
-export const META_DESCRIPTION =
-  "Self-taught full-stack software engineer with a voracious appetite for learning.";
+export const SITE_TITLE = "Tadjh Brooks - Software Engineer";
+export const SITE_DESCRIPTION =
+  "A full-stack software engineer with a voracious appetite for learning.";
