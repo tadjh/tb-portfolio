@@ -47,6 +47,7 @@ const {
       </h1>
       {categories && <TagList label="Categories" tags={categories} />}
       {tags && <TagList label="Skills" tags={tags} />}
+      <br />
       <p>{description}</p>
       <!-- TODO animated numbers in -->
       <ul class="flex flex-row flex-wrap gap-2">
@@ -56,18 +57,12 @@ const {
       <ul class="list-disc">
         {tasks.map((task: string) => <li>{task}</li>)}
       </ul>
-      <div>
+      <br />
+      <div class="flex flex-row gap-x-4">
         <CustomLink href={repository} external>
-          <FontAwesomeIcon
-            icon={faGithub}
-            className="h-10 w-10 transition-transform hover:scale-110"
-          />
+          <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
         </CustomLink>
-        <CustomLink
-          href={link}
-          external
-          className="transition-transform group-hover:translate-y-2"
-        >
+        <CustomLink href={link} external>
           <FontAwesomeIcon
             icon={faArrowUpRightFromSquare}
             className="h-6 w-6"
@@ -75,6 +70,7 @@ const {
           Visit this project
         </CustomLink>
       </div>
+      <br />
     </Main>
     <Footer minimal />
   </Page>
