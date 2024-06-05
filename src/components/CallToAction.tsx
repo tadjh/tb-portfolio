@@ -28,13 +28,13 @@ export default function CallToAction() {
             </a>
           </h3>
         </div>
-        <p className="indent-12 font-mono text-xs md:text-base">
+        <p className="indent-12 text-xs md:text-base">
           {config.bio}{" "}
           <CustomLink href="/about" inline>
             Learn More &rarr;
           </CustomLink>
         </p>
-        <div className="font-mono text-xl">
+        <div className="text-xl">
           <div>{config.siteTitle}</div>
           <div className="group flex flex-row items-center gap-x-2">
             <FontAwesomeIcon
