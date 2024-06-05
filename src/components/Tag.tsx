@@ -1,12 +1,12 @@
-import clsx from "clsx";
 import type { HTMLAttributes } from "react";
+import { twMerge } from "tailwind-merge";
 
 type TagProps = { primary?: boolean } & HTMLAttributes<HTMLDivElement>;
 
 export default function Tag({ primary = false, children, ...props }: TagProps) {
   return (
     <div
-      className={clsx(
+      className={twMerge(
         "rounded-lg px-2",
         primary
           ? "bg-orange-tadjh font-bold uppercase text-white/90"

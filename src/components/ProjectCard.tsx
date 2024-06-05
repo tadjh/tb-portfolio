@@ -1,11 +1,11 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
 import type { HTMLAttributes } from "react";
 import type { Project } from "../types";
 import Card from "./Card";
 import CustomLink from "./CustomLink";
+import { twMerge } from "tailwind-merge";
 
 type ProjectCardProps = {
   project: Project;
@@ -17,7 +17,7 @@ export default function ProjectCard({
   ...props
 }: ProjectCardProps) {
   return (
-    <Card {...props} className={clsx("project", className)}>
+    <Card {...props} className={twMerge("project", className)}>
       {/* {image && (
         <Image
           src={image}
@@ -31,7 +31,7 @@ export default function ProjectCard({
           {name}
         </h3>
         {animation ? (
-          <div className={clsx("h-24 w-24", animation)} />
+          <div className={twMerge("h-24 w-24", animation)} />
         ) : (
           <hr className="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90" />
         )}

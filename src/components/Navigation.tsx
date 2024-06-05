@@ -1,7 +1,7 @@
-import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
+import { twMerge } from "tailwind-merge";
 import { composeKey } from "../utils";
 import { navigation } from "../config/navigation";
 import CustomLink from "./CustomLink";
@@ -20,9 +20,9 @@ export default function Navigation() {
   return (
     <div>
       <div
-        className={clsx(
-          "group fixed top-0 left-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-orange-tadjh p-10 text-white/90 transition-transform duration-1000",
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={twMerge(
+          "group fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-orange-tadjh p-10 text-white/90 transition-transform duration-1000",
+          isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
         <div className="flex flex-1 items-center">
@@ -55,9 +55,9 @@ export default function Navigation() {
         ref={buttonRef}
         icon={isOpen ? faXmark : faBars}
         onClick={toggleOpen}
-        className={clsx(
+        className={twMerge(
           "relative z-50 h-6 w-6 cursor-pointer transition active:-rotate-90 md:h-8 md:w-8",
-          isOpen ? "scale-125 text-white/90" : "hover:text-orange-tadjh"
+          isOpen ? "scale-125 text-white/90" : "hover:text-orange-tadjh",
         )}
       />
     </div>
