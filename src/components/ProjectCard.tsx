@@ -35,7 +35,7 @@ export default function ProjectCard({
         ) : (
           <hr className="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90" />
         )}
-        <p className="text-base transition-transform group-hover:translate-y-1.5 md:text-xl">
+        <p className="transition-transform group-hover:translate-y-1.5">
           {description}
         </p>
         <div className="flex flex-row gap-x-4 transition-transform group-hover:translate-y-2">
