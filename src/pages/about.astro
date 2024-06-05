@@ -19,12 +19,14 @@ import TagList from "../components/TagList";
       <h1 class="text-[12vw] font-bold uppercase leading-[0.78] md:text-[5vw]">
         About
       </h1>
-      <p class="indent-12 font-mono text-xs md:text-base">{config.bio}</p>
-      <div class="group flex -translate-x-6 flex-row gap-x-8">
+      <p class="indent-12 text-sm md:text-lg">{config.bio}</p>
+      <div
+        class="group flex -translate-x-1 md:-translate-x-6 flex-row gap-2 md:gap-x-8"
+      >
         <Ribbon label="Fun Fact">
-          Tadjh is pronounced “taj” like the taj mahal
+          Tadjh is pronounced "taj" like the taj mahal
         </Ribbon>
-        <div class="-translate-y-2">
+        <div class="translate-y-2 md:-translate-y-2">
           <img src={tajMahal} alt="Taj Mahal" width={65} height={50} />
         </div>
       </div>
