@@ -1,19 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import Landing from "../layouts/Landing.astro";
-import profilePicture from "/img/png/Andi-Jones-Profile-Picture-1310x1832px.png";
-import taglinePicture from "/img/png/How-Could-Andi-Jones-Do-This-2190x1168px.png";
-import courtHousePicture from "/img/jpg/Court-House.jpg";
-import parksAndRecPicture from "/img/jpg/Parks-and-Rec-Department.jpg";
-import policeDeptPicture from "/img/jpg/Police-Department.jpg";
-import signaturePicture from "/img/png/Andi-Jones-signature.png";
-import chibiPicture from "/img/png/Andi-Jones-Chibi-Square.png";
-import chairPicture from "/img/png/Andi-Jones-Leaning-Back-In-Chair.png";
-import logoLight from "/img/png/Andi-Jones-Logo.png";
-import signSVG from "/img/svg/signs-post-solid.svg";
-import bullhornSVG from "/img/svg/bullhorn-solid.svg";
-import receiptSVG from "/img/svg/receipt-solid.svg";
-import legacySVG from "/img/svg/clock-rotate-left-solid.svg";
-import trophySVG from "/img/svg/trophy-solid.svg";
+import profilePicture from "../assets/images/Andi-Jones-Profile-Picture-1310x1832px.png";
+import taglinePicture from "../assets/images/How-Could-Andi-Jones-Do-This-2190x1168px.png";
+import courtHousePicture from "../assets/images/Court-House.jpg";
+import parksAndRecPicture from "../assets/images/Parks-and-Rec-Department.jpg";
+import policeDeptPicture from "../assets/images/Police-Department.jpg";
+import signaturePicture from "../assets/images/Andi-Jones-signature.png";
+import chibiPicture from "../assets/images/Andi-Jones-Chibi-Square.png";
+import chairPicture from "../assets/images/Andi-Jones-Leaning-Back-In-Chair.png";
+import logoLight from "../assets/images/Andi-Jones-Logo.png";
 ---
 
 <Landing
@@ -21,25 +17,25 @@ import trophySVG from "/img/svg/trophy-solid.svg";
   description="The Three-Time Back-To-Back Mayoral Champion"
   className="font-display"
 >
-  <header class="bg-[#00ccff] border-[#00ccff] border-b-8">
+  <header class="border-b-8 border-[#00ccff] bg-[#00ccff]">
     <div
-      class="flex flex-col-reverse md:flex-row justify-between md:items-center w-11/12 mx-auto pt-4"
+      class="mx-auto flex w-11/12 flex-col-reverse justify-between pt-4 md:flex-row md:items-center"
     >
       <div class="relative z-[1]">
-        <img
+        <Image
           src={profilePicture}
           alt="Andi Jones For Mayor of Los Santos 2023"
         />
       </div>
       <div class="mt-4 md:-ml-28 md:mt-0">
-        <img
+        <Image
           src={taglinePicture}
           alt="How could Andi Jones do this? Let me tell you how!"
         />
       </div>
     </div>
-    <div class="bg-[#151e42] text-white flex justify-center items-center py-4">
-      <ul class="flex flex-col md:flex-row gap-6 uppercase font-bold text-lg">
+    <div class="flex items-center justify-center bg-[#151e42] py-4 text-white">
+      <ul class="flex flex-col gap-6 text-lg font-bold uppercase md:flex-row">
         <li><a href="#my-plans" class="hover:underline">My Plans</a></li>
         <li><a href="#platform" class="hover:underline">Platform</a></li>
         <li>
@@ -52,20 +48,26 @@ import trophySVG from "/img/svg/trophy-solid.svg";
       </ul>
     </div>
   </header>
-  <main id="top" class="max-w-4xl mx-auto px-4">
+  <main id="top" class="mx-auto max-w-4xl px-4">
     <section id="my-plans" class="py-6">
-      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
         <i
-          style=`background-image: url(${signSVG})`
-          class="mr-4 mt-1 w-6 md:w-10 inline-block aspect-square bg-contain bg-no-repeat"
-        ></i>My Plans
+          class="mr-4 mt-1 inline-block aspect-square w-6 bg-contain bg-no-repeat md:w-10"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+            ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="#172554"
+              d="M224 32H64C46.3 32 32 46.3 32 64v64c0 17.7 14.3 32 32 32H441.4c4.2 0 8.3-1.7 11.3-4.7l48-48c6.2-6.2 6.2-16.4 0-22.6l-48-48c-3-3-7.1-4.7-11.3-4.7H288c0-17.7-14.3-32-32-32s-32 14.3-32 32zM480 256c0-17.7-14.3-32-32-32H288V192H224v32H70.6c-4.2 0-8.3 1.7-11.3 4.7l-48 48c-6.2 6.2-6.2 16.4 0 22.6l48 48c3 3 7.1 4.7 11.3 4.7H448c17.7 0 32-14.3 32-32V256zM288 480V384H224v96c0 17.7 14.3 32 32 32s32-14.3 32-32z"
+            ></path></svg
+          ></i
+        >My Plans
       </h2>
-      <img
+      <Image
         src={parksAndRecPicture}
         alt="Court House"
         class="mb-6 rounded shadow-lg"
       />
-      <h3 class="text-4xl font-bold leading-[0.78] my-6">
+      <h3 class="my-6 text-4xl font-bold leading-[0.78]">
         Revive the Parks and Rec Department
       </h3>
       <p class="mb-6">
@@ -73,12 +75,12 @@ import trophySVG from "/img/svg/trophy-solid.svg";
         citizens).
       </p>
       <div class="my-20">&nbsp;</div>
-      <img
+      <Image
         src={courtHousePicture}
         alt="Court House"
         class="mb-6 rounded shadow-lg"
       />
-      <h3 class="text-4xl font-bold leading-[0.78] my-6">
+      <h3 class="my-6 text-4xl font-bold leading-[0.78]">
         Implement Several New Governmental Departments
       </h3>
       <p class="mb-6">
@@ -98,18 +100,18 @@ import trophySVG from "/img/svg/trophy-solid.svg";
         finished by the time I (hopefully) take office.
       </p>
       <h4
-        class="text-3xl max-w-3xl text-center font-bold leading-[0.78] my-6 mx-auto border-t border-b border-blue-950 py-8"
+        class="mx-auto my-6 max-w-3xl border-b border-t border-blue-950 py-8 text-center text-3xl font-bold leading-[0.78]"
       >
         Weekly town hall meetings to keep up-to-date with the concerns of
         citizens.
       </h4>
       <div class="my-20">&nbsp;</div>
-      <img
+      <Image
         src={policeDeptPicture}
         alt="Court House"
         class="mb-6 rounded shadow-lg"
       />
-      <h3 class="text-4xl font-bold leading-[0.78] my-6">
+      <h3 class="my-6 text-4xl font-bold leading-[0.78]">
         Meet Consistently With All Governmental Positions
       </h3>
       <p class="mb-6">
@@ -134,43 +136,48 @@ import trophySVG from "/img/svg/trophy-solid.svg";
       </p>
     </section>
     <section id="platform" class="py-6">
-      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
         <i
-          style=`background-image: url(${bullhornSVG})`
-          class="mr-4 mt-1 w-6 md:w-10 inline-block aspect-square bg-contain bg-no-repeat"
-        ></i>Platform
+          class="mr-4 mt-1 inline-block aspect-square w-6 bg-contain bg-no-repeat md:w-10"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+            ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="#172554"
+              d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"
+            ></path></svg
+          ></i
+        >Platform
       </h2>
-      <img
+      <Image
         src={chairPicture}
         alt="Andi Jones Leaning Back In Chair"
-        class="w-1/2 float-right ml-6 mb-6"
+        class="float-right mb-6 ml-6 w-1/2"
       />
       <p class="mb-6">
-        First and foremost, <strong>civilians</strong> would be my focus for
-        this term, and have been my focus for the past few months. I want to run
-        not only more of my own events that are civilian friendly and open to
-        everyone, but also support those who have ideas of their own and help
-        however I can to make their ideas a reality through the revival of the
-        <strong>Parks & Recreation</strong> department. I would like to
-        implement several government departments specifically designed for
-        interesting <strong>new jobs</strong> for civilians, including creative
-        positions in the <strong>Department of Public Health</strong>,
-        introducing <strong>The Postal Service</strong>, and much more.
+        First and foremost, <strong>civilians</strong> would be my focus for this
+        term, and have been my focus for the past few months. I want to run not only
+        more of my own events that are civilian friendly and open to everyone, but
+        also support those who have ideas of their own and help however I can to
+        make their ideas a reality through the revival of the
+        <strong>Parks & Recreation</strong> department. I would like to implement
+        several government departments specifically designed for interesting <strong
+          >new jobs</strong
+        > for civilians, including creative positions in the <strong
+          >Department of Public Health</strong
+        >, introducing <strong>The Postal Service</strong>, and much more.
       </p>
       <p class="mb-6">
         Within the Mayor’s office itself, I aim to make some changes that will
         encourage <strong>interaction</strong> and <strong
           >relationship-building</strong
-        > between myself, my team, and the entities and individuals that seek
-        out our assistance. I want to meet with the people that need me, and be
-        actively in the loop as to what we can do to help, not simply rely on
-        digital interaction via automated forms. In addition, I will be holding
-        a weekly town hall to hear from the citizens, as well as, at a different
-        time, hold an open floor for businesses or events that are seeking
-        funding to present their ideas in front of a panel who are ready and
-        willing to help those that they feel could bring something <strong
-          >unique and wonderful</strong
-        > to the city.
+        > between myself, my team, and the entities and individuals that seek out
+        our assistance. I want to meet with the people that need me, and be actively
+        in the loop as to what we can do to help, not simply rely on digital interaction
+        via automated forms. In addition, I will be holding a weekly town hall to
+        hear from the citizens, as well as, at a different time, hold an open floor
+        for businesses or events that are seeking funding to present their ideas
+        in front of a panel who are ready and willing to help those that they feel
+        could bring something <strong>unique and wonderful</strong> to the city.
       </p>
       <p class="mb-6">
         When it comes to governmental entities, I have always loved checking in
@@ -184,10 +191,10 @@ import trophySVG from "/img/svg/trophy-solid.svg";
       <p class="mb-6">
         Above all else, I know I can promise <strong>
           efficiency, organization, and hard work
-        </strong> in my term. I hold myself to a higher standard than what’s
-        probably realistic, but I love to help people, and I will always do
-        everything in my power to perform quick, efficient, and detailed work in
-        my efforts to make this city <strong>a better place to live</strong>.
+        </strong> in my term. I hold myself to a higher standard than what’s probably
+        realistic, but I love to help people, and I will always do everything in
+        my power to perform quick, efficient, and detailed work in my efforts to
+        make this city <strong>a better place to live</strong>.
       </p>
       <p class="mb-6">
         This platform will be subject to additions as the campaign moves forward
@@ -199,22 +206,28 @@ import trophySVG from "/img/svg/trophy-solid.svg";
       </p>
     </section>
     <section id="qualifications" class="py-6">
-      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
         <i
-          style=`background-image: url(${receiptSVG})`
-          class="mr-4 mt-1 w-6 md:w-10 text-blue-950 inline-block aspect-square bg-contain bg-no-repeat"
-        ></i>Qualifications
+          class="mr-4 mt-1 inline-block aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:w-10"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+            ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="#172554"
+              d="M14 2.2C22.5-1.7 32.5-.3 39.6 5.8L80 40.4 120.4 5.8c9-7.7 22.3-7.7 31.2 0L192 40.4 232.4 5.8c9-7.7 22.3-7.7 31.2 0L304 40.4 344.4 5.8c7.1-6.1 17.1-7.5 25.6-3.6s14 12.4 14 21.8V488c0 9.4-5.5 17.9-14 21.8s-18.5 2.5-25.6-3.6L304 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L192 471.6l-40.4 34.6c-9 7.7-22.3 7.7-31.2 0L80 471.6 39.6 506.2c-7.1 6.1-17.1 7.5-25.6 3.6S0 497.4 0 488V24C0 14.6 5.5 6.1 14 2.2zM96 144c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96zM80 352c0 8.8 7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96c-8.8 0-16 7.2-16 16zM96 240c-8.8 0-16 7.2-16 16s7.2 16 16 16H288c8.8 0 16-7.2 16-16s-7.2-16-16-16H96z"
+            ></path></svg
+          ></i
+        >Qualifications
       </h2>
-      <ul class="list-disc ml-1 md:ml-6 list-inside">
+      <ul class="ml-1 list-inside list-disc md:ml-6">
         <li class="mb-2">
           <strong>First</strong> Mayor of Los Santos, serving <strong>
             two consecutive terms</strong
           >.
         </li>
         <li class="mb-2">
-          <strong>Built the Mayor’s office</strong> from the ground up, turning
-          it into a workable station to benefit not only the Mayors that came
-          after me, but to <strong>benefit all citizens.</strong>.
+          <strong>Built the Mayor’s office</strong> from the ground up, turning it
+          into a workable station to benefit not only the Mayors that came after
+          me, but to <strong>benefit all citizens.</strong>.
         </li>
         <li class="mb-2">
           Knowledge of how the State Account operates, including incoming and
@@ -254,19 +267,24 @@ import trophySVG from "/img/svg/trophy-solid.svg";
         <li class="mb-2">
           Excel greatly in fundraising and brainstorming to raise money for
           businesses or events that may need it (including raising over
-          <strong>$17,000,000</strong> during a one hour event for the Liquid
-          Library).
+          <strong>$17,000,000</strong> during a one hour event for the Liquid Library).
         </li>
       </ul>
     </section>
     <section id="legacy" class="py-6">
-      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
         <i
-          style=`background-image: url(${legacySVG})`
-          class="mr-4 mt-1 w-6 md:w-10 text-blue-950 inline-block aspect-square bg-contain bg-no-repeat"
-        ></i>Legacy
+          class="mr-4 mt-1 inline-block aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:w-10"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+            ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="#172554"
+              d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"
+            ></path></svg
+          ></i
+        >Legacy
       </h2>
-      <ul class="list-disc ml-1 md:ml-6 list-inside">
+      <ul class="ml-1 list-inside list-disc md:ml-6">
         <li class="mb-2">
           Helped to create the Andi Jones Farmer’s Market and Dean World.
         </li>
@@ -318,13 +336,19 @@ import trophySVG from "/img/svg/trophy-solid.svg";
       </ul>
     </section>
     <section id="accomplishments" class="py-6">
-      <h2 class="text-3xl md:text-6xl font-bold uppercase leading-[0.78] my-6">
+      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
         <i
-          style=`background-image: url(${trophySVG})`
-          class="hidden mr-4 mt-1 w-6 md:w-10 text-blue-950 md:inline-block aspect-square bg-contain bg-no-repeat"
-        ></i>Accomplishments
+          class="mr-4 mt-1 hidden aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:inline-block md:w-10"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+            ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="#172554"
+              d="M400 0H176c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8H24C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9H192c-17.7 0-32 14.3-32 32s14.3 32 32 32H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H357.9C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24H446.4c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112h84.4c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6h84.4c-5.1 66.3-31.1 111.2-63 142.3z"
+            ></path></svg
+          ></i
+        >Accomplishments
       </h2>
-      <ul class="list-disc list-inside ml-1 md:ml-6">
+      <ul class="ml-1 list-inside list-disc md:ml-6">
         <li class="mb-2">
           I have read hundreds more business proposals since leaving office in
           my capacity as an employee of San Andreas State Construction.
@@ -343,7 +367,7 @@ import trophySVG from "/img/svg/trophy-solid.svg";
         <li class="mb-2">
           I have put on multiple very successful events for the city, all
           civilian oriented:
-          <ul class="ml-3 md:ml-6 list-inside" style="list-style-type:circle;">
+          <ul class="ml-3 list-inside md:ml-6" style="list-style-type:circle;">
             <li class="mb-2">
               Park Tank (an event designed to bring potential storefront owners
               to pitch their businesses to the HOA to help make Mirror Park a
@@ -384,20 +408,20 @@ import trophySVG from "/img/svg/trophy-solid.svg";
   </main>
   <footer class="mt-20">
     <section
-      class="flex justify-center py-10 bg-[#00ccff] border-t-8 border-[#151e42]"
+      class="flex justify-center border-t-8 border-[#151e42] bg-[#00ccff] py-10"
     >
       <div class="max-w-[350px]">
-        <img
+        <Image
           src={chibiPicture}
           alt="Andi Jones Chibi Square"
           class="mx-auto px-6"
         />
         <ul
-          class="font-mono border border-black rounded-md p-4 text-left bg-white drop-shadow-2xl"
+          class="rounded-md border border-black bg-white p-4 text-left font-mono drop-shadow-2xl"
         >
           <li class="text-center">
             <span class="text-xs">Offical Signature</span>
-            <img
+            <Image
               src={signaturePicture}
               alt="Andi Jones Signature"
               class="mx-auto"
@@ -411,14 +435,14 @@ import trophySVG from "/img/svg/trophy-solid.svg";
       </div>
     </section>
     <section
-      class="flex items-center flex-col bg-blue-950 py-24 px-3 border-t-8 border-white"
+      class="flex flex-col items-center border-t-8 border-white bg-blue-950 px-3 py-24"
     >
-      <img
+      <Image
         src={logoLight}
         alt="Andi Jones for Mayor Logo"
-        class="max-w-lg mb-6 w-full"
+        class="mb-6 w-full max-w-lg"
       />
-      <ul class="flex flex-col md:flex-row gap-6 text-lg text-white">
+      <ul class="flex flex-col gap-6 text-lg text-white md:flex-row">
         <li><a href="#my-plans" class="hover:underline">My Plans</a></li>
         <li><a href="#platform" class="hover:underline">Platform</a></li>
         <li>
@@ -429,7 +453,7 @@ import trophySVG from "/img/svg/trophy-solid.svg";
           <a href="#accomplishments" class="hover:underline">Accomplishments</a>
         </li>
       </ul>
-      <div class="font-bold text-center text-white mt-6">
+      <div class="mt-6 text-center font-bold text-white">
         Funded by The Andi Jones For Mayor Political Action Comimittee &copy;
         2023.
       </div>
