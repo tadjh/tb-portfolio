@@ -59,7 +59,7 @@ export default function Navigation() {
             })}
           </ul>
         </div>
-        <hr className="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90" />
+        <hr className="w-1/5 border-white/90 transition-transform group-hover:scale-x-150" />
         <Socials />
         <Copyright />
       </div>
@@ -68,7 +68,7 @@ export default function Navigation() {
         icon={isOpen ? faXmark : faBars}
         onClick={toggleOpen}
         className={twMerge(
-          "relative z-50 h-6 w-6 cursor-pointer transition active:-rotate-90 md:h-8 md:w-8",
+          "relative z-50 h-6 w-6 cursor-pointer transition hover:scale-110 active:-rotate-90 md:h-8 md:w-8",
           isOpen ? "scale-125 text-white/90" : "hover:text-orange-tadjh",
         )}
       />

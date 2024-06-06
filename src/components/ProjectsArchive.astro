@@ -1,0 +1,121 @@
+---
+import { twMerge } from "tailwind-merge";
+import { getCollection } from "astro:content";
+import Card from "./Card";
+import CustomLink from "./CustomLink";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Image } from "astro:assets";
+
+const projects = (await getCollection("projects")).sort((a, b) => {
+  if (a.data.sortOrder || b.data.sortOrder) {
+    return (
+      (a.data.sortOrder?.valueOf() || 0) - (b.data.sortOrder?.valueOf() || 0)
+    );
+  }
+
+  return a.data.publishDate.valueOf() - b.data.publishDate.valueOf();
+});
+
+const isOdd = projects.length % 2 === 1;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
+);
+
+// "object-cover opacity-20 transition group-hover:scale-110 group-hover:opacity-50 group-hover:blur"
+
+//           <div class="z-10 flex h-24 w-full items-center justify-center">
+// <hr class="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90" />
+// </div>
+---
+
+<section
+  class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:-mx-[2vw] xl:-mx-[10%]"
+>
+  {
+    projects.map((project, index) => (
+      <Card
+        className={twMerge("project", index === 0 && isOdd && "md:col-span-2")}
+        style={{ background: project.data.background }}
+      >
+        <div class="relative flex h-52 w-full items-center justify-center overflow-hidden">
+          {project.data.heroImage && (
+            <Image
+              src={images[project.data.heroImage]()}
+              alt={project.data.title}
+              class="absolute top-0 object-cover opacity-80"
+            />
+          )}
+          {project.data.icon ? (
+            <div
+              class={twMerge(
+                "z-10 h-16 w-16 md:h-24 md:w-24",
+                project.data.iconClass,
+              )}
+            >
+              {project.data.icon && (
+                <Image
+                  src={images[project.data.icon]()}
+                  alt={`${project.data.title} Icon`}
+                  class={twMerge(
+                    "rounded-full drop-shadow-2xl",
+                    project.data.iconClass,
+                  )}
+                />
+              )}
+            </div>
+          ) : null}
+        </div>
+        <div
+          class={twMerge(
+            "flex flex-col items-center justify-center gap-y-3 px-5 py-8 md:gap-y-8 md:px-10 md:py-16",
+            project.data.containerClass,
+          )}
+        >
+          <h3 class="z-10 text-xl font-bold transition-transform group-hover:-translate-y-1.5 md:text-4xl">
+            {project.data.title}
+          </h3>
+          <p class="z-10 transition-transform group-hover:translate-y-1.5">
+            {project.data.description}
+          </p>
+          <CustomLink
+            href={`/projects/${project.slug}/`}
+            className="text-xl transition-transform group-hover:-translate-y-0 group-hover:scale-110 dark:group-hover:text-blue-gulf"
+          >
+            Read More
+          </CustomLink>
+          {/* <div class="flex flex-row gap-x-4 transition-transform group-hover:translate-y-2">
+            {project.data.repository && (
+              <CustomLink
+                href={project.data.repository}
+                external
+                title="View the source code on Github"
+                aria-label="View the source code on Github"
+                className="transition-transform hover:scale-110"
+              >
+                <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
+              </CustomLink>
+            )}
+            {project.data.website && (
+              <CustomLink
+                href={project.data.website}
+                external
+                title="Visit this project's webpage"
+                aria-label="Visit this project's webpage"
+                className="group/visit"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-6 w-6 transition-transform group-hover/visit:scale-110 hover:scale-110"
+                />
+                Visit this project
+              </CustomLink>
+            )}
+          </div> */}
+        </div>
+      </Card>
+    ))
+  }
+</section>

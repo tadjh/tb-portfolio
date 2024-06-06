@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE_TITLE } from "../../config/constants";
+import ProjectsArchive from "../../components/ProjectsArchive.astro";
+---
+
+<Layout
+  title={`Projects | ${SITE_TITLE}`}
+  description="A selection of projects I'm most proud of."
+  minimal
+  ><section>
+    <h1>Projects</h1>
+    <ProjectsArchive />
+  </section>
+</Layout>

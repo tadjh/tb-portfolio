@@ -1,22 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config/constants";
-import Footer from "../components/Footer.astro";
-import Main from "../components/Main";
-import Page from "../components/Page";
-import ProjectsArchive from "../components/ProjectsArchive";
+import ProjectsArchive from "../components/ProjectsArchive.astro";
 ---
 
-<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <Page>
-    <Header level="h1" />
-    <Main>
-      <h2 class="h1">
-        <a href="/projects">Projects</a>
-      </h2>
-      <ProjectsArchive />
-    </Main>
-    <Footer />
-  </Page>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION} level="h1">
+  <section>
+    <h2 class="h1">
+      <a href="/projects">Projects</a>
+    </h2>
+    <ProjectsArchive />
+  </section>
 </Layout>

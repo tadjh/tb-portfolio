@@ -1,0 +1,45 @@
+---
+title: "Bingo Multiplayer App"
+description: "Mobile multiplayer bingo game built on web sockets featuring private rooms, invitations and single-player mode."
+publishDate: "Jun 05 2024"
+sortOrder: 2
+heroImage: "/src/assets/images/bingo-featured.webp"
+categories:
+  - "Full-Stack"
+  - "Multiplayer Game"
+tags:
+  - "React"
+  - "Typescript"
+  - "Socket.io"
+  - "TailwindCSS"
+  - "Cypress"
+  - "Storybook"
+hype:
+  - "270 hours"
+  - "11295 lines of codes"
+repository: "https://github.com/tadjh/np-bingo"
+website: "https://np-bingo-client.herokuapp.com/play/solo"
+icon: "/src/assets/images/bingo-ball.png"
+iconClass: "animate-bounce"
+background: "rgb(38 38 38)"
+containerClass: "!text-white/90 "
+---
+
+Mobile multiplayer bingo game built on web sockets featuring private rooms, invitations and single-player mode.
+
+import Hype from "../../components/Hype";
+import { faClock, faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
+
+<Hype
+  items={[
+    { icon: faClock, value: 628, label: "hours" },
+    { icon: faBarsStaggered, value: 10735, label: "lines" },
+  ]}
+  client:visible
+/>
+
+- Leveraged Socket.io to create an event-driven multiplayer room-based bingo game. Also available in singleplayer.
+- Server and client are coded in React/Typescript, architected in a yarn monorepo and deployed to Heroku.
+- The themeable React components were designed with TailwindCSS and tested in Storybook.
+- Multiplayer end-to-end tests were implemented in Cypress and thoroughly tested with Jest unit &#38; intergration tests.
+- Sound effects and music recorded and edited in Ableton Live.

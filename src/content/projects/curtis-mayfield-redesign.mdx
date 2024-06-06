@@ -1,0 +1,56 @@
+---
+title: "Curtis Mayfield Redesign"
+description: "Website redesign for legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield."
+publishDate: "Jun 05 2024"
+sortOrder: 1
+heroImage: "/src/assets/images/Curtis-Mayfield-Home-1024x576.jpg"
+categories:
+  - "Full-Stack"
+  - "Portfolio"
+  - "Graphic Design"
+tags:
+  - "Next.js"
+  - "React"
+  - "Typescript"
+  - "Sanity CMS"
+  - "GROQ"
+  - "Illustrator"
+  - "After Effects"
+repository: "https://github.com/tadjh/curtis-mayfield"
+website: "https://curtis-mayfield-git-development-tadjh.vercel.app/"
+icon: "/src/assets/images/Curtis-Mayfield-Logo-Animation-150x150.gif"
+iconClass: "rounded-full"
+background: "#201c15"
+containerClass: "!text-white/90 "
+---
+
+A Website redesign for legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield.
+
+import Hype from "../../components/Hype";
+import { faClock, faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
+
+<Hype
+  items={[
+    { icon: faClock, value: 270, label: "hours" },
+    { icon: faBarsStaggered, value: 11295, label: "lines" },
+  ]}
+  client:visible
+/>
+
+- Redesigned entire website portfolio from the ground up with NextJS.
+- Utilized React Server Components to query the content api and cache the resulting pages, with client-side re-hydration for interactive pages.
+- Leveraged GROQ, a GraphQL-like query language, to request page content from a heavily modified content management system.
+- Extended Sanity CMS to manage & create many documents, objects and media types within the customized CMS.
+- Designed and created a JSON-based page loading animation using LottieJS inside of Adobe After Effects.
+
+![Band members timeline chart](/src/assets/images/Curtis-Mayfield-Band-Timeline-1024x576.jpg)
+_A responsive chart component detailing the band members' time with the band._
+
+<video autoPlay muted loop>
+  <source
+    src="/src/assets/videos/Curtis-Mayfield-Home-Animations-720p.mp4"
+    type="video/mp4"
+  />
+</video>
+_Smooth 60 fps animations made with GPU accelerated CSS and highly performant
+Javascript._

@@ -1,17 +1,27 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import type { SiteTitleProps } from "../components/SiteTitle";
 
-const { title, description } = Astro.props;
+export interface Props extends SiteTitleProps {
+  title: string;
+  description: string;
+  minimal?: boolean;
+}
+
+const { title, description, minimal } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-  </head>
-  <body class="text-black/90 dark:bg-neutral-900 dark:text-white/90">
-    <slot />
     <style is:global>
+      html {
+        height: 100%;
+      }
+
       h1,
       h2,
       h3,
@@ -23,7 +33,7 @@ const { title, description } = Astro.props;
 
       h1,
       .h1 {
-        @apply text-4xl font-bold uppercase leading-[0.78] md:text-5xl lg:text-6xl xl:text-7xl;
+        @apply text-4xl font-bold uppercase leading-[0.78] md:text-5xl lg:text-6xl;
       }
 
       p,
@@ -31,49 +41,35 @@ const { title, description } = Astro.props;
         @apply text-base md:text-lg lg:text-xl;
       }
 
+      .markdown ul {
+        @apply list-disc;
+      }
+
+      .markdown img,
+      .markdown video {
+        @apply rounded-lg lg:-mx-12 lg:max-w-screen-md xl:-mx-48 xl:max-w-screen-lg;
+      }
+
+      section {
+        @apply flex flex-col gap-y-4 md:gap-y-8;
+      }
+
       .flip-container:hover .flip-inner,
       .flip-container.active .flip-inner {
         transform: rotateY(-180deg);
       }
-
-      .bingo {
-        background-image: url("../assets/images/bingo-ball.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        animation-name: bingo-reverse;
-        animation-duration: 0.5s;
-      }
-
-      .project:hover .bingo {
-        animation-name: bingo;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-fill-mode: forwards;
-      }
-
-      @keyframes bingo {
-        0%,
-        100% {
-          transform: none;
-          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-        }
-        50% {
-          transform: translateY(-25%);
-          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-        }
-      }
-
-      @keyframes bingo-reverse {
-        from {
-          transform: translateY(-25%);
-          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-        }
-        to {
-          transform: none;
-          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-        }
-      }
     </style>
+  </head>
+  <body
+    class="m-0 flex min-h-full flex-col items-center gap-y-8 p-0 text-black/90 dark:bg-neutral-900 dark:text-white/90"
+  >
+    <Header />
+    <main
+      class="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-y-4 p-4 md:gap-y-8 md:p-8"
+    >
+      <slot />
+    </main>
+    <Footer minimal={minimal} />
     <script is:inline>
       const theme = (() => {
         if (

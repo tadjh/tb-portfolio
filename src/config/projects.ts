@@ -29,7 +29,7 @@ export const projects: Project[] = [
     repository: "https://github.com/tadjh/curtis-mayfield",
     link: "https://curtis-mayfield-git-development-tadjh.vercel.app/",
     image: "Curtis-Mayfield-Logo-Animation-150x150.gif",
-    color: "#201c15",
+    background: "#201c15",
     className: "!text-white/90",
   },
   {
