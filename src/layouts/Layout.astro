@@ -47,6 +47,12 @@ const { title, description, minimal } = Astro.props;
       .flip-container.active .flip-inner {
         transform: rotateY(-180deg);
       }
+
+      @media (max-width: 767px) {
+        .no-bg {
+          background: transparent !important;
+        }
+      }
     </style>
   </head>
   <body
