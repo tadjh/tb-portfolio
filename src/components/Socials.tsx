@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { composeKey } from "../utils";
-import CustomLink from "./CustomLink";
 import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { twMerge } from "tailwind-merge";

@@ -3,7 +3,6 @@ import {
   type ForwardRefComponent,
   type HTMLMotionProps,
 } from "framer-motion";
-import { composeKey } from "../utils";
 
 interface StaggerProps<T>
   extends ForwardRefComponent<HTMLDivElement, HTMLMotionProps<"div">> {

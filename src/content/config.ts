@@ -5,7 +5,7 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    publishDate: z.coerce.date(),
+    pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     sortOrder: z.number().optional(),
     heroImage: z.string().optional(),

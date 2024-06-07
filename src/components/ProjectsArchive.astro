@@ -1,12 +1,8 @@
 ---
 import { twMerge } from "tailwind-merge";
 import { getCollection } from "astro:content";
-import Card from "./Card";
 import CustomLink from "./CustomLink";
 import { Image } from "astro:assets";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TagList from "./TagList";
 
 const projects = (
@@ -20,10 +16,10 @@ const projects = (
     );
   }
 
-  return a.data.publishDate.valueOf() - b.data.publishDate.valueOf();
+  return a.data.pubDate.valueOf() - b.data.pubDate.valueOf();
 });
 
-const isOdd = projects.length % 2 === 1;
+// const isOdd = projects.length % 2 === 1;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
@@ -32,10 +28,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 <div class="flex flex-col gap-32">
   {
-    projects.map((project, index) => (
+    projects.map((project) => (
       <>
         <div class="flex flex-col gap-y-8 md:gap-y-16">
-          <div class="flex flex-col gap-y-3 rounded-lg md:gap-0 md:shadow-2xl">
+          <div class="flex flex-col gap-y-3 rounded-lg md:gap-0">
             <div class="relative">
               {project.data.heroImage && (
                 <Image

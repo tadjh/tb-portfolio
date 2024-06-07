@@ -101,16 +101,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         >
           {
             project.data.updatedDate ? (
-              <span
-                title={`Originally published on ${project.data.publishDate}`}
-              >
+              <span title={`Originally published on ${project.data.pubDate}`}>
                 Updated on
                 <FormattedDate date={project.data.updatedDate} />
               </span>
             ) : (
-              <span title={`Published on ${project.data.publishDate}`}>
+              <span title={`Published on ${project.data.pubDate}`}>
                 Published on
-                <FormattedDate date={project.data.publishDate} />
+                <FormattedDate date={project.data.pubDate} />
               </span>
             )
           }

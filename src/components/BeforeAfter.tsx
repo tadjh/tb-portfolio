@@ -1,19 +1,13 @@
 import { faLeftRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 interface BeforeAfterProps extends React.HTMLAttributes<HTMLDivElement> {
   before: string;
   after: string;
 }
 
-let firstLoad = true;
-
-export default function BeforeAfter({
-  before,
-  after,
-  ...props
-}: BeforeAfterProps) {
+export default function BeforeAfter({ before, after }: BeforeAfterProps) {
   const container = useRef<HTMLInputElement | null>(null);
   const trigger = useRef<HTMLInputElement | null>(null);
   const [range, setRange] = useState(50);
