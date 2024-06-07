@@ -1,16 +1,8 @@
 import { useEffect, useRef } from "react";
-import Navigation from "./Navigation";
-import SiteTitle, { type SiteTitleProps } from "./SiteTitle";
-
-type AnimatedHeaderProps = {
-  "client:load": boolean;
-} & React.HTMLAttributes<HTMLDivElement> &
-  SiteTitleProps;
 
 export default function AnimatedHeader({
   children,
-  level,
-}: AnimatedHeaderProps) {
+}: React.HTMLAttributes<HTMLDivElement>) {
   const headerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -35,15 +27,11 @@ export default function AnimatedHeader({
   });
 
   return (
-    <>
-      <div
-        ref={headerRef}
-        className="flip-container flex flex-row gap-x-2 md:gap-x-4 lg:gap-x-5"
-      >
-        {children}
-        <SiteTitle level={level} />
-      </div>
-      <Navigation />
-    </>
+    <div
+      ref={headerRef}
+      className="flip-container flex flex-row gap-x-2 md:gap-x-4 lg:gap-x-5"
+    >
+      {children}
+    </div>
   );
 }

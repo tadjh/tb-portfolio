@@ -1,12 +1,18 @@
 ---
 import AnimatedHeader from "./AnimatedHeader";
 import AnimatedLogo from "./AnimatedLogo.astro";
+import Navigation from "./Navigation";
+import SiteTitle from "./SiteTitle";
 
 const { level } = Astro.props;
 ---
 
 <header
-  class="flex w-full flex-row justify-center gap-x-2 bg-gradient-to-t from-transparent to-neutral-100 p-4 dark:to-neutral-800/50 md:gap-x-6 md:p-8"
+  class="not-prose flex w-full flex-row justify-center gap-x-2 bg-gradient-to-t from-transparent to-neutral-100 p-4 dark:to-neutral-800/50 md:gap-x-6 md:p-8"
 >
-  <AnimatedHeader client:load level={level}><AnimatedLogo /></AnimatedHeader>
+  <AnimatedHeader client:load
+    ><AnimatedLogo />
+    <SiteTitle level={level} />
+  </AnimatedHeader>
+  <Navigation client:load />
 </header>

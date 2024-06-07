@@ -9,7 +9,7 @@ interface SocialLink {
   url: string;
   icon: IconDefinition;
   title: string;
-  className: string;
+  className?: string;
 }
 
 const socials: SocialLink[] = [
@@ -17,13 +17,13 @@ const socials: SocialLink[] = [
     url: "https://github.com/tadjh",
     icon: faGithub,
     title: "Tadjh on Github",
-    className: "hover:text-neutral-800 active:text-neutral-800",
+    // className: "hover:text-neutral-800 active:text-neutral-800",
   },
   {
     url: "https://twitter.com/tadjh_",
     icon: faXTwitter,
     title: "Tadjh on X (Twitter)",
-    className: "hover:text-neutral-100 active:text-neutral-100",
+    // className: "hover:text-neutral-100 active:text-neutral-100",
   },
 ];
 

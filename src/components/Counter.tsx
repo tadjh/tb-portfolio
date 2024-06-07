@@ -1,47 +1,45 @@
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
+import React from "react";
 import { useEffect, useRef } from "react";
 
 interface CounterProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number;
   delay: number;
+  duration?: number;
 }
 
-const duration = 3000;
+export default function Counter({ value, delay, duration = 2 }: CounterProps) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
 
-function padString(str: string, length: number): string {
-  let nextStr = str;
-
-  for (let i = 0; i < length - str.length; i++) {
-    nextStr = "\u00A0" + nextStr;
-  }
-
-  return nextStr;
-}
-
-export default function Counter({ value, delay }: CounterProps) {
-  const counterRef = useRef<HTMLSpanElement | null>(null);
-
-  const valueStr = String(value);
+  // useLayoutEffect is throwing hydration errors, using useEffect instead
+  // useLayoutEffect(() => {});
 
   useEffect(() => {
-    function step(timeStamp: number) {
-      if (timeStamp > duration + delay) {
-        return (counterRef.current!.textContent = valueStr);
-      }
-
-      counterRef.current!.textContent = padString(
-        String(((timeStamp * value) / (duration + delay)) | 0),
-        valueStr.length,
-      );
-
-      requestAnimationFrame(step);
+    if (ref.current) {
+      const { width } = ref.current.getBoundingClientRect();
+      ref.current.style.width = `${(width / (ref.current.textContent?.length || 1)) * (Math.log10(value) + 1)}px`;
     }
 
-    requestAnimationFrame(step);
+    animate(count, value, { duration: duration + delay });
+
+    return () => {
+      if (ref.current) {
+        ref.current.style.width = "";
+      }
+    };
   });
 
   return (
-    <span ref={counterRef} className="font-mono">
-      {padString("0", valueStr.length)}
-    </span>
+    <motion.span
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="text-right font-mono"
+      ref={ref}
+    >
+      {rounded}
+    </motion.span>
   );
 }

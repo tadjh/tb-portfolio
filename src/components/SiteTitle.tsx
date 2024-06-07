@@ -18,7 +18,7 @@ export default function SiteTitle({ level = "h2" }: SiteTitleProps) {
             <span key={composeKey("name", index)}>{name}</span>
           )),
       })}
-      <h3 className="font-display text-base font-light uppercase md:text-xl md:tracking-widest lg:text-2xl lg:tracking-[0.18rem] xl:text-3xl xl:tracking-[0.2rem]">
+      <h3 className="font-display text-base font-light uppercase text-[var(--tw-prose-headings)] md:text-xl md:tracking-widest lg:text-2xl lg:tracking-[0.18rem] xl:text-3xl xl:tracking-[0.2rem]">
         {config.jobTitle}
       </h3>
     </div>

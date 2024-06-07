@@ -31,7 +31,18 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<SVGSVGElement | null>(null);
 
+  function toggleScrollbar() {
+    if (document.body.style.overflow === "hidden") {
+      document.body.style.overflow = "initial";
+    } else {
+      setTimeout(() => {
+        document.body.style.overflow = "hidden";
+      }, 1000);
+    }
+  }
+
   function toggleOpen() {
+    toggleScrollbar();
     setIsOpen((prevState) => !prevState);
   }
 
@@ -39,7 +50,7 @@ export default function Navigation() {
     <nav>
       <div
         className={twMerge(
-          "group fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-orange-tadjh p-10 text-white/90 transition-transform duration-1000",
+          "group fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-orange-tadjh p-10 text-white transition-transform duration-1000",
           isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >

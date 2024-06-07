@@ -1,7 +1,8 @@
 ---
 title: "Curtis Mayfield Redesign"
 description: "Website redesign for legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield."
-publishDate: "Jun 05 2024"
+publishDate: "Jan 22 2024"
+status: "published"
 sortOrder: 1
 heroImage: "/src/assets/images/Curtis-Mayfield-Home-1024x576.jpg"
 categories:
@@ -19,38 +20,106 @@ tags:
 repository: "https://github.com/tadjh/curtis-mayfield"
 website: "https://curtis-mayfield-git-development-tadjh.vercel.app/"
 icon: "/src/assets/images/Curtis-Mayfield-Logo-Animation-150x150.gif"
-iconClass: "rounded-full"
+iconClass: "animate-grow"
 background: "#201c15"
-containerClass: "!text-white/90 "
+containerClass: "text-white"
 ---
 
-A Website redesign for legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield.
+# Curtis Mayfield Redesign
+
+A modren redesign for a legendary GRAMMY Award Winning R&B and Soul musician Curtis Mayfield.
 
 import Hype from "../../components/Hype";
-import { faClock, faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
+import {
+  faClock,
+  faBarsStaggered,
+  faCodeCommit,
+} from "@fortawesome/free-solid-svg-icons";
 
 <Hype
   items={[
     { icon: faClock, value: 270, label: "hours" },
     { icon: faBarsStaggered, value: 11295, label: "lines" },
+    { icon: faCodeCommit, value: 293, label: "commits" },
   ]}
   client:visible
 />
 
-- Redesigned entire website portfolio from the ground up with NextJS.
-- Utilized React Server Components to query the content api and cache the resulting pages, with client-side re-hydration for interactive pages.
-- Leveraged GROQ, a GraphQL-like query language, to request page content from a heavily modified content management system.
-- Extended Sanity CMS to manage & create many documents, objects and media types within the customized CMS.
-- Designed and created a JSON-based page loading animation using LottieJS inside of Adobe After Effects.
+## Highlights
 
-![Band members timeline chart](/src/assets/images/Curtis-Mayfield-Band-Timeline-1024x576.jpg)
-_A responsive chart component detailing the band members' time with the band._
+- Redesigned entire website portfolio from the ground up with <mark>Next.js</mark>.
+- Utilized <mark>React Server Components</mark> to query the content api and cache the resulting pages, with client-side re-hydration for interactive pages.
+- Leveraged <mark>GROQ</mark>, a GraphQL-like query language, to request page content from a heavily modified content management system.
+- Extended <mark>Sanity CMS</mark> to manage & create many documents, objects and media types within the customized CMS.
+- Designed and created a JSON-based page loading animation using <mark>LottieJS</mark> & <mark>Adobe After Effects</mark>.
 
-<video autoPlay muted loop>
-  <source
-    src="/src/assets/videos/Curtis-Mayfield-Home-Animations-720p.mp4"
-    type="video/mp4"
+## Goals
+
+One the of main goals with the redesign was bringing Curtis Mayfield mechandise to the forefront, instead of it being an afterthought. I designed an eye-popping carousel with <mark>Framer Motion</mark>. Each item in the carousel links externally to Curtis Mayfield's mechandise distributer Rhino.
+
+<figure>
+  <video autoPlay muted loop>
+    <source
+      src="/src/assets/videos/Curtis-Mayfield-Merch-Carousel-720p.mp4"
+      type="video/mp4"
+    />
+  </video>
+  {/* prettier-ignore */}
+  <figcaption>A responsive carousel built with accessibility in mind.</figcaption>
+</figure>
+
+## Constraints
+
+A major constraint of the re-design was keeping all of the current website content intact while presenting said content in new and interactive ways. The Albums page is stellar example of how a good design, not only can make pages load blazingly fast, but also make an entire website a joy to browse.
+
+import BeforeAfter from "../../components/BeforeAfter";
+
+<figure>
+  <BeforeAfter
+    before="/src/assets/images/Curtis-Mayfield-Music-Archive-Before-1024x576.jpg"
+    after="/src/assets/images/Curtis-Mayfield-Music-Archive-1024x576.jpg"
+    client:load
   />
-</video>
-_Smooth 60 fps animations made with GPU accelerated CSS and highly performant
-Javascript._
+  {/* prettier-ignore */}
+  <figcaption>The music archive page now features gorgeous images and better utilizes the screen real-estate across all devices.</figcaption>
+</figure>
+
+<figure>
+  <BeforeAfter
+    before="/src/assets/images/Curtis-Mayfield-Music-Single-Before-1024x576.jpg"
+    after="/src/assets/images/Curtis-Mayfield-Music-Single-1024x576.jpg"
+    client:load
+  />
+  {/* prettier-ignore */}
+  <figcaption>The album interior page went from dozens of iframes per page, to a single Spoitfy lazy-loaded embed, taking the page speed from dozens of seconds to a few milliseconds to load.</figcaption>
+</figure>
+
+## The Dream
+
+A long-time dream of the Curtis Mayfield Estate was having an interactive timeline of Curtis' life. Implementing this feature was one the stretch-goals for this project, but I found the time to create something we were all extremely proud of.
+
+<figure>
+  <video autoPlay muted loop>
+    <source
+      src="/src/assets/videos/Curtis-Mayfield-Animated-Timeline-720p.mp4"
+      type="video/mp4"
+    />
+  </video>
+  {/* prettier-ignore */}
+  <figcaption>A rich click-thru timeline of Curtis' life and legendary career.</figcaption>
+</figure>
+
+## Lessons
+
+This project really tested my abilities, from developing on the bleeding edge of <mark>Next.js</mark> during the launch of <mark>React Server Components</mark>, to content management schema design and optimization. Be it image optimization, animaton optimization, database query optimization or server caching optimization, this was a truly full-stack development project.
+
+<figure>
+  <video autoPlay muted loop>
+    <source
+      src="/src/assets/videos/Curtis-Mayfield-Home-Animations-720p.mp4"
+      type="video/mp4"
+    />
+  </video>
+  {/* prettier-ignore */}
+  <figcaption>Smooth 60 fps animations made with GPU accelerated CSS and highly performant Javascript.</figcaption>
+</figure>

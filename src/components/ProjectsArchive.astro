@@ -3,12 +3,17 @@ import { twMerge } from "tailwind-merge";
 import { getCollection } from "astro:content";
 import Card from "./Card";
 import CustomLink from "./CustomLink";
+import { Image } from "astro:assets";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Image } from "astro:assets";
+import TagList from "./TagList";
 
-const projects = (await getCollection("projects")).sort((a, b) => {
+const projects = (
+  await getCollection("projects", ({ data }) => {
+    return data.draft !== true;
+  })
+).sort((a, b) => {
   if (a.data.sortOrder || b.data.sortOrder) {
     return (
       (a.data.sortOrder?.valueOf() || 0) - (b.data.sortOrder?.valueOf() || 0)
@@ -23,35 +28,103 @@ const isOdd = projects.length % 2 === 1;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
 );
-
-// "object-cover opacity-20 transition group-hover:scale-110 group-hover:opacity-50 group-hover:blur"
-
-//           <div class="z-10 flex h-24 w-full items-center justify-center">
-// <hr class="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90" />
-// </div>
 ---
 
-<section
-  class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:-mx-[2vw] xl:-mx-[10%]"
->
+<div class="flex flex-col gap-32">
   {
     projects.map((project, index) => (
-      <Card
-        className={twMerge("project", index === 0 && isOdd && "md:col-span-2")}
+      <>
+        <div class="flex flex-col gap-y-8 md:gap-y-16">
+          <div class="flex flex-col gap-y-3 rounded-lg md:gap-0 md:shadow-2xl">
+            <div class="relative">
+              {project.data.heroImage && (
+                <Image
+                  src={images[project.data.heroImage]()}
+                  alt={`${project.data.title}`}
+                  title={`${project.data.title}`}
+                  class={
+                    "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
+                  }
+                />
+              )}
+              {project.data.heroVideo && (
+                <video
+                  autoplay
+                  muted
+                  loop
+                  class={
+                    "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
+                  }
+                >
+                  <source src={project.data.heroVideo} type="video/mp4" />
+                </video>
+              )}
+              {project.data.icon && (
+                <div class="absolute bottom-0 left-0 box-content h-16 w-16 -translate-y-2 translate-x-2 rounded-full md:h-24 md:w-24 md:-translate-x-6 md:translate-y-6">
+                  <Image
+                    src={images[project.data.icon]()}
+                    alt={`${project.data.title} Icon`}
+                    class={twMerge(
+                      "rounded-full drop-shadow-2xl",
+                      project.data.iconClass,
+                    )}
+                  />
+                </div>
+              )}
+            </div>
+            <div
+              class="flex flex-col gap-y-4 rounded-b-lg md:bg-neutral-300 md:p-8 md:shadow-2xl dark:md:bg-neutral-800"
+              style={{ background: project.data.background }}
+            >
+              <div class="flex flex-row items-center justify-between gap-3">
+                <h3
+                  class={twMerge(
+                    "text-xl font-bold md:text-4xl",
+                    project.data.containerClass,
+                  )}
+                >
+                  <CustomLink href={`/projects/${project.slug}/`}>
+                    {project.data.title}
+                  </CustomLink>
+                </h3>
+                <CustomLink
+                  href={`/projects/${project.slug}/`}
+                  className="text-base md:text-xl transition-transform hover:scale-110 font-bold bg-gradient-to-br from-orange-500 to-orange-600 px-4 text-white py-2 rounded-lg shadow-2xl group-hover:-translate-y-0 group-hover:scale-110"
+                >
+                  Read More
+                </CustomLink>
+              </div>
+              {project.data.categories && (
+                <TagList label="Categories" tags={project.data.categories} />
+              )}
+              {project.data.tags && (
+                <TagList label="Skills" tags={project.data.tags} />
+              )}
+            </div>
+          </div>
+        </div>
+        {/* <Card
+        className={twMerge(
+          "project group",
+          index === 0 && isOdd && "md:col-span-2",
+        )}
         style={{ background: project.data.background }}
       >
-        <div class="relative flex h-52 w-full items-center justify-center overflow-hidden">
+        <div class="relative flex h-60 w-full items-center justify-center overflow-hidden">
           {project.data.heroImage && (
-            <Image
-              src={images[project.data.heroImage]()}
-              alt={project.data.title}
-              class="absolute top-0 object-cover opacity-80"
-            />
+            <div class="absolute top-0 w-full opacity-80">
+              <Image
+                src={images[project.data.heroImage]()}
+                alt={project.data.title}
+                class="animate-fade w-full object-cover transition-all group-hover:scale-105"
+                loading="eager"
+              />
+            </div>
           )}
           {project.data.icon ? (
             <div
               class={twMerge(
-                "z-10 h-16 w-16 md:h-24 md:w-24",
+                "h-16 w-16 md:h-24 md:w-24",
                 project.data.iconClass,
               )}
             >
@@ -63,6 +136,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                     "rounded-full drop-shadow-2xl",
                     project.data.iconClass,
                   )}
+                  loading="eager"
                 />
               )}
             </div>
@@ -70,23 +144,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         </div>
         <div
           class={twMerge(
-            "flex flex-col items-center justify-center gap-y-3 px-5 py-8 md:gap-y-8 md:px-10 md:py-16",
+            "flex flex-col items-center gap-y-3 p-5 md:gap-y-6 md:p-10",
             project.data.containerClass,
           )}
         >
-          <h3 class="z-10 text-xl font-bold transition-transform group-hover:-translate-y-1.5 md:text-4xl">
-            {project.data.title}
-          </h3>
-          <p class="z-10 transition-transform group-hover:translate-y-1.5">
-            {project.data.description}
-          </p>
-          <CustomLink
-            href={`/projects/${project.slug}/`}
-            className="text-xl transition-transform group-hover:-translate-y-0 group-hover:scale-110 dark:group-hover:text-blue-gulf"
-          >
-            Read More
-          </CustomLink>
-          {/* <div class="flex flex-row gap-x-4 transition-transform group-hover:translate-y-2">
+          <div class="flex h-full flex-col gap-y-3 md:gap-y-6">
+            
+          </div>
+           */}
+        {/* <div class="flex flex-row gap-x-3">
             {project.data.repository && (
               <CustomLink
                 href={project.data.repository}
@@ -114,8 +180,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
               </CustomLink>
             )}
           </div> */}
-        </div>
-      </Card>
+        {/* </div>
+      </Card> */}
+      </>
     ))
   }
-</section>
+</div>

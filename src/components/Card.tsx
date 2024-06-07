@@ -9,7 +9,7 @@ export default function Card({
   return (
     <div
       className={twMerge(
-        "group relative flex flex-col overflow-hidden rounded-lg border border-blue-200 bg-blue-gulf text-black/90 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white/90",
+        "group relative flex flex-col overflow-hidden rounded-lg border border-neutral-400 bg-neutral-300 text-black/90 shadow-2xl dark:border-neutral-700 dark:bg-neutral-800 dark:text-white",
         className,
       )}
       {...props}

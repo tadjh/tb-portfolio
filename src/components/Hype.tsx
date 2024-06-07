@@ -17,7 +17,7 @@ export default function Hype({ items }: HypeProps) {
       variants={{
         visible: { transition: { staggerChildren: 1 } },
       }}
-      className="mx-auto grid gap-4 md:grid-cols-3 md:flex-row md:gap-8"
+      className="mx-auto flex flex-wrap justify-center gap-4 md:gap-8"
       style={{
         gridTemplateColumns: `repeat(${Math.min(items.length, 3)}, minmax(0, 1fr))`,
       }}
@@ -37,7 +37,7 @@ export default function Hype({ items }: HypeProps) {
               className="h-5 w-5 md:h-8 md:w-8"
             />
           )}
-          <Counter value={item.value} delay={index * 1000} />
+          <Counter value={item.value} delay={index} />
           {item.label}
         </motion.div>
       ))}
