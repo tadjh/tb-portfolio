@@ -46,9 +46,10 @@ const videos = import.meta.glob<{ default: string }>(
                   class={
                     "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
                   }
+                  transition:name="heroImage"
+                  loading="eager"
                 />
               )}
-
               {project.data.heroVideo && (
                 <Video
                   autoplay
@@ -58,6 +59,7 @@ const videos = import.meta.glob<{ default: string }>(
                   class={
                     "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
                   }
+                  transition:name="heroVideo"
                 />
               )}
               {project.data.icon && (
@@ -69,6 +71,7 @@ const videos = import.meta.glob<{ default: string }>(
                       "rounded-full drop-shadow-2xl",
                       project.data.iconClass,
                     )}
+                    loading="eager"
                   />
                 </div>
               )}

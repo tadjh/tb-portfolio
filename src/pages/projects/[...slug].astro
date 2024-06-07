@@ -47,10 +47,14 @@ const videos = import.meta.glob<{ default: string }>(
   <div
     class="mr-auto flex items-center gap-x-3 rounded-lg bg-neutral-200 px-3 py-0.5 shadow-2xl dark:bg-neutral-800"
   >
-    <CustomLink href="/"
+    <CustomLink href="/" title="Return Home" aria-label="Return Home"
       ><FontAwesomeIcon icon={faHome} className="h-4 w-4" /></CustomLink
     ><Pipe />
-    <CustomLink href="/projects">Projects</CustomLink>
+    <CustomLink
+      href="/projects"
+      title="Return to Projects"
+      aria-label="Return to Projects">Projects</CustomLink
+    >
     <Pipe />
     <span>{project.data.title}</span>
   </div>
@@ -66,6 +70,8 @@ const videos = import.meta.glob<{ default: string }>(
               class={
                 "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
               }
+              transition:name="heroImage"
+              loading="eager"
             />
           )
         }
@@ -79,6 +85,7 @@ const videos = import.meta.glob<{ default: string }>(
               class={
                 "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
               }
+              transition:name="heroVideo"
             />
           )
         }
@@ -92,6 +99,7 @@ const videos = import.meta.glob<{ default: string }>(
                   "rounded-full drop-shadow-2xl",
                   project.data.iconClass,
                 )}
+                loading="eager"
               />
             </div>
           )
@@ -175,7 +183,7 @@ const videos = import.meta.glob<{ default: string }>(
       </article>
     </div>
   </div>
-  <CustomLink href="#main" className="mx-auto text-2xl"
-    ><FontAwesomeIcon icon={faArrowUpFromBracket} /> Go to Top</CustomLink
+  <CustomLink href="#main" className="mx-auto text-xl"
+    ><FontAwesomeIcon icon={faArrowUpFromBracket} className="h-6 w-6" /> Go to Top</CustomLink
   >
 </Layout>
