@@ -15,6 +15,7 @@ import { Image } from "astro:assets";
 import { twMerge } from "tailwind-merge";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Pipe from "../../components/Pipe.astro";
+import Video from "../../components/Video.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -31,6 +32,10 @@ const { Content } = await project.render();
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const videos = import.meta.glob<{ default: string }>(
+  "/src/assets/videos/*.{mp4,}",
 );
 ---
 
@@ -66,16 +71,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         }
         {
           project.data.heroVideo && (
-            <video
+            <Video
               autoplay
               muted
               loop
+              media={videos[project.data.heroVideo]()}
               class={
                 "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
               }
-            >
-              <source src={project.data.heroVideo} type="video/mp4" />
-            </video>
+            />
           )
         }
         {
