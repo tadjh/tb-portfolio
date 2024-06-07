@@ -1,0 +1,13 @@
+---
+interface Props extends astroHTML.JSX.MediaHTMLAttributes {
+  class: string;
+  media: Promise<{ default: string }>;
+}
+
+const { media, ...props } = Astro.props;
+const videoData = await media;
+---
+
+<video {...props}>
+  <source src={videoData.default} type="video/mp4" />
+</video>

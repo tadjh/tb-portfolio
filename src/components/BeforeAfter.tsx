@@ -3,50 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 
 interface BeforeAfterProps extends React.HTMLAttributes<HTMLDivElement> {
-  before: string;
-  after: string;
+  before: React.ReactNode;
+  after: React.ReactNode;
 }
 
 export default function BeforeAfter({ before, after }: BeforeAfterProps) {
   const container = useRef<HTMLInputElement | null>(null);
   const trigger = useRef<HTMLInputElement | null>(null);
   const [range, setRange] = useState(50);
-
-  //   useEffect(() => {
-  //     if (container.current && trigger.current) {
-  //       const {
-  //         height: containerHeight,
-  //         width: containerWidth,
-  //         x,
-  //         y,
-  //         top,
-  //         left,
-  //         bottom,
-  //         right,
-  //       } = container.current.getBoundingClientRect();
-  //       const { height: triggerHeight, width: triggerWidth } =
-  //         trigger.current.getBoundingClientRect();
-
-  //       console.log(left, top, right, bottom);
-
-  //       if (firstLoad) {
-  //         trigger.current.classList.remove(
-  //           "left-1/2",
-  //           "top-1/2",
-  //           "-translate-x-1/2",
-  //           "-translate-y-1/2",
-  //         );
-
-  //         trigger.current.style.top =
-  //           containerHeight / 2 - triggerHeight / 2 + "px";
-
-  //         firstLoad = false;
-  //       }
-
-  //       trigger.current.style.left =
-  //         (range / 100) * containerWidth - triggerWidth / 2 + "px";
-  //     }
-  //   });
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     setRange(Number(event.target.value));
@@ -58,19 +22,16 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
       className="not-prose relative cursor-ew-resize select-none overflow-hidden rounded-lg border-2 border-blue-gulf shadow-2xl"
     >
       <div
-        className="absolute z-10 h-full overflow-hidden border-r-2 border-blue-gulf"
+        className="absolute z-10 h-full overflow-hidden border-r-2 border-blue-gulf [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:object-left-top"
         style={{ width: `${range}%` }}
       >
-        <img
-          src={before}
-          className="h-full w-full object-cover object-left-top"
-        />
+        {before}
         <h3 className="absolute bottom-0 px-2 text-3xl font-bold text-blue-gulf backdrop-blur-lg md:text-5xl">
           Before
         </h3>
       </div>
       <div className="relative">
-        <img src={after} className="" />
+        {after}
         <h3 className="absolute bottom-0 right-0 px-2 text-3xl font-bold text-blue-gulf backdrop-blur-lg md:text-5xl">
           After
         </h3>
