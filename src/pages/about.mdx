@@ -15,14 +15,16 @@ technicalSkills:
   - Javascript
   - CSS
   - HTML
-class: max-w-none
-# // TODO Add socials and links
-# // TODO Add retrospective about music
-# // TODO Add gamedev as a hobby
+# class: max-w-none
+# // TODO Add retrospective about music?
 ---
 
 import TagList from "../components/TagList.astro";
 import FunFact from "../components/FunFact.astro";
+import Socials from "../components/Socials.astro";
+import luckyCat from "../assets/videos/Lilith-Evo-9-Lucky-Cat-Livery.mp4";
+import portraitPic from "../assets/images/tadjh-profile-4x5.jpg";
+import { Image } from "astro:assets";
 
 # About
 
@@ -33,3 +35,39 @@ A full-stack software engineer with a voracious appetite for learning where I ho
 <TagList label="People Skills" tags={frontmatter.peopleSkills} />
 
 <TagList label="Technical Skills" tags={frontmatter.technicalSkills} />
+
+<div class="z-10 flex h-24 w-full items-center justify-center">
+  <hr class="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90" />
+</div>
+
+How many Grammy nominated audio engineers spend 20 hours of their weekend learning Typescript? One too many, it would appear. I started coding back in 2015. My dad ran a web development business and I started helping him on the weekends. I was immediately enthralled. I chose to dedicate my days to music and my nights to development. In the nine years since I started, I’ve built & maintained websites for over 70 businesses across eCommerce, professional portfolios, and charitable organizations. I’ve spent over 1,000 hours refining my skills in React, Typescript, Javascript, Tailwind CSS, and more.
+
+Like many other men in their 30s, I love gaming. Twitch came to prominence in 2012 and I was lucky enough to have a front row seat to all the action. Over time, I started to engage with my favorite streamers. I saw an opportunity to apply my passion for development to a game I loved (GTA, of course).
+
+So I got to work:
+
+🕹️ I built a [multi-player bingo game](/projects/bingo-multiplayer-react-app/#main) as part of a storyline.
+
+🚗 I've designed custom automobile wraps. As well
+as configured my own modded Grand Theft Auto Development Server in order to test them.
+
+<figure>
+  <video autoPlay muted loop class="animate-fadeInView" width={1280}>
+    <source src={luckyCat} type="video/mp4" />
+  </video>
+  {/* prettier-ignore */}
+  <figcaption>A japanese inspired "Lucky Cat" livery with custom vector art made in <mark>Adobe Illustrator</mark>.</figcaption>
+</figure>
+
+🔦 I've most recently taught myself 3D modeling to create an epic torch, a customizable scroll, and other new props for players to use in the game.
+
+
+I often get lost in my work, spending hours upon hours building for the fun of it. The deeper I got into development, the clearer it became, I’m ready to do it as my full time job. I will always love music, but I'm looking forward to this next chapter in my life.
+
+<Image
+  src={portraitPic}
+  alt="Tadjh smiling in a leather jacket"
+  class="mx-auto max-w-96 shadow-2xl"
+/>
+
+<Socials />
