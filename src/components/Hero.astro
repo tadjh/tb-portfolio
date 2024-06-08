@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import Video from "./Video.astro";
+import { twMerge } from "tailwind-merge";
+import type { CollectionEntry } from "astro:content";
+import { isImage, isVideo } from "../utils";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const videos = import.meta.glob<{ default: string }>(
+  "/src/assets/videos/*.{mp4,}",
+);
+---
+
+<div class="flex flex-col gap-y-3 rounded-lg md:gap-0">
+  <div class="relative z-10">
+    {
+      isImage(project.data.hero) ? (
+        <Image
+          src={images[project.data.hero]()}
+          alt={`${project.data.title}`}
+          title={`${project.data.title}`}
+          class={
+            "animate-fade aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg"
+          }
+          transition:name={`${project.slug}-hero-image`}
+          loading="eager"
+        />
+      ) : isVideo(project.data.hero) ? (
+        <Video
+          autoplay
+          muted
+          loop
+          media={videos[project.data.hero]()}
+          class={
+            "animate-fade aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg"
+          }
+          transition:name={`${project.slug}-hero-video`}
+        />
+      ) : null
+    }
+    {
+      project.data.icon && (
+        <div class="absolute bottom-0 left-0 box-content h-16 w-16 -translate-y-2 translate-x-2 rounded-full md:h-24 md:w-24 md:-translate-x-6 md:translate-y-6">
+          <Image
+            src={images[project.data.icon]()}
+            alt={`${project.data.title} Icon`}
+            class={twMerge(
+              "rounded-full drop-shadow-2xl",
+              project.data.iconClass,
+            )}
+            loading="eager"
+          />
+        </div>
+      )
+    }
+  </div>
+  <div
+    class="no-bg flex flex-col gap-y-4 rounded-b-lg md:bg-neutral-300 md:p-6 md:shadow-2xl dark:md:bg-neutral-800 lg:p-8"
+    style={{ background: project.data.background }}
+  >
+    <slot />
+  </div>
+</div>

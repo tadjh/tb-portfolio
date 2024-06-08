@@ -2,9 +2,8 @@
 import { twMerge } from "tailwind-merge";
 import { getCollection } from "astro:content";
 import CustomLink from "./CustomLink";
-import { Image } from "astro:assets";
 import TagList from "./TagList";
-import Video from "./Video.astro";
+import Hero from "./Hero.astro";
 
 const projects = (
   await getCollection("projects", ({ data }) => {
@@ -19,174 +18,37 @@ const projects = (
 
   return a.data.pubDate.valueOf() - b.data.pubDate.valueOf();
 });
-
-// const isOdd = projects.length % 2 === 1;
-
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
-);
-
-const videos = import.meta.glob<{ default: string }>(
-  "/src/assets/videos/*.{mp4,}",
-);
 ---
 
 <div class="flex flex-col gap-32">
   {
     projects.map((project) => (
-      <>
-        <div class="flex flex-col gap-y-8 md:gap-y-16">
-          <div class="flex flex-col gap-y-3 rounded-lg md:gap-0">
-            <div class="relative">
-              {project.data.heroImage && (
-                <Image
-                  src={images[project.data.heroImage]()}
-                  alt={`${project.data.title}`}
-                  title={`${project.data.title}`}
-                  class={
-                    "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
-                  }
-                  transition:name="heroImage"
-                  loading="eager"
-                />
-              )}
-              {project.data.heroVideo && (
-                <Video
-                  autoplay
-                  muted
-                  loop
-                  media={videos[project.data.heroVideo]()}
-                  class={
-                    "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
-                  }
-                  transition:name="heroVideo"
-                />
-              )}
-              {project.data.icon && (
-                <div class="absolute bottom-0 left-0 box-content h-16 w-16 -translate-y-2 translate-x-2 rounded-full md:h-24 md:w-24 md:-translate-x-6 md:translate-y-6">
-                  <Image
-                    src={images[project.data.icon]()}
-                    alt={`${project.data.title} Icon`}
-                    class={twMerge(
-                      "rounded-full drop-shadow-2xl",
-                      project.data.iconClass,
-                    )}
-                    loading="eager"
-                  />
-                </div>
-              )}
-            </div>
-            <div
-              class="no-bg flex flex-col gap-y-4 rounded-b-lg md:bg-neutral-300 md:p-6 md:shadow-2xl dark:md:bg-neutral-800 lg:p-8"
-              style={{ background: project.data.background }}
-            >
-              <div class="flex flex-row items-center justify-between gap-3">
-                <h3
-                  class={twMerge(
-                    "text-xl font-bold md:text-4xl",
-                    project.data.containerClass,
-                  )}
-                >
-                  <CustomLink href={`/projects/${project.slug}/`}>
-                    {project.data.title}
-                  </CustomLink>
-                </h3>
-                <CustomLink
-                  href={`/projects/${project.slug}/`}
-                  className="text-base md:text-xl transition-transform hover:scale-110 font-bold bg-gradient-to-br from-orange-500 to-orange-600 px-4 text-white py-2 rounded-lg shadow-2xl group-hover:-translate-y-0 group-hover:scale-110"
-                >
-                  Read More
-                </CustomLink>
-              </div>
-              {project.data.categories && (
-                <TagList label="Categories" tags={project.data.categories} />
-              )}
-              {project.data.tags && (
-                <TagList label="Skills" tags={project.data.tags} />
-              )}
-            </div>
-          </div>
+      <Hero project={project}>
+        <div class="flex flex-row items-center justify-between gap-3">
+          <h3
+            class={twMerge(
+              "text-xl font-bold md:text-4xl",
+              project.data.containerClass,
+            )}
+          >
+            <CustomLink href={`/projects/${project.slug}/#${project.slug}`}>
+              {project.data.title}
+            </CustomLink>
+          </h3>
+          <CustomLink
+            href={`/projects/${project.slug}/`}
+            className="rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 px-4 py-2 text-base font-bold text-white shadow-2xl transition-transform hover:scale-110 group-hover:-translate-y-0 group-hover:scale-110 md:text-xl"
+          >
+            Read More
+          </CustomLink>
         </div>
-        {/* <Card
-        className={twMerge(
-          "project group",
-          index === 0 && isOdd && "md:col-span-2",
+        {project.data.categories && (
+          <TagList label="Categories" tags={project.data.categories} />
         )}
-        style={{ background: project.data.background }}
-      >
-        <div class="relative flex h-60 w-full items-center justify-center overflow-hidden">
-          {project.data.heroImage && (
-            <div class="absolute top-0 w-full opacity-80">
-              <Image
-                src={images[project.data.heroImage]()}
-                alt={project.data.title}
-                class="animate-fade w-full object-cover transition-all group-hover:scale-105"
-                loading="eager"
-              />
-            </div>
-          )}
-          {project.data.icon ? (
-            <div
-              class={twMerge(
-                "h-16 w-16 md:h-24 md:w-24",
-                project.data.iconClass,
-              )}
-            >
-              {project.data.icon && (
-                <Image
-                  src={images[project.data.icon]()}
-                  alt={`${project.data.title} Icon`}
-                  class={twMerge(
-                    "rounded-full drop-shadow-2xl",
-                    project.data.iconClass,
-                  )}
-                  loading="eager"
-                />
-              )}
-            </div>
-          ) : null}
-        </div>
-        <div
-          class={twMerge(
-            "flex flex-col items-center gap-y-3 p-5 md:gap-y-6 md:p-10",
-            project.data.containerClass,
-          )}
-        >
-          <div class="flex h-full flex-col gap-y-3 md:gap-y-6">
-            
-          </div>
-           */}
-        {/* <div class="flex flex-row gap-x-3">
-            {project.data.repository && (
-              <CustomLink
-                href={project.data.repository}
-                external
-                title="View the source code on Github"
-                aria-label="View the source code on Github"
-                className="transition-transform hover:scale-110"
-              >
-                <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
-              </CustomLink>
-            )}
-            {project.data.website && (
-              <CustomLink
-                href={project.data.website}
-                external
-                title="Visit this project's webpage"
-                aria-label="Visit this project's webpage"
-                className="group/visit"
-              >
-                <FontAwesomeIcon
-                  icon={faArrowUpRightFromSquare}
-                  className="h-6 w-6 transition-transform group-hover/visit:scale-110 hover:scale-110"
-                />
-                Visit this project
-              </CustomLink>
-            )}
-          </div> */}
-        {/* </div>
-      </Card> */}
-      </>
+        {project.data.tags && (
+          <TagList label="Skills" tags={project.data.tags} />
+        )}
+      </Hero>
     ))
   }
 </div>

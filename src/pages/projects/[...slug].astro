@@ -1,21 +1,19 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../config/constants";
+import { SITE_TITLE } from "../../config/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import CustomLink from "../../components/CustomLink";
 import {
   faArrowUpFromBracket,
   faArrowUpRightFromSquare,
-  faHome,
 } from "@fortawesome/free-solid-svg-icons";
 import Layout from "../../layouts/Layout.astro";
 import TagList from "../../components/TagList";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
-import { twMerge } from "tailwind-merge";
 import FormattedDate from "../../components/FormattedDate.astro";
-import Pipe from "../../components/Pipe.astro";
-import Video from "../../components/Video.astro";
+import Hero from "../../components/Hero.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { twMerge } from "tailwind-merge";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -28,162 +26,94 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"projects">;
 
 const project = Astro.props;
+
 const { Content } = await project.render();
-
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
-);
-
-const videos = import.meta.glob<{ default: string }>(
-  "/src/assets/videos/*.{mp4,}",
-);
 ---
 
 <Layout
-  title={`${SITE_TITLE} - ${project.data.title}`}
-  description={SITE_DESCRIPTION}
+  title={`${project.data.title} | ${SITE_TITLE}`}
+  description={project.data.description}
   minimal
 >
-  <div
-    class="mr-auto flex items-center gap-x-3 rounded-lg bg-neutral-200 px-3 py-0.5 shadow-2xl dark:bg-neutral-800"
-  >
-    <CustomLink href="/" title="Return Home" aria-label="Return Home"
-      ><FontAwesomeIcon icon={faHome} className="h-4 w-4" /></CustomLink
-    ><Pipe />
-    <CustomLink
-      href="/projects"
-      title="Return to Projects"
-      aria-label="Return to Projects">Projects</CustomLink
-    >
-    <Pipe />
-    <span>{project.data.title}</span>
-  </div>
+  <Breadcrumbs
+    current={project.data.title}
+    parent={{ slug: project.collection, title: "Projects" }}
+  />
   <div class="flex flex-col gap-y-8 md:gap-y-16">
-    <div class="flex flex-col gap-y-3 rounded-lg md:gap-0">
-      <div class="relative">
-        {
-          project.data.heroImage && (
-            <Image
-              src={images[project.data.heroImage]()}
-              alt={`${project.data.title}`}
-              title={`${project.data.title}`}
-              class={
-                "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
-              }
-              transition:name="heroImage"
-              loading="eager"
-            />
-          )
-        }
-        {
-          project.data.heroVideo && (
-            <Video
-              autoplay
-              muted
-              loop
-              media={videos[project.data.heroVideo]()}
-              class={
-                "animate-fade z-10 aspect-video w-full rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto xl:-mx-8 xl:max-w-screen-lg xl:rounded-lg"
-              }
-              transition:name="heroVideo"
-            />
-          )
-        }
-        {
-          project.data.icon && (
-            <div class="absolute bottom-0 left-0 box-content h-16 w-16 -translate-y-2 translate-x-2 rounded-full md:h-24 md:w-24 md:-translate-x-6 md:translate-y-6">
-              <Image
-                src={images[project.data.icon]()}
-                alt={`${project.data.title} Icon`}
-                class={twMerge(
-                  "rounded-full drop-shadow-2xl",
-                  project.data.iconClass,
-                )}
-                loading="eager"
-              />
-            </div>
-          )
-        }
-      </div>
+    <Hero project={project}>
       <div
-        class="no-bg flex flex-col gap-y-4 rounded-b-lg md:bg-neutral-300 md:p-6 md:shadow-2xl dark:md:bg-neutral-800 lg:p-8"
-        style={{ background: project.data.background }}
+        class={twMerge(
+          "flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between",
+          project.data.containerClass,
+        )}
       >
-        <div
-          class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
-        >
+        {
+          project.data.updatedDate ? (
+            <span title={`Originally published on ${project.data.pubDate}`}>
+              Updated on
+              <FormattedDate date={project.data.updatedDate} />
+            </span>
+          ) : (
+            <span title={`Published on ${project.data.pubDate}`}>
+              Published on
+              <FormattedDate date={project.data.pubDate} />
+            </span>
+          )
+        }
+        <nav class="flex gap-x-3">
           {
-            project.data.updatedDate ? (
-              <span title={`Originally published on ${project.data.pubDate}`}>
-                Updated on
-                <FormattedDate date={project.data.updatedDate} />
-              </span>
-            ) : (
-              <span title={`Published on ${project.data.pubDate}`}>
-                Published on
-                <FormattedDate date={project.data.pubDate} />
-              </span>
+            project.data.repository && (
+              <CustomLink
+                href={project.data.repository}
+                external
+                title="View the source code on Github"
+                aria-label="View the source code on Github"
+              >
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  className="h-6 w-6 transition-transform hover:scale-110"
+                />
+              </CustomLink>
             )
           }
-          <nav class="flex gap-x-3">
-            {
-              project.data.repository && (
-                <CustomLink
-                  href={project.data.repository}
-                  external
-                  title="View the source code on Github"
-                  aria-label="View the source code on Github"
-                >
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    className="h-6 w-6 transition-transform hover:scale-110"
-                  />
-                </CustomLink>
-              )
-            }
-            {
-              project.data.website && (
-                <CustomLink
-                  href={project.data.website}
-                  external
-                  title="Visit this project's webpage"
-                  aria-label="Visit this project's webpage"
-                  className="group"
-                >
-                  <FontAwesomeIcon
-                    icon={faArrowUpRightFromSquare}
-                    className="h-6 w-6 transition-transform group-hover:scale-110"
-                  />
-                  Visit this project
-                </CustomLink>
-              )
-            }
-          </nav>
-        </div>
-        {
-          project.data.categories && (
-            <TagList label="Categories" tags={project.data.categories} />
-          )
-        }
-        {
-          project.data.tags && (
-            <TagList label="Skills" tags={project.data.tags} />
-          )
-        }
+          {
+            project.data.website && (
+              <CustomLink
+                href={project.data.website}
+                external
+                title="Visit this project's webpage"
+                aria-label="Visit this project's webpage"
+                className="group"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowUpRightFromSquare}
+                  className="h-6 w-6 transition-transform group-hover:scale-110"
+                />
+                Visit this project
+              </CustomLink>
+            )
+          }
+        </nav>
       </div>
-    </div>
-    <div class="flex flex-col gap-y-4">
-      <div class="z-10 flex h-24 w-full items-center justify-center">
-        <hr
-          class="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90"
-        />
-      </div>
-      <article class="mx-auto">
-        <Content />
-      </article>
-    </div>
+      {
+        project.data.categories && (
+          <TagList label="Categories" tags={project.data.categories} />
+        )
+      }
+      {project.data.tags && <TagList label="Skills" tags={project.data.tags} />}
+    </Hero>
   </div>
-  <CustomLink href="#main" className="mx-auto text-xl"
-    ><FontAwesomeIcon icon={faArrowUpFromBracket} className="h-6 w-6" /> Go to Top</CustomLink
-  >
+  <div class="flex flex-col gap-y-4">
+    <div class="z-10 flex h-24 w-full items-center justify-center">
+      <hr
+        class="w-1/5 border-black/90 transition-transform group-hover:scale-x-150 dark:border-white/90"
+      />
+    </div>
+    <article class="mx-auto">
+      <Content />
+    </article>
+  </div>
 </Layout>
+<CustomLink href="#main" className="mx-auto text-xl"
+  ><FontAwesomeIcon icon={faArrowUpFromBracket} className="h-6 w-6" /> Go to Top</CustomLink
+>

@@ -1,0 +1,36 @@
+---
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CustomLink from "./CustomLink";
+import Pipe from "./Pipe.astro";
+
+interface Props {
+  current: string;
+  parent?: { slug: string; title: string };
+}
+
+const { current, parent } = Astro.props;
+---
+
+<div
+  class="mr-auto flex items-center gap-x-3 rounded-lg bg-neutral-200 px-3 py-0.5 shadow-2xl dark:bg-neutral-800"
+>
+  <CustomLink href="/" title="Return Home" aria-label="Return Home"
+    ><FontAwesomeIcon icon={faHome} className="h-4 w-4" /></CustomLink
+  >{
+    parent && (
+      <>
+        <Pipe />
+        <CustomLink
+          href={`/${parent.slug}`}
+          title={`Return to ${parent.title}`}
+          aria-label={`Return to ${parent.title}`}
+        >
+          {parent.title}
+        </CustomLink>
+      </>
+    )
+  }
+  <Pipe />
+  <span>{current}</span>
+</div>

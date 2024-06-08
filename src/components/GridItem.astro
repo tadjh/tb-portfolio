@@ -1,0 +1,120 @@
+---
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { twMerge } from "tailwind-merge";
+import Card from "./Card";
+import CustomLink from "./CustomLink";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import Video from "./Video.astro";
+import { isImage, isVideo } from "../utils";
+
+interface Props {
+  isWide: boolean;
+  project: CollectionEntry<"projects">;
+}
+
+const { isWide, project } = Astro.props;
+
+// const isOdd = collection.length % 2 === 1;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const videos = import.meta.glob<{ default: string }>(
+  "/src/assets/videos/*.{mp4,}",
+);
+---
+
+<Card
+  className={twMerge("project group", isWide && "md:col-span-2")}
+  style={{ background: project.data.background }}
+>
+  <div
+    class="relative flex h-60 w-full items-center justify-center overflow-hidden"
+  >
+    {
+      isImage(project.data.hero) ? (
+        <div class="absolute top-0 w-full opacity-80">
+          <Image
+            src={images[project.data.hero]()}
+            alt={project.data.title}
+            class="animate-fade w-full object-cover transition-all group-hover:scale-105"
+            loading="eager"
+          />
+        </div>
+      ) : isVideo(project.data.hero) ? (
+        <div class="absolute top-0 w-full opacity-80">
+          <Video
+            autoplay
+            muted
+            loop
+            media={videos[project.data.hero]()}
+            class="animate-fade w-full object-cover transition-all group-hover:scale-105"
+          />
+        </div>
+      ) : null
+    }
+    {
+      project.data.icon && (
+        <div
+          class={twMerge("h-16 w-16 md:h-24 md:w-24", project.data.iconClass)}
+        >
+          {project.data.icon && (
+            <Image
+              src={images[project.data.icon]()}
+              alt={`${project.data.title} Icon`}
+              class={twMerge(
+                "rounded-full drop-shadow-2xl",
+                project.data.iconClass,
+              )}
+              loading="eager"
+            />
+          )}
+        </div>
+      )
+    }
+  </div>
+  <div
+    class={twMerge(
+      "flex flex-col items-center gap-y-3 p-5 md:gap-y-6 md:p-10",
+      project.data.containerClass,
+    )}
+  >
+    <div class="flex h-full flex-col gap-y-3 md:gap-y-6"></div>
+    <div class="flex flex-row gap-x-3">
+      {
+        project.data.repository && (
+          <CustomLink
+            href={project.data.repository}
+            external
+            title="View the source code on Github"
+            aria-label="View the source code on Github"
+            className="transition-transform hover:scale-110"
+          >
+            <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
+          </CustomLink>
+        )
+      }
+      {
+        project.data.website && (
+          <CustomLink
+            href={project.data.website}
+            external
+            title="Visit this project's webpage"
+            aria-label="Visit this project's webpage"
+            className="group/visit"
+          >
+            <FontAwesomeIcon
+              icon={faArrowUpRightFromSquare}
+              className="h-6 w-6 transition-transform group-hover/visit:scale-110 hover:scale-110"
+            />
+            Visit this project
+          </CustomLink>
+        )
+      }
+    </div>
+  </div>
+</Card>
