@@ -7,6 +7,7 @@ import { isImage, isVideo } from "../utils";
 
 interface Props {
   project: CollectionEntry<"projects">;
+  children: any;
 }
 
 const { project } = Astro.props;
@@ -32,7 +33,7 @@ const videos = import.meta.glob<{ default: string }>(
           alt={`${project.data.title}`}
           title={`${project.data.title}`}
           class={twMerge(
-            "aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg",
+            "aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg dark:border-neutral-800",
             // fadeIn && "animate-fade",
           )}
           loading="eager"
@@ -44,7 +45,7 @@ const videos = import.meta.glob<{ default: string }>(
           loop
           media={videos[project.data.hero]()}
           class={twMerge(
-            "aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg",
+            "aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg dark:border-neutral-800",
             // fadeIn && "animate-fade",
           )}
         />

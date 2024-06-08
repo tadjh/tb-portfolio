@@ -1,5 +1,7 @@
 ---
-interface Props extends astroHTML.JSX.MediaHTMLAttributes {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"video"> {
   class: string;
   media: Promise<{ default: string }>;
 }

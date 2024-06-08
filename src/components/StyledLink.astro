@@ -1,9 +1,11 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import { twMerge } from "tailwind-merge";
 
-interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+interface Props extends HTMLAttributes<"a"> {
   href: string;
   inline?: boolean;
+  children: any;
 }
 
 const { href, class: className, inline = false, ...props } = Astro.props;

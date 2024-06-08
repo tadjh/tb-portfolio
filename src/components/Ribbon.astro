@@ -1,8 +1,10 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import { twMerge } from "tailwind-merge";
 
-interface Props extends astroHTML.JSX.HTMLAttributes {
+interface Props extends HTMLAttributes<"div"> {
   label: string;
+  children: any;
 }
 
 const { label, class: className, ...props } = Astro.props;
@@ -19,7 +21,9 @@ const { label, class: className, ...props } = Astro.props;
       clipPath: "polygon(95% 0%, 100% 50%, 95% 100%, 0% 100%, 0% 0%)",
     }}
   >
-    <span class="h-full bg-black/[0.08] p-2 font-bold">{label}:</span>
+    <span class="h-full bg-black/[0.08] p-2 font-display font-bold"
+      >{label}:</span
+    >
     <slot />
   </div>
   <div
