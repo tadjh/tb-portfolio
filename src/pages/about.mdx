@@ -23,6 +23,8 @@ import TagList from "../components/TagList.astro";
 import FunFact from "../components/FunFact.astro";
 import Socials from "../components/Socials.astro";
 import luckyCat from "../assets/videos/Lilith-Evo-9-Lucky-Cat-Livery.mp4";
+import ModelViewer from "../components/ModelViewer";
+import torch from "../assets/models/prop_survival_torch.glb";
 import portraitPic from "../assets/images/tadjh-profile-4x5.jpg";
 import { Image } from "astro:assets";
 
@@ -61,6 +63,10 @@ as configured my own modded Grand Theft Auto Development Server in order to test
 
 🔦 I've most recently taught myself 3D modeling to create an epic torch, a customizable scroll, and other new props for players to use in the game.
 
+<ModelViewer model={torch} width="500px" height="500px" client:load />
+<figcaption className="text-center">
+  The custom "Survival" torch I modeled in <mark>Blender</mark>
+</figcaption>
 
 I often get lost in my work, spending hours upon hours building for the fun of it. The deeper I got into development, the clearer it became, I’m ready to do it as my full time job. I will always love music, but I'm looking forward to this next chapter in my life.
 
