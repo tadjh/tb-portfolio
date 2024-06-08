@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config/constants";
-
+// TODO Add rest of pages
 export async function GET(context) {
   const projects = await getCollection("projects");
   return rss({
