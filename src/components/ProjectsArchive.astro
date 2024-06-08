@@ -1,7 +1,7 @@
 ---
 import { twMerge } from "tailwind-merge";
 import { getCollection } from "astro:content";
-import StyledLink from "./StyledLink.tsx";
+import StyledLink from "./StyledLink.astro";
 import TagList from "./TagList.astro";
 import Hero from "./Hero.astro";
 
@@ -37,7 +37,7 @@ const projects = (
           </h3>
           <StyledLink
             href={`/projects/${project.slug}/#main`}
-            className="rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 px-4 py-2 text-base font-bold text-white shadow-2xl transition-transform hover:scale-110 group-hover:-translate-y-0 group-hover:scale-110 md:text-xl"
+            class="rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 px-4 py-2 text-base font-bold text-white shadow-2xl transition-transform hover:scale-110 group-hover:-translate-y-0 group-hover:scale-110 md:text-xl"
           >
             Read More
           </StyledLink>

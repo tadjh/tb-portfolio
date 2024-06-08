@@ -2,7 +2,7 @@
 import { SITE_TITLE } from "../../config/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import StyledLink from "../../components/StyledLink.tsx";
+import StyledLink from "../../components/StyledLink.astro";
 import {
   faArrowUpFromBracket,
   faArrowUpRightFromSquare,
@@ -84,7 +84,7 @@ const { Content } = await project.render();
               rel="noreferrer"
               title="Visit this project's webpage"
               aria-label="Visit this project's webpage"
-              className="group"
+              class="group"
             >
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}
@@ -114,6 +114,6 @@ const { Content } = await project.render();
     </article>
   </div>
 </Layout>
-<StyledLink href="#main" className="mx-auto text-xl"
+<StyledLink href="#main" class="mx-auto text-xl"
   ><FontAwesomeIcon icon={faArrowUpFromBracket} className="h-6 w-6" /> Go to Top</StyledLink
 >

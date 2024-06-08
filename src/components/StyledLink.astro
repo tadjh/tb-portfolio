@@ -1,0 +1,23 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  href: string;
+  inline?: boolean;
+}
+
+const { href, class: className, inline = false, ...props } = Astro.props;
+---
+
+<a
+  href={href}
+  class={twMerge(
+    "cursor-pointer underline decoration-transparent transition-colors hover:decoration-current active:underline active:decoration-current",
+    // "hover:text-blue-600 active:text-blue-gulf dark:hover:text-blue-gulf",
+    !inline && "flex flex-row items-center gap-x-2",
+    className,
+  )}
+  {...props}
+>
+  <slot />
+</a>

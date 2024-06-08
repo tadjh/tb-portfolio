@@ -4,7 +4,7 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { twMerge } from "tailwind-merge";
 import Card from "./Card.astro";
-import StyledLink from "./StyledLink.tsx";
+import StyledLink from "./StyledLink.astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import Video from "./Video.astro";
@@ -93,7 +93,7 @@ const videos = import.meta.glob<{ default: string }>(
             rel="noreferrer"
             title="View the source code on Github"
             aria-label="View the source code on Github"
-            className="transition-transform hover:scale-110"
+            class="transition-transform hover:scale-110"
           >
             <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
           </StyledLink>
@@ -107,7 +107,7 @@ const videos = import.meta.glob<{ default: string }>(
             rel="noreferrer"
             title="Visit this project's webpage"
             aria-label="Visit this project's webpage"
-            className="group/visit"
+            class="group/visit"
           >
             <FontAwesomeIcon
               icon={faArrowUpRightFromSquare}

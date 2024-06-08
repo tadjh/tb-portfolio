@@ -3,8 +3,8 @@ import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { config } from "../config";
 import profilePicturePortrait from "../assets/images/tadjh-profile-4x5.jpg";
-import StyledLink from "./StyledLink.tsx";
-import Socials from "./Socials";
+import StyledLink from "./StyledLink.astro";
+import Socials from "./Socials.astro";
 import { Image } from "astro:assets";
 ---
 
@@ -20,7 +20,7 @@ import { Image } from "astro:assets";
         href="mailTo:hello@tadjh.dev"
         target="_blank"
         rel="noreferrer"
-        className="group text-xl font-bold md:text-3xl"
+        class="group text-xl font-bold md:text-3xl"
       >
         <FontAwesomeIcon
           icon={faEnvelope}

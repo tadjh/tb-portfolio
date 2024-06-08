@@ -5,7 +5,7 @@ import Copyright from "./Copyright.astro";
 import OffCanvasMenu from "./OffCanvasMenu";
 import SiteTitle from "./SiteTitle.astro";
 import Socials from "./Socials.astro";
-import StyledLink from "./StyledLink";
+import StyledLink from "./StyledLink.astro";
 
 export interface Route {
   url: string;
@@ -44,7 +44,7 @@ const { level } = Astro.props;
           routes.map(({ url, title }) => {
             return (
               <li class="text-3xl font-bold uppercase md:text-5xl">
-                <StyledLink href={url} className="underline-offset-2">
+                <StyledLink href={url} class="underline-offset-2">
                   {title}
                 </StyledLink>
               </li>
