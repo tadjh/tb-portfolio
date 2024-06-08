@@ -54,6 +54,17 @@ const { title, description, minimal } = Astro.props;
         }
       }
     </style>
+    <script is:inline>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
   <body
     class="m-0 flex min-h-full flex-col items-center gap-y-8 p-0 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
@@ -66,26 +77,5 @@ const { title, description, minimal } = Astro.props;
       <slot />
     </main>
     <Footer minimal={minimal} />
-    <script is:inline>
-      const theme = (() => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
-      })();
-
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-      window.localStorage.setItem("theme", theme);
-    </script>
   </body>
 </html>

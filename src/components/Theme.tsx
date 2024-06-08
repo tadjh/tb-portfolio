@@ -6,7 +6,9 @@ export default function Theme() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "dark");
 
   function handleClick() {
-    setTheme(theme === "light" ? "dark" : "light");
+    const nextTheme = theme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", nextTheme);
+    setTheme(nextTheme);
   }
 
   useEffect(() => {
@@ -15,15 +17,12 @@ export default function Theme() {
     } else {
       document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("theme", theme);
   }, [theme]);
-
-  const icon = theme === "light" ? faMoon : faSun;
 
   return (
     <div onClick={handleClick} className="flex-1 cursor-pointer">
       <FontAwesomeIcon
-        icon={icon}
+        icon={theme === "light" ? faMoon : faSun}
         className="h-4 w-10 text-black/90 transition-transform hover:scale-125 dark:text-white/90"
       />
     </div>
