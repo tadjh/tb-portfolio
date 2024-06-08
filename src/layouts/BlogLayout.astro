@@ -1,6 +1,7 @@
 ---
 import { twMerge } from "tailwind-merge";
 import Layout from "./Layout.astro";
+import GoToTop from "../components/GoToTop.astro";
 
 interface Props {
   frontmatter: {
@@ -24,4 +25,5 @@ frontmatter = {
   <article class={twMerge("[&>div]:my-8", frontmatter.class)}>
     <slot />
   </article>
+  <GoToTop />
 </Layout>

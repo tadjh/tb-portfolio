@@ -13,6 +13,7 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import Hero from "../../components/Hero.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { twMerge } from "tailwind-merge";
+import GoToTop from "../../components/GoToTop.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -111,8 +112,6 @@ const { Content } = await project.render();
     <article class="mx-auto">
       <Content />
     </article>
-    <StyledLink href="#main" class="mx-auto text-xl">
-      <FontAwesomeIcon icon={faArrowUpFromBracket} className="h-6 w-6" /> Go to Top
-    </StyledLink>
+    <GoToTop />
   </div>
 </Layout>
