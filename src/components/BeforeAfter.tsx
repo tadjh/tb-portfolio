@@ -19,7 +19,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
   return (
     <div
       ref={container}
-      className="not-prose relative cursor-ew-resize select-none overflow-hidden rounded-lg border-2 border-blue-gulf shadow-2xl"
+      className="not-prose animate-fadeInView relative cursor-ew-resize select-none overflow-hidden rounded-lg border-2 border-blue-gulf shadow-2xl"
     >
       <div
         className="absolute z-10 h-full overflow-hidden border-r-2 border-blue-gulf [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:object-left-top"
