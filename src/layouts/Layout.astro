@@ -5,8 +5,8 @@ import Header from "../components/Header.astro";
 import type { Props as SiteTitleProps } from "../components/SiteTitle.astro";
 
 export interface Props extends SiteTitleProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   minimal?: boolean;
 }
 

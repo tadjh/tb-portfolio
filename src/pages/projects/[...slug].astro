@@ -1,5 +1,4 @@
 ---
-import { SITE_TITLE } from "../../config/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import StyledLink from "../../components/StyledLink.astro";
@@ -31,7 +30,7 @@ const { Content } = await project.render();
 ---
 
 <Layout
-  title={`${project.data.title} | ${SITE_TITLE}`}
+  title={project.data.title}
   description={project.data.description}
   minimal
 >
