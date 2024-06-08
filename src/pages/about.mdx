@@ -1,0 +1,35 @@
+---
+layout: ../layouts/BlogLayout.astro
+title: About
+description: How a GRAMMY Nominated Music Producer became enamoured with Software Engineering & Web Development.
+peopleSkills:
+  - Self-Motivated
+  - Problem Solver
+  - Strong Work Ethic
+  - Organized
+  - Thorough
+technicalSkills:
+  - Typescript
+  - React
+  - ReactNative
+  - Javascript
+  - CSS
+  - HTML
+class: max-w-none
+# // TODO Add socials and links
+# // TODO Add retrospective about music
+# // TODO Add gamedev as a hobby
+---
+
+import TagList from "../components/TagList.astro";
+import FunFact from "../components/FunFact.astro";
+
+# About
+
+A full-stack software engineer with a voracious appetite for learning where I hope to apply my skills in developing, problem solving and user experience on real products that make a difference in people's lives.
+
+<FunFact />
+
+<TagList label="People Skills" tags={frontmatter.peopleSkills} />
+
+<TagList label="Technical Skills" tags={frontmatter.technicalSkills} />

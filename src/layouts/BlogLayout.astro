@@ -1,0 +1,26 @@
+---
+import { twMerge } from "tailwind-merge";
+import Layout from "./Layout.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    minimal?: boolean;
+    class?: string;
+  };
+}
+
+let { frontmatter } = Astro.props;
+
+frontmatter = {
+  ...frontmatter,
+  minimal: frontmatter.minimal === undefined ? true : frontmatter.minimal,
+};
+---
+
+<Layout {...frontmatter}>
+  <article class={twMerge("[&>div]:my-8", frontmatter.class)}>
+    <slot />
+  </article>
+</Layout>
