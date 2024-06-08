@@ -10,7 +10,7 @@ export interface Props extends SiteTitleProps {
   minimal?: boolean;
 }
 
-const { title, description, minimal } = Astro.props;
+const { title, description, minimal, level } = Astro.props;
 ---
 
 <!doctype html>
@@ -69,7 +69,7 @@ const { title, description, minimal } = Astro.props;
   <body
     class="m-0 flex min-h-full flex-col items-center gap-y-8 p-0 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300"
   >
-    <Header />
+    <Header level={level} />
     <main
       id="main"
       class="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-y-4 p-4 md:gap-y-8 md:p-8"
