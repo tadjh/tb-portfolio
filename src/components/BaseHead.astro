@@ -31,8 +31,10 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;800&family=Poppins:wght@400;700&family=Roboto+Mono:wght@400&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Poppins:wght@400&family=Roboto+Mono:wght@400&display=swap"
   rel="stylesheet"
 />
 
@@ -83,7 +85,7 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
   }
 
   article {
-    @apply prose dark:prose-invert md:prose-h1:text-center prose-neutral lg:prose-xl prose-headings:font-display md:prose-img:-mx-[38px] lg:prose-img:-mx-[72px] xl:prose-img:-mx-[104px] md:prose-video:-mx-[38px] lg:prose-video:-mx-[72px] xl:prose-video:-mx-[104px] prose-img:rounded-lg prose-video:rounded-lg md:prose-img:max-w-[728px] lg:prose-img:max-w-[960px] xl:prose-img:max-w-screen-lg md:prose-video:max-w-[728px] lg:prose-video:max-w-[960px] xl:prose-video:max-w-screen-lg;
+    @apply prose prose-neutral lg:prose-xl dark:prose-invert prose-headings:font-display prose-img:rounded-lg prose-video:rounded-lg md:prose-h1:text-center md:prose-img:-mx-[38px] md:prose-img:max-w-[728px] md:prose-video:-mx-[38px] md:prose-video:max-w-[728px] lg:prose-img:-mx-[72px] lg:prose-img:max-w-[960px] lg:prose-video:-mx-[72px] lg:prose-video:max-w-[960px] xl:prose-img:-mx-[104px] xl:prose-img:max-w-screen-lg xl:prose-video:-mx-[104px] xl:prose-video:max-w-screen-lg;
   }
 
   @media (prefers-reduced-motion: no-preference) {

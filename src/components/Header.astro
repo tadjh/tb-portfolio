@@ -31,7 +31,7 @@ const { level } = Astro.props;
 ---
 
 <header
-  class="not-prose flex w-full flex-row justify-center gap-x-2 bg-gradient-to-t from-transparent to-neutral-100 p-4 dark:to-neutral-800/50 md:gap-x-6 md:p-8"
+  class="not-prose flex w-full flex-row justify-center gap-x-2 bg-gradient-to-t from-transparent to-neutral-100 p-4 md:gap-x-6 md:p-8 dark:to-neutral-800/50"
 >
   <AnimatedHeader client:load
     ><AnimatedLogo />
@@ -43,7 +43,7 @@ const { level } = Astro.props;
         {
           routes.map(({ url, title }) => {
             return (
-              <li class="text-3xl font-bold uppercase md:text-5xl">
+              <li class="font-display text-3xl font-bold uppercase md:text-5xl">
                 <StyledLink href={url} class="underline-offset-2">
                   {title}
                 </StyledLink>
