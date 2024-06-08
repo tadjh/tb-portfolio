@@ -8,4 +8,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://www.tadjh.dev",
   integrations: [tailwind(), react(), mdx(), sitemap()],
+  prefetch: true,
 });
