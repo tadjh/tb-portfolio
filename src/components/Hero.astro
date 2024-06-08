@@ -7,10 +7,9 @@ import { isImage, isVideo } from "../utils";
 
 interface Props {
   project: CollectionEntry<"projects">;
-  fadeIn?: boolean;
 }
 
-const { project, fadeIn } = Astro.props;
+const { project } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
