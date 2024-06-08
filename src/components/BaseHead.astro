@@ -59,3 +59,69 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <ViewTransitions />
+
+<style is:global>
+  html {
+    height: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display text-neutral-900 dark:text-white;
+  }
+
+  mark {
+    @apply bg-neutral-300 px-1 text-[var(--tw-prose-body)] dark:bg-neutral-800;
+  }
+
+  section {
+    @apply flex flex-col gap-y-4 md:gap-y-8;
+  }
+
+  article {
+    @apply prose dark:prose-invert md:prose-h1:text-center prose-neutral lg:prose-xl prose-headings:font-display md:prose-img:-mx-[38px] lg:prose-img:-mx-[72px] xl:prose-img:-mx-[104px] md:prose-video:-mx-[38px] lg:prose-video:-mx-[72px] xl:prose-video:-mx-[104px] prose-img:rounded-lg prose-video:rounded-lg md:prose-img:max-w-[728px] lg:prose-img:max-w-[960px] xl:prose-img:max-w-screen-lg md:prose-video:max-w-[728px] lg:prose-video:max-w-[960px] xl:prose-video:max-w-screen-lg;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-fadeInView {
+      scale: 0.8;
+      opacity: 0;
+      animation: fadeInView linear forwards;
+      animation-timeline: view();
+      animation-range: entry;
+    }
+
+    @keyframes fadeInView {
+      to {
+        scale: 1;
+        opacity: 1;
+      }
+    }
+  }
+
+  .flip-container:hover .flip-inner,
+  .flip-container.active .flip-inner {
+    transform: rotateY(-180deg);
+  }
+
+  @media (max-width: 767px) {
+    .no-bg {
+      background: transparent !important;
+    }
+  }
+</style>
+<script is:inline>
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+</script>
