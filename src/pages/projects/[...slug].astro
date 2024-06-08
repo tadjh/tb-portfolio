@@ -15,9 +15,7 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { twMerge } from "tailwind-merge";
 
 export async function getStaticPaths() {
-  const projects = await getCollection("projects", ({ data }) => {
-    return data.draft !== true;
-  });
+  const projects = await getCollection("projects");
   return projects.map((project) => ({
     params: { slug: project.slug },
     props: project,
