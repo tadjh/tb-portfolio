@@ -2,13 +2,13 @@
 export interface Props {
   title: string;
   description: string;
-  className: string;
+  class: string;
 }
 
-const { title, description, className } = Astro.props;
+const { title, description, class: className } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" style="scroll-behavior: smooth;">
   <head>
     <meta charset="UTF-8" />
