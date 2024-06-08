@@ -2,32 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import { composeKey } from "../utils";
-import CustomLink from "./CustomLink";
-import Copyright from "./Copyright";
-import Socials from "./Socials";
 
-export interface NavigationItem {
-  url: string;
-  vanity: string;
-}
+interface OffCanvasMenuProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export const navigation: NavigationItem[] = [
-  {
-    url: "/",
-    vanity: "Home",
-  },
-  {
-    url: "/projects",
-    vanity: "Projects",
-  },
-  {
-    url: "/about",
-    vanity: "About",
-  },
-];
-
-export default function Navigation() {
+export default function OffCanvasMenu({ children }: OffCanvasMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<SVGSVGElement | null>(null);
 
@@ -54,25 +32,7 @@ export default function Navigation() {
           isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
-        <div className="flex flex-1 items-center">
-          <ul className="flex flex-col gap-y-2 md:gap-y-4">
-            {navigation.map(({ url, vanity }, index) => {
-              return (
-                <li
-                  key={composeKey("nav", index)}
-                  className="text-3xl font-bold uppercase md:text-5xl"
-                >
-                  <CustomLink href={url} className="underline-offset-2">
-                    {vanity}
-                  </CustomLink>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <hr className="w-1/5 border-white/90 transition-transform group-hover:scale-x-150" />
-        <Socials />
-        <Copyright />
+        {children}
       </div>
       <FontAwesomeIcon
         ref={buttonRef}

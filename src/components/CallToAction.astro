@@ -3,7 +3,7 @@ import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { config } from "../config";
 import profilePicturePortrait from "../assets/images/tadjh-profile-4x5.jpg";
-import CustomLink from "./CustomLink";
+import StyledLink from "./StyledLink.tsx";
 import Socials from "./Socials";
 import { Image } from "astro:assets";
 ---
@@ -16,7 +16,7 @@ import { Image } from "astro:assets";
       <h2 class="text-5xl font-bold leading-[0.78] text-white md:text-6xl">
         {`Hi I'm ${config.siteTitle.split(" ")[0]}`}
       </h2>
-      <CustomLink
+      <StyledLink
         href="mailTo:hello@tadjh.dev"
         target="_blank"
         rel="noreferrer"
@@ -27,11 +27,11 @@ import { Image } from "astro:assets";
           className="h-8 w-8 transition-transform group-hover:scale-110"
         />
         {config.email}
-      </CustomLink>
+      </StyledLink>
     </div>
     <p class="indent-12">
       {config.bio}{" "}
-      <CustomLink href="/about" inline> Learn More &rarr; </CustomLink>
+      <StyledLink href="/about" inline> Learn More &rarr; </StyledLink>
     </p>
     <div class="text-xl">
       <div>{config.siteTitle}</div>

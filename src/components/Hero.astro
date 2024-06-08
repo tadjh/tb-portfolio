@@ -7,9 +7,10 @@ import { isImage, isVideo } from "../utils";
 
 interface Props {
   project: CollectionEntry<"projects">;
+  fadeIn?: boolean;
 }
 
-const { project } = Astro.props;
+const { project, fadeIn } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
@@ -20,7 +21,10 @@ const videos = import.meta.glob<{ default: string }>(
 );
 ---
 
-<div class="flex flex-col gap-y-3 rounded-lg md:gap-0">
+<div
+  class="flex flex-col gap-y-3 rounded-lg md:gap-0"
+  transition:name={`${project.slug}-hero`}
+>
   <div class="relative z-10">
     {
       isImage(project.data.hero) ? (
@@ -28,10 +32,10 @@ const videos = import.meta.glob<{ default: string }>(
           src={images[project.data.hero]()}
           alt={`${project.data.title}`}
           title={`${project.data.title}`}
-          class={
-            "animate-fade aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg"
-          }
-          transition:name={`${project.slug}-hero-image`}
+          class={twMerge(
+            "aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg",
+            // fadeIn && "animate-fade",
+          )}
           loading="eager"
         />
       ) : isVideo(project.data.hero) ? (
@@ -40,10 +44,10 @@ const videos = import.meta.glob<{ default: string }>(
           muted
           loop
           media={videos[project.data.hero]()}
-          class={
-            "animate-fade aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg"
-          }
-          transition:name={`${project.slug}-hero-video`}
+          class={twMerge(
+            "aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom dark:border-neutral-800 md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg",
+            // fadeIn && "animate-fade",
+          )}
         />
       ) : null
     }

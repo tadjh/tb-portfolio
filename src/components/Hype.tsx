@@ -13,7 +13,8 @@ export default function Hype({ items }: HypeProps) {
   return (
     <motion.div
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true }}
       variants={{
         visible: { transition: { staggerChildren: 1 } },
       }}

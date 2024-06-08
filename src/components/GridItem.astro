@@ -3,8 +3,8 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { twMerge } from "tailwind-merge";
-import Card from "./Card";
-import CustomLink from "./CustomLink";
+import Card from "./Card.astro";
+import StyledLink from "./StyledLink.tsx";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import Video from "./Video.astro";
@@ -29,7 +29,7 @@ const videos = import.meta.glob<{ default: string }>(
 ---
 
 <Card
-  className={twMerge("project group", isWide && "md:col-span-2")}
+  class={twMerge("project group", isWide && "md:col-span-2")}
   style={{ background: project.data.background }}
 >
   <div
@@ -87,22 +87,24 @@ const videos = import.meta.glob<{ default: string }>(
     <div class="flex flex-row gap-x-3">
       {
         project.data.repository && (
-          <CustomLink
+          <StyledLink
             href={project.data.repository}
-            external
+            target="_blank"
+            rel="noreferrer"
             title="View the source code on Github"
             aria-label="View the source code on Github"
             className="transition-transform hover:scale-110"
           >
             <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
-          </CustomLink>
+          </StyledLink>
         )
       }
       {
         project.data.website && (
-          <CustomLink
+          <StyledLink
             href={project.data.website}
-            external
+            target="_blank"
+            rel="noreferrer"
             title="Visit this project's webpage"
             aria-label="Visit this project's webpage"
             className="group/visit"
@@ -112,7 +114,7 @@ const videos = import.meta.glob<{ default: string }>(
               className="h-6 w-6 transition-transform group-hover/visit:scale-110 hover:scale-110"
             />
             Visit this project
-          </CustomLink>
+          </StyledLink>
         )
       }
     </div>

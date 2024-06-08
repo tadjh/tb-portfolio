@@ -8,7 +8,7 @@ interface CounterProps extends React.HTMLAttributes<HTMLDivElement> {
   duration?: number;
 }
 
-export default function Counter({ value, delay, duration = 2 }: CounterProps) {
+export default function Counter({ value, delay, duration = 3 }: CounterProps) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);

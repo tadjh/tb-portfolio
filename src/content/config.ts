@@ -1,3 +1,4 @@
+import { Schema } from "astro/zod";
 import { defineCollection, z } from "astro:content";
 
 const projects = defineCollection({

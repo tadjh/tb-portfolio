@@ -1,24 +1,18 @@
 import { twMerge } from "tailwind-merge";
-import type { AnchorHTMLAttributes } from "react";
 
-type CustomLinkProps = {
+interface StyledLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
-  external?: boolean;
   inline?: boolean;
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
+}
 
-export default function CustomLink({
-  href,
+export default function StyledLink({
   children,
-  external = false,
+  href,
   className,
   inline = false,
   ...props
-}: CustomLinkProps) {
-  const externalProps = external
-    ? { target: "_blank", rel: "noreferrer" }
-    : undefined;
-
+}: StyledLinkProps) {
   return (
     <a
       href={href}
@@ -28,7 +22,6 @@ export default function CustomLink({
         !inline && "flex flex-row items-center gap-x-2",
         className,
       )}
-      {...externalProps}
       {...props}
     >
       {children}

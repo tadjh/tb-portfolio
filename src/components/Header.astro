@@ -1,8 +1,31 @@
 ---
 import AnimatedHeader from "./AnimatedHeader";
 import AnimatedLogo from "./AnimatedLogo.astro";
-import Navigation from "./Navigation";
-import SiteTitle from "./SiteTitle";
+import Copyright from "./Copyright.astro";
+import OffCanvasMenu from "./OffCanvasMenu";
+import SiteTitle from "./SiteTitle.astro";
+import Socials from "./Socials.astro";
+import StyledLink from "./StyledLink";
+
+export interface Route {
+  url: string;
+  title: string;
+}
+
+export const routes: Route[] = [
+  {
+    url: "/",
+    title: "Home",
+  },
+  {
+    url: "/projects",
+    title: "Projects",
+  },
+  {
+    url: "/about",
+    title: "About",
+  },
+];
 
 const { level } = Astro.props;
 ---
@@ -14,5 +37,26 @@ const { level } = Astro.props;
     ><AnimatedLogo />
     <SiteTitle level={level} />
   </AnimatedHeader>
-  <Navigation client:load />
+  <OffCanvasMenu client:load>
+    <div class="flex flex-1 items-center">
+      <ul class="flex flex-col gap-y-2 md:gap-y-4">
+        {
+          routes.map(({ url, title }) => {
+            return (
+              <li class="text-3xl font-bold uppercase md:text-5xl">
+                <StyledLink href={url} className="underline-offset-2">
+                  {title}
+                </StyledLink>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+    <hr
+      class="w-1/5 border-white/90 transition-transform group-hover:scale-x-150"
+    />
+    <Socials slot="socials" />
+    <Copyright slot="copyright" />
+  </OffCanvasMenu>
 </header>
