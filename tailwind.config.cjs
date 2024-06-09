@@ -14,6 +14,26 @@ module.exports = {
         fade: "1s ease-out fadeIn",
         grow: "1s cubic-bezier(.49,-0.13,.24,1.4) scaleUp",
       },
+      colors: {
+        orange: {
+          tadjh: "#f26522",
+        },
+        blue: {
+          gulf: "#C9DFEC",
+        },
+      },
+      dropShadow: {
+        glow: [
+          "0 0px 20px rgba(255, 150, 100, 0.35)",
+          "0 0px 65px rgba(255, 150, 100, 0.2)",
+        ],
+        beefy: ["2px 2px 5px rgba(0, 0, 0, 1)"],
+      },
+      fontFamily: {
+        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+        display: ["Montserrat", ...defaultTheme.fontFamily.sans],
+        mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
+      },
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },
@@ -30,25 +50,6 @@ module.exports = {
             scale: 1,
           },
         },
-      },
-      colors: {
-        orange: {
-          tadjh: "#f26522",
-        },
-        blue: {
-          gulf: "#C9DFEC",
-        },
-      },
-      dropShadow: {
-        glow: [
-          "0 0px 20px rgba(255,150, 100, 0.35)",
-          "0 0px 65px rgba(255, 150,100, 0.2)",
-        ],
-      },
-      fontFamily: {
-        sans: ["Poppins", ...defaultTheme.fontFamily.sans],
-        display: ["Montserrat", ...defaultTheme.fontFamily.sans],
-        mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },
