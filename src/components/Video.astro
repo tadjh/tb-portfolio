@@ -3,14 +3,14 @@ import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"video"> {
   class: string;
-  media: Promise<{ default: string }>;
+  media: Promise<{ default: string }> | string;
 }
 
-const { media, ...props } = Astro.props;
-const videoData = await media;
+let { media, ...props } = Astro.props;
+media = typeof media === "string" ? media : (await media).default;
 // TODO Handle client:visible
 ---
 
 <video {...props}>
-  <source src={videoData.default} type="video/mp4" />
+  <source src={media} type="video/mp4" />
 </video>
