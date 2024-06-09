@@ -222,7 +222,7 @@ export default function ModelViewer({
       }
     }
   }, [isFullscreen]);
-  // TODO Fix progressbar not working on deployment
+
   return (
     <div
       ref={parent}
@@ -230,13 +230,15 @@ export default function ModelViewer({
       className="group relative z-50 mx-auto max-w-sm md:max-w-full"
       {...props}
     >
-      {/* <div className="pointer-events-none absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 select-none flex-col items-center justify-center">
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden h-full w-full -translate-x-1/2 -translate-y-1/2 select-none flex-col items-center justify-center" //flex
+      >
         <label htmlFor="model-viewer-progress">Initializing...</label>
         <progress id="model-viewer-progress" ref={progress} value={0} max={100}>
           0%
         </progress>
         <div>0%</div>
-      </div> */}
+      </div>
       <a
         href={isFullscreen ? "#fullscreen" : undefined}
         className="absolute bottom-0 right-0 cursor-pointer p-4 text-neutral-500 transition-transform group-hover:scale-110"
