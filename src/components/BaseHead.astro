@@ -119,12 +119,42 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
       opacity: 0;
       animation: fadeInView linear forwards;
       animation-timeline: view();
-      animation-range: entry;
+      animation-range: entry 25% entry 125%;
     }
 
     @keyframes fadeInView {
       to {
         scale: 1;
+        opacity: 1;
+      }
+    }
+
+    .animate-slideFromRight {
+      translate: 25% 0%;
+      opacity: 0;
+      animation: slideFromRight linear forwards;
+      animation-timeline: view();
+      animation-range: entry 50% entry 150%;
+    }
+
+    @keyframes slideFromRight {
+      to {
+        translate: 0% 0%;
+        opacity: 1;
+      }
+    }
+
+    .animate-slideFromLeft {
+      translate: -25% 0%;
+      opacity: 0;
+      animation: slideFromLeft linear forwards;
+      animation-timeline: view();
+      animation-range: entry 50% entry 150%;
+    }
+
+    @keyframes slideFromLeft {
+      to {
+        translate: 0% 0%;
         opacity: 1;
       }
     }
