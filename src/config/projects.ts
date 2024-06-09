@@ -1,6 +1,7 @@
 import type { Project } from "../types";
 
 // TODO Convert to MDX
+// TODO Or Deprecate completely
 
 export const projects: Project[] = [
   {
