@@ -10,12 +10,16 @@ export function isImage(path: string) {
   return /\.(jpg|jpeg|png|gif|webp)$/i.test(path);
 }
 
-export function toggleScrollbar() {
+export function toggleScrollbar(delay = 0) {
   if (document.body.style.overflow === "hidden") {
-    document.body.style.overflow = "initial";
-  } else {
-    setTimeout(() => {
-      document.body.style.overflow = "hidden";
-    }, 1000);
+    return (document.body.style.overflow = "initial");
   }
+
+  if (delay) {
+    return setTimeout(() => {
+      document.body.style.overflow = "hidden";
+    }, delay);
+  }
+
+  return (document.body.style.overflow = "hidden");
 }
