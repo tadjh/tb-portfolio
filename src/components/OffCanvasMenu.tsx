@@ -2,22 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { toggleScrollbar } from "../utils";
 
 interface OffCanvasMenuProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function OffCanvasMenu({ children }: OffCanvasMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef<SVGSVGElement | null>(null);
-
-  function toggleScrollbar() {
-    if (document.body.style.overflow === "hidden") {
-      document.body.style.overflow = "initial";
-    } else {
-      setTimeout(() => {
-        document.body.style.overflow = "hidden";
-      }, 1000);
-    }
-  }
 
   function toggleOpen() {
     toggleScrollbar();

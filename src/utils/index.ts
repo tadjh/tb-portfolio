@@ -9,3 +9,13 @@ export function isVideo(path: string) {
 export function isImage(path: string) {
   return /\.(jpg|jpeg|png|gif|webp)$/i.test(path);
 }
+
+export function toggleScrollbar() {
+  if (document.body.style.overflow === "hidden") {
+    document.body.style.overflow = "initial";
+  } else {
+    setTimeout(() => {
+      document.body.style.overflow = "hidden";
+    }, 1000);
+  }
+}
