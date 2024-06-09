@@ -41,7 +41,7 @@ const videos = import.meta.glob<{ default: string }>(
           <Image
             src={images[project.data.hero]()}
             alt={project.data.title}
-            class="animate-fade w-full object-cover transition-all group-hover:scale-105"
+            class="w-full animate-fade object-cover transition-all group-hover:scale-105"
             loading="eager"
           />
         </div>
@@ -52,7 +52,7 @@ const videos = import.meta.glob<{ default: string }>(
             muted
             loop
             media={videos[project.data.hero]()}
-            class="animate-fade w-full object-cover transition-all group-hover:scale-105"
+            class="w-full animate-fade object-cover transition-all group-hover:scale-105"
           />
         </div>
       ) : null
