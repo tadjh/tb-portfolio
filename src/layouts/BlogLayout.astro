@@ -2,6 +2,7 @@
 import { twMerge } from "tailwind-merge";
 import Layout from "./Layout.astro";
 import GoToTop from "../components/GoToTop.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 interface Props {
   frontmatter: {
@@ -22,7 +23,8 @@ frontmatter = {
 ---
 
 <Layout {...frontmatter}>
-  <article class={twMerge("[&>div]:my-8", frontmatter.class)}>
+  <Breadcrumbs current={frontmatter.title} />
+  <article class={twMerge("mx-auto [&>div]:my-8", frontmatter.class)}>
     <slot />
   </article>
   <GoToTop />
