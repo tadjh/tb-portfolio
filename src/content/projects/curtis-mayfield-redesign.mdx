@@ -33,6 +33,7 @@ import {
   faCodeCommit,
 } from "@fortawesome/free-solid-svg-icons";
 import BeforeAfter from "../../components/BeforeAfter";
+import Video from "../../components/Video.astro";
 import merchCarousel from "../../assets/videos/Curtis-Mayfield-Merch-Carousel-720p.mp4";
 import musicArchiveBefore from "../../assets/images/Curtis-Mayfield-Music-Archive-Before-1024x576.jpg";
 import musicArchive from "../../assets/images/Curtis-Mayfield-Music-Archive-1024x576.jpg";
@@ -67,9 +68,13 @@ A modern redesign for a legendary GRAMMY Award Winning R&B and Soul musician Cur
 One the of main goals with the redesign was bringing Curtis Mayfield mechandise to the forefront, instead of it being an afterthought. I designed an eye-popping carousel with <mark>Framer Motion</mark>. Each item in the carousel links externally to Curtis Mayfield's mechandise distributer Rhino.
 
 <figure>
-  <video autoPlay muted loop class="animate-fadeInView">
-    <source src={merchCarousel} type="video/mp4" />
-  </video>
+  <Video
+    autoPlay
+    muted
+    loop
+    className="animate-fadeInView"
+    media={merchCarousel}
+  />
   {/* prettier-ignore */}
   <figcaption>A responsive carousel built with accessibility in mind.</figcaption>
 </figure>
@@ -79,7 +84,7 @@ One the of main goals with the redesign was bringing Curtis Mayfield mechandise 
 A major constraint of the re-design was keeping all of the current website content intact while presenting said content in new and interactive ways. The Albums page is stellar example of how a good design, not only can make pages load blazingly fast, but also make an entire website a joy to browse.
 
 <figure>
-  <BeforeAfter client:load>
+  <BeforeAfter client:visible>
     <Image
       src={musicArchiveBefore}
       alt="CurtisMayfield.com music archive page before"
@@ -96,7 +101,7 @@ A major constraint of the re-design was keeping all of the current website conte
 </figure>
 
 <figure>
-  <BeforeAfter client:load>
+  <BeforeAfter client:visible>
     <Image
       src={musicSingleBefore}
       alt="CurtisMayfield.com music interior page before"
@@ -117,9 +122,13 @@ A major constraint of the re-design was keeping all of the current website conte
 A long-time dream of the Curtis Mayfield Estate was having an interactive timeline of Curtis' life. Implementing this feature was one the stretch-goals for this project, but I found the time to create something we were all extremely proud of.
 
 <figure>
-  <video autoPlay muted loop class="animate-fadeInView">
-    <source src={timelineVideo} type="video/mp4" />
-  </video>
+  <Video
+    autoplay
+    muted
+    loop
+    className="animate-fadeInView"
+    media={timelineVideo}
+  />
   {/* prettier-ignore */}
   <figcaption>A rich click-thru timeline of Curtis' life and legendary career.</figcaption>
 </figure>
@@ -129,9 +138,13 @@ A long-time dream of the Curtis Mayfield Estate was having an interactive timeli
 This project really tested my abilities, from developing on the bleeding edge of <mark>Next.js</mark> during the launch of <mark>React Server Components</mark>, to content management schema design and optimization. Be it image optimization, animaton optimization, database query optimization or server caching optimization, this was a truly full-stack development project.
 
 <figure>
-  <video autoPlay muted loop class="animate-fadeInView">
-    <source src={animationsVideo} type="video/mp4" />
-  </video>
+  <Video
+    autoPlay
+    muted
+    loop
+    className="animate-fadeInView"
+    media={animationsVideo}
+  />
   {/* prettier-ignore */}
   <figcaption>Smooth 60 fps animations made with GPU accelerated CSS and highly performant Javascript.</figcaption>
 </figure>

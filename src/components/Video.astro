@@ -8,6 +8,7 @@ interface Props extends HTMLAttributes<"video"> {
 
 const { media, ...props } = Astro.props;
 const videoData = await media;
+// TODO Handle client:visible
 ---
 
 <video {...props}>
