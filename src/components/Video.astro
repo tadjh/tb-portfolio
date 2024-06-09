@@ -1,16 +1,20 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
-interface Props extends HTMLAttributes<"video"> {
+import VideoClient from "./Video.tsx";
+interface Props extends React.MediaHTMLAttributes<HTMLVideoElement> {
+  autoplay?: boolean;
   class: string;
   media: Promise<{ default: string }> | string;
 }
 
-let { media, ...props } = Astro.props;
+let { media, class: className, autoplay, autoPlay, ...props } = Astro.props;
 media = typeof media === "string" ? media : (await media).default;
 // TODO Handle client:visible
 ---
 
-<video {...props}>
-  <source src={media} type="video/mp4" />
-</video>
+<VideoClient
+  media={media}
+  autoPlay={autoplay || autoPlay}
+  className={className}
+  {...props}
+  client:visible
+/>

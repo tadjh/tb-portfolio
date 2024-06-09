@@ -27,6 +27,7 @@ import ModelViewer from "../components/ModelViewer";
 import torch from "../assets/models/prop_survival_torch.glb";
 import portraitPic from "../assets/images/tadjh-profile-4x5.jpg";
 import { Image } from "astro:assets";
+import Video from "../components/Video.astro";
 
 # About
 
@@ -53,16 +54,14 @@ So I got to work:
 🚗 I've designed custom automobile wraps. As well used <mark>Lua</mark> as configured my own modded <mark>FiveM</mark> Grand Theft Auto development server in order to test them.
 
 <figure>
-  <video
-    autoPlay
+  <Video
+    autoplay
     muted
     loop
     class="animate-fadeInView"
     width={1280}
-    client:visible
-  >
-    <source src={luckyCat} type="video/mp4" />
-  </video>
+    media={luckyCat}
+  />
   {/* prettier-ignore */}
   <figcaption>A Japanese inspired "Lucky Cat" livery with custom vector art made in <mark>Adobe Illustrator</mark>.</figcaption>
 </figure>
