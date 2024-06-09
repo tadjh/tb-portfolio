@@ -19,20 +19,20 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
   return (
     <div
       ref={container}
-      className="not-prose animate-fadeInView relative cursor-ew-resize select-none overflow-hidden rounded-lg border-2 border-blue-gulf shadow-2xl"
+      className="not-prose animate-fadeInView relative cursor-ew-resize select-none overflow-hidden rounded-lg border-2 border-neutral-500 shadow-2xl"
     >
       <div
-        className="absolute z-10 h-full overflow-hidden border-r-2 border-blue-gulf [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:object-left-top"
+        className="absolute z-10 h-full overflow-hidden border-r-2 border-neutral-500 [&_img]:h-full [&_img]:w-full [&_img]:object-cover [&_img]:object-left-top"
         style={{ width: `${range}%` }}
       >
         {before}
-        <h3 className="absolute bottom-0 px-2 text-3xl font-bold text-blue-gulf backdrop-blur-lg md:text-5xl">
+        <h3 className="absolute bottom-0 px-2 text-3xl font-bold text-neutral-300 backdrop-blur-lg md:text-5xl">
           Before
         </h3>
       </div>
       <div className="relative">
         {after}
-        <h3 className="absolute bottom-0 right-0 px-2 text-3xl font-bold text-blue-gulf backdrop-blur-lg md:text-5xl">
+        <h3 className="absolute bottom-0 right-0 px-2 text-3xl font-bold text-neutral-300 backdrop-blur-lg md:text-5xl">
           After
         </h3>
       </div>
@@ -46,7 +46,7 @@ export default function BeforeAfter({ before, after }: BeforeAfterProps) {
       />
       <div
         ref={trigger}
-        className="pointer-events-none absolute top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-blue-gulf text-neutral-800 shadow-2xl md:h-12 md:w-12"
+        className="pointer-events-none absolute top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-neutral-500 bg-neutral-600 text-white shadow-2xl md:h-12 md:w-12"
         style={{ left: `${range}%` }}
       >
         <FontAwesomeIcon icon={faLeftRight} className="h-7 w-7 md:h-8 md:w-8" />
