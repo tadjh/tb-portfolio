@@ -26,6 +26,7 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="dark light" />
 <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 <link rel="icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
@@ -113,6 +114,16 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
     background: var(--progress-color);
   }
 
+  @media (prefers-color-scheme: dark) {
+    html {
+      @apply bg-neutral-900;
+    }
+
+    html.light {
+      @apply bg-white;
+    }
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .animate-fadeInView {
       scale: 0.8;
@@ -197,7 +208,9 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
     document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
   } else {
+    document.documentElement.classList.add("light");
     document.documentElement.classList.remove("dark");
   }
 </script>
