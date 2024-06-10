@@ -10,6 +10,6 @@ export default defineConfig({
   integrations: [tailwind(), react(), mdx(), sitemap()],
   prefetch: true,
   vite: {
-    assetsInclude: ["**/*.glb"],
+    assetsInclude: ["**/*.glb", "**/*.mp3"],
   },
 });

@@ -15,9 +15,6 @@ tags:
   - TailwindCSS
   - Cypress
   - Storybook
-hype:
-  - 270 hours
-  - 11295 lines of codes
 repository: https://github.com/tadjh/np-bingo
 website: https://np-bingo-client.herokuapp.com/play/solo
 icon: /src/assets/images/bingo-ball.png
@@ -28,6 +25,7 @@ containerClass: text-white
 
 import Hype from "../../components/Hype";
 import { faClock, faBarsStaggered } from "@fortawesome/free-solid-svg-icons";
+import BingoJingle from "../../components/BingoJingle";
 
 # Bingo Multiplayer App
 
@@ -41,8 +39,64 @@ Mobile multiplayer bingo game built on web sockets featuring private rooms, invi
   client:visible
 />
 
-- Leveraged Socket.io to create an event-driven multiplayer room-based bingo game. Also available in singleplayer.
-- Server and client are coded in React/Typescript, architected in a yarn monorepo and deployed to Heroku.
-- The themeable React components were designed with TailwindCSS and tested in Storybook.
-- Multiplayer end-to-end tests were implemented in Cypress and thoroughly tested with Jest unit &#38; intergration tests.
-- Sound effects and music recorded and edited in Ableton Live.
+## Highlights
+
+- Leveraged <mark>Socket.io</mark> to create an event-driven multiplayer room-based bingo game. Also available in singleplayer.
+- Finished games are stored in a <mark>MongoDB</mark> database with an <mark>Express.js</mark> API layer.
+- The client is strictly-typed with <mark>Typescript</mark> <mark>React</mark>.
+- The entire project is architected in a <mark>Yarn</mark> workspace monorepo with Github CI/CD deployment to <heroku>Heroku</heroku>.
+- The themeable <mark>React</mark> components were styled with <mark>TailwindCSS</mark> and tested with <mark>Storybook</mark>.
+- Multiplayer end-to-end tests were implemented in <mark>Cypress</mark> and all game logic was thoroughly tested with <mark>Jest</mark> unit tests.
+- All music & sound effects were recorded with, and edited in <mark>Ableton Live</mark>.
+
+## Goals
+
+I was inspired to create a mobile friendly bingo app while watching a Twtich streamer dicuss a desire to have a bingo game intergrated into the modded GTA IV server "NoPixel". This felt a like fun project to attempt as coding a game would be a new challenge for me.
+
+While this was the start to the journey, the road went much further than I could ever imagine.
+
+## Scope Creep
+
+The basic offline-only game logic and game board was implemented in the first 10 or so hours. Creating views for the game host, as well as a pre-game lobby took a bit longer. It was about 50 hours into project when I realized what I had built simply wasn't very fun to play. **It was then I realized the essence of Bingo.**
+
+- Bingo is a social game within a game.
+- There's an external pressure that someone nearby is closer to victory and you desperately need to catch up, despite each card being completely random.
+- There's a duty for each player to actively listen and pay close attention to every ball that host draws, as missing a single ball could be the difference between losing and Bingo!
+- There's crowd participation in the chippy banter among participants when player think they are soon to be winners.
+
+And so I realized what was missing. Multiplayer...
+
+## Learning The Hard Way
+
+Wrapping my head around networked events across devices was another new challenge for me that was initially a doozy. I found myself constantly refactoring the networking code, trying to find the ideal abstraction with as little bloat and inversion of control flow as I could muster. The vast edge cases one has to consider the moment you expect all participants have to have an internet connection while mainting a synced experience on their mobile devices were too numerous to count.
+
+Over time I slowly stripped back the complexity and uneccessary conditionals for features I'd likely never implement, trying to get something that was remotly playable.
+
+I went from spaghetti code to extra clean code, to simply a lean codebase. 8 months had passed, where I spent 20 hours a week of my free time building this app that was only playable in single-player.
+
+## Human Feedback
+
+After keeping this project under wraps for months, I decided it was time to test the app on my Dad. He's an excellent bugcatcher as he rarely follows the happy-path throughout any app. Through our many rounds of tests some bugs proved to be stickier than others. Soon he found some impossible to recreate edge cases and I began to lose hope. Enter <mark>Cypress</mark>.
+
+## A Revelation
+
+Writing <mark>Cypress</mark> tests revealed the power of end-to-end testing but also just how janky my game was. I used <mark>Cypress</mark> to automate an entire multiplayer expeirence, hunting and eventually discovering all sorts of race conditions and the dread edges my Dad discoverd before.
+
+## The Final Polish
+
+It was near end where I thought back long and hard about the essence of Bingo that I keyed in on all months back. Something was still missing.
+
+- I was still missing was the tactile satifaction of filling the squares.
+- I was missing the pressure of seeing the balls slowly dwindle from their cage; an indication that I was running out of time.
+- And lastly, the fanfare of audience applause after being the first to call "Bingo!".
+
+So I used my audio engineering background to create sound effects for every action a player take within the app. Hearing a marker sound while crossing out a numbered box suddenly felt tactile and responsive. I added the remaining count of balls to the UI with it color coded green to yellow to red in order to give the the player an indicator of how few balls were left and how dire their situation may be. I produced an instrumental an 8-bit Gameboy-esque B-I-N-G-O jingle that played only on the winner's phone while an <mark>HTML</mark> Canvas plays animated confetti falling on their mobile device. Suddenly winning the game felt like momentous occasion and I knew I had finally fully captured the essence.
+
+<figure className="flex flex-col items-center">
+  <BingoJingle client:only="react" />
+  <figcaption>Listen to the "Bingo Theme" by Tadjh Brooks</figcaption>
+</figure>
+
+## Home Run
+
+Finally after many valuable lesson were learned I invited my entire family to play the game during a holiday dinner party. What started as a single round were every slowly acclimated to the <mark>UI/UX</mark>, turn into my Grandmother asking for round after round. She didn't let anyone leave until she herself could yell out, "BINGO!". It was an overwhelming success and I experienced real joy from seeing my family have so much fun playing a game I wrote from scratch.

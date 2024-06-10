@@ -228,7 +228,7 @@ export default function ModelViewer({
       id="model-viewer"
       ref={parent}
       style={{ height, width }}
-      className="group relative z-50 mx-auto max-w-sm md:max-w-full"
+      className="group relative z-30 mx-auto max-w-sm md:max-w-full"
       {...props}
     >
       <div
