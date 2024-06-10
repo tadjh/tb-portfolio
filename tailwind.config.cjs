@@ -15,13 +15,15 @@ module.exports = {
         fade: "1s ease-out fadeIn",
         grow: "1s cubic-bezier(.49,-0.13,.24,1.4) scaleUp",
         write: "1.5s ease write forwards",
+        revealRight: "2s cubic-bezier(.50,0,0,1) revealRight forwards",
       },
       colors: {
         orange: {
           tadjh: "#f26522",
         },
         blue: {
-          gulf: "#C9DFEC",
+          gulf: "#c9dfec",
+          mirage: "#636f78",
         },
       },
       dropShadow: {
@@ -50,6 +52,20 @@ module.exports = {
           },
           "100%": {
             scale: 1,
+          },
+        },
+        revealRight: {
+          from: {
+            clipPath:
+              "polygon(-5% 150%, -5% 150%, -5% 150%, -5% 150%, 20% 150%, 20% 150%)",
+          },
+          "10%": {
+            clipPath:
+              "polygon(-5% 150%, -5% -5%, -5% -5%, -5% 110%, 20% 110%, 20% 150%)",
+          },
+          to: {
+            clipPath:
+              "polygon(-5% 150%, -5% -5%, 110% -5%, 110% 110%, 20% 110%, 20% 150%)",
           },
         },
         write: {
