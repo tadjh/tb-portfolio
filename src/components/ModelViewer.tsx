@@ -225,6 +225,7 @@ export default function ModelViewer({
 
   return (
     <div
+      id="model-viewer"
       ref={parent}
       style={{ height, width }}
       className="group relative z-50 mx-auto max-w-sm md:max-w-full"
@@ -240,7 +241,7 @@ export default function ModelViewer({
         <div>0%</div>
       </div>
       <a
-        href={isFullscreen ? "#fullscreen" : undefined}
+        href={isFullscreen ? "#fullscreen" : "#model-viewer"}
         className="absolute bottom-0 right-0 cursor-pointer p-4 text-neutral-500 transition-transform group-hover:scale-110"
         onClick={handleFullscreen}
         title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
