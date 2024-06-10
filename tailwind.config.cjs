@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 module.exports = {
   darkMode: "selector",
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -13,6 +14,7 @@ module.exports = {
       animation: {
         fade: "1s ease-out fadeIn",
         grow: "1s cubic-bezier(.49,-0.13,.24,1.4) scaleUp",
+        write: "1.5s ease write forwards",
       },
       colors: {
         orange: {
@@ -50,8 +52,56 @@ module.exports = {
             scale: 1,
           },
         },
+        write: {
+          to: {
+            strokeWidth: "var(--final-stroke-width)",
+            strokeDashoffset: 0,
+          },
+        },
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "animation-duration": (value) => ({
+            "animation-duration":
+              typeof value === "string" && value.endsWith("ms")
+                ? value
+                : `${value}ms`,
+          }),
+        },
+        { values: theme("transitionDelay") },
+      );
+      matchUtilities(
+        {
+          "animation-delay": (value) => ({
+            "animation-delay":
+              typeof value === "string" && value.endsWith("ms")
+                ? value
+                : `${value}ms`,
+          }),
+        },
+        { values: theme("transitionDelay") },
+      );
+      matchUtilities(
+        {
+          "stroke-dasharray": (value) => ({
+            "stroke-dasharray": value,
+          }),
+        },
+        { values: { 0: "0" } },
+      );
+      matchUtilities(
+        {
+          "stroke-dashoffset": (value) => ({
+            "stroke-dashoffset": value,
+          }),
+        },
+        { values: { 0: "0" } },
+      );
+    }),
+  ],
 };

@@ -170,6 +170,25 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
       background: transparent !important;
     }
   }
+
+  #sigT {
+    --final-stroke-width: 300px;
+    --write-dash-offset: 1415.7935791015625;
+    stroke-dasharray: var(--write-dash-offset);
+    stroke-dashoffset: var(--write-dash-offset);
+    stroke-width: 0px;
+  }
+
+  #sigT.animate-write {
+    animation: 1.5s ease write forwards;
+  }
+
+  @keyframes writeT {
+    to {
+      stroke-width: var(--final-stroke-width);
+      stroke-dashoffset: 0;
+    }
+  }
 </style>
 <script is:inline>
   if (
