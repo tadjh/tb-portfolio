@@ -7,11 +7,18 @@ import netlify from "@astrojs/netlify";
 import { lastModified } from "./plugins/remark.mjs";
 
 export default defineConfig({
-  site: "https://www.tadjh.com",
+  site: "https://tadjh.com",
   output: "hybrid",
   adapter: netlify(),
   markdown: { remarkPlugins: [lastModified] },
-  integrations: [tailwind(), react(), mdx(), sitemap()],
+  integrations: [
+    tailwind(),
+    react(),
+    mdx(),
+    sitemap({
+      filter: (page) => page !== "https://tadjh.com/andi-jones-for-mayor/",
+    }),
+  ],
   prefetch: true,
   vite: {
     assetsInclude: ["**/*.glb", "**/*.mp3"],
