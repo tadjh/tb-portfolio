@@ -1,6 +1,4 @@
 ---
-import { config } from "../config";
-
 export interface Props {
   level?: "h1" | "h2";
 }
@@ -12,21 +10,19 @@ const { level = "h2" } = Astro.props;
   {
     level === "h1" ? (
       <h1 class="flex flex-col font-display text-5xl font-black leading-[0.78] md:text-[68px] lg:text-[84px] xl:text-[104px]">
-        {config.siteTitle.split(" ").map((name) => (
-          <span>{name}</span>
-        ))}
+        <span>Tadjh</span>
+        <span>Brooks</span>
       </h1>
     ) : (
       <h2 class="flex flex-col font-display text-5xl font-black leading-[0.78] md:text-[68px] lg:text-[84px] xl:text-[104px]">
-        {config.siteTitle.split(" ").map((name) => (
-          <span>{name}</span>
-        ))}
+        <span>Tadjh</span>
+        <span>Brooks</span>
       </h2>
     )
   }
   <h3
     class="font-display text-base font-light uppercase text-[var(--tw-prose-headings)] md:text-xl md:tracking-widest lg:text-2xl lg:tracking-[0.18rem] xl:text-3xl xl:tracking-[0.2rem]"
   >
-    {config.jobTitle}
+    Software Engineer
   </h3>
 </div>

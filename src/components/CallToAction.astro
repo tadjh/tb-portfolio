@@ -1,7 +1,6 @@
 ---
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { config } from "../config";
 import profilePicturePortrait from "../assets/images/tadjh-profile-4x5.jpg";
 import StyledLink from "./StyledLink.astro";
 import Socials from "./Socials.astro";
@@ -14,10 +13,10 @@ import { Image } from "astro:assets";
   <div class="order-2 flex flex-col gap-y-8 p-6 md:order-none md:p-10">
     <div class="flex flex-1 flex-col gap-y-8">
       <h2 class="text-5xl font-bold leading-[0.78] text-white md:text-6xl">
-        {`Hi I'm ${config.siteTitle.split(" ")[0]}`}
+        Hi I'm Tadjh
       </h2>
       <StyledLink
-        href="mailTo:hello@tadjh.dev"
+        href="mailTo:hello@tadjh.com"
         target="_blank"
         rel="noreferrer"
         class="group font-display text-xl font-bold md:text-3xl"
@@ -26,21 +25,23 @@ import { Image } from "astro:assets";
           icon={faEnvelope}
           className="h-8 w-8 transition-transform group-hover:scale-110"
         />
-        {config.email}
+        hello@tadjh.com
       </StyledLink>
     </div>
     <p class="indent-12">
-      {config.bio}{" "}
+      A full-stack software engineer with a voracious appetite for learning
+      where I hope to apply my skills in developing, problem solving and user
+      experience on real products that make a difference in people's lives.
       <StyledLink href="/about" inline> Learn More &rarr; </StyledLink>
     </p>
     <div class="text-xl">
-      <div>{config.siteTitle}</div>
+      <div>Tadjh Brooks</div>
       <div class="group flex flex-row items-center gap-x-2">
         <FontAwesomeIcon
           icon={faLocationDot}
           className="h-6 w-6 transition-transform group-hover:scale-110"
         />
-        {config.location}
+        Sherman Oaks, CA
       </div>
     </div>
     <Socials />
