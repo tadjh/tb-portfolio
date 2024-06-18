@@ -17,6 +17,7 @@ const projects = defineCollection({
     icon: z.string().optional(),
     iconClass: z.string().optional(),
     containerClass: z.string().optional(),
+    shortlink: z.string().optional(),
     draft: z.boolean().optional(),
     // relatedPosts: z.array(reference("projects")),
   }),

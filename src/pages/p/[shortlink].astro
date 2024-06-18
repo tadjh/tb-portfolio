@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+
+export const prerender = false;
+
+const { shortlink } = Astro.params;
+
+if (!shortlink) {
+  return Astro.redirect("/404");
+}
+
+const projects = await getCollection("projects");
+
+const entry = projects.filter((project) => {
+  if (import.meta.env.PROD && project.data.draft) {
+    return false;
+  }
+  project.data.shortlink === shortlink;
+})[0];
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+return Astro.redirect(`/projects/${entry.slug}`);
+---
