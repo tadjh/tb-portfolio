@@ -8,23 +8,16 @@ interface Props {
   frontmatter: {
     title: string;
     description: string;
-    minimal?: boolean;
     class?: string;
   };
 }
 
-let { frontmatter } = Astro.props;
-
-frontmatter = {
-  ...frontmatter,
-  minimal: frontmatter.minimal === undefined ? true : frontmatter.minimal,
-};
+const { frontmatter } = Astro.props;
 ---
 
-<Layout {...frontmatter}>
+<Layout {...frontmatter} minimal={true}>
   <Breadcrumbs current={frontmatter.title} />
   <article class={twMerge("mx-auto [&>div]:my-8", frontmatter.class)}>
     <slot />
   </article>
-  <GoToTop />
 </Layout>
