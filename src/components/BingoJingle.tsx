@@ -13,15 +13,15 @@ export default function BingoJingles({ ...props }: BingoJinglesProps) {
   const playRef = useRef(false);
 
   function handlePlay(event: React.SyntheticEvent<HTMLAudioElement>) {
-    if (ref.current && !lowerVolume) {
-      ref.current.volume = 0.5;
+    if (!lowerVolume) {
+      event.currentTarget.volume = 0.5;
       lowerVolume = true;
     }
     playRef.current = true;
     setPlaying(true);
   }
 
-  function handlePause(event: React.SyntheticEvent<HTMLAudioElement>) {
+  function handlePause() {
     playRef.current = false;
     setPlaying(false);
   }
