@@ -14,17 +14,19 @@ import GoToTop from "../../components/GoToTop.astro";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
-  return projects.map((project) => ({
-    params: { slug: project.slug },
-    props: project,
-  }));
+  return projects
+    .filter((project) => !(import.meta.env.PROD && project.data.draft))
+    .map((project) => ({
+      params: { slug: project.slug },
+      props: project,
+    }));
 }
 
 type Props = CollectionEntry<"projects">;
 
 const project = Astro.props;
 
-const { Content } = await project.render();
+const { Content, remarkPluginFrontmatter } = await project.render();
 ---
 
 <Layout
@@ -44,10 +46,10 @@ const { Content } = await project.render();
       )}
     >
       {
-        project.data.updatedDate ? (
+        remarkPluginFrontmatter.lastModified ? (
           <span title={`Originally published on ${project.data.pubDate}`}>
             Updated on
-            <FormattedDate date={project.data.updatedDate} />
+            <FormattedDate date={remarkPluginFrontmatter.lastModified} />
           </span>
         ) : (
           <span title={`Published on ${project.data.pubDate}`}>
