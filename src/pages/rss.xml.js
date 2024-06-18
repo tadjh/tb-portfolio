@@ -8,11 +8,13 @@ export async function GET(context) {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: context.site,
-    items: projects.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.pubDate,
-      description: post.data.description,
-      link: `/projects/${post.slug}/`,
-    })),
+    items: projects
+      .filter((project) => !(import.meta.env.PROD && project.data.draft))
+      .map((post) => ({
+        title: post.data.title,
+        pubDate: post.data.pubDate,
+        description: post.data.description,
+        link: `/projects/${post.slug}/`,
+      })),
   });
 }
