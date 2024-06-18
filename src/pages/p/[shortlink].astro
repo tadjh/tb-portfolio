@@ -15,7 +15,7 @@ const entry = projects.filter((project) => {
   if (import.meta.env.PROD && project.data.draft) {
     return false;
   }
-  project.data.shortlink === shortlink;
+  return project.data.shortlink === shortlink;
 })[0];
 
 if (!entry) {
