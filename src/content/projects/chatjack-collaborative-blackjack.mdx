@@ -1,0 +1,79 @@
+---
+title: ChatJack Collaborative Blackjack
+description: Engage your Twitch community with ChatJack, a collaborative blackjack experience driven by chat commands. Play as a team, strategize together, and enjoy the thrill of the game without any monetary stakes.
+pubDate: Mar 10, 2025
+status: published
+shortlink: chatjack
+sortOrder: 1
+hero: https://chatjack.tadjh.com/spectate/tadjh_.iframe
+categories:
+  - Full-Stack
+  - Game Development
+  - Twitch Integration
+tags:
+  - Twitch
+  - Next.js
+  - Pusher
+  - OBS
+  - Community Gaming
+repository: https://github.com/tadjh/chatjack
+website: https://chatjack.tadjh.com/
+icon: /src/assets/images/chatjack-icon.png
+background: "#193c3e"
+containerClass: text-white
+---
+
+import { Image } from "astro:assets";
+import Hype from "../../components/Hype";
+import {
+  faUsers,
+  faGamepad,
+  faCodeBranch,
+} from "@fortawesome/free-solid-svg-icons";
+import Video from "../../components/Video.astro";
+import chatJackDemo from "../../assets/videos/ChatJack-Gameover-Animation-1080p.mp4";
+import chatJackScreenshot from "../../assets/images/chatjack-screenshot.png";
+
+# Introducing ChatJack: Community-Powered Blackjack on Twitch
+
+Experience the classic game of blackjack like never before with **ChatJack**, a Twitch-integrated game that allows your community to play together using simple chat commands.
+
+## Key Features
+
+- **Community Voting**: Players vote on actions like `!hit` or `!stand`, making each decision a collaborative effort.
+- **No Monetary Stakes**: Enjoy the thrill of blackjack without any betting or monetary involvement—just pure fun.
+- **Twitch Integration**: Seamlessly integrates with the Twitch API, enabling real-time chat commands to control the game.
+- **Spectator and Moderator Modes**: Broadcasters and moderators can manage the game and display it on stream using OBS tools like Pogly.
+- **AI Dealer**: After the community's turn, the AI dealer reveals its hole card and completes its turn, adding suspense to the game.
+- **Customizable Settings**: Adjust vote durations, frames per second, number of decks, and more to tailor the experience to your community.
+
+## How It Works
+
+1. **Starting the Game**: A moderator initiates the game by clicking "Play" and selecting a channel, and the community is prompted to join.
+2. **Community Decisions**: Viewers vote using chat commands (`!hit` or `!stand`) within a set timeframe.
+3. **AI Dealer's Turn**: Once the community stands, the AI dealer reveals its cards and plays its hand.
+4. **Round Outcome**: The result is displayed, and the community can start a new round by typing `!restart`.
+
+<figure>
+  <Video autoplay muted loop class="animate-fadeInView" media={chatJackDemo} />
+  <figcaption>
+    Watch ChatJack in action as the community collaborates to beat the dealer.
+  </figcaption>
+</figure>
+
+## Upcoming Features
+
+- **Twitch Channel Predictions Integration**: Allow viewers to wager channel points on the outcome of each hand, enhancing engagement.
+- **Chat Bot Announcements**: Automated messages to guide players, such as "Type `!start` to begin!"
+
+## Technical Highlights
+
+- Built with **Next.js**, **tmi.js** and **Pusher** for real-time communication.
+- Utilizes **Twitch API** for seamless integration with OAuth authentication and chat announcements c/o tadjhbot.
+- Designed with a focus on performance to ensure a smooth experience during live streams.
+
+<Image
+  src={chatJackScreenshot}
+  alt="ChatJack gameplay screenshot"
+  class="animate-fadeInView mx-auto max-w-96 shadow-2xl"
+/>

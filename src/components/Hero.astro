@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import Video from "./Video.astro";
 import { twMerge } from "tailwind-merge";
 import type { CollectionEntry } from "astro:content";
-import { isImage, isVideo } from "../utils";
+import { isIFrame, isImage, isVideo } from "../utils";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -48,6 +48,15 @@ const videos = import.meta.glob<{ default: string }>(
             "aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom md:w-auto md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg dark:border-neutral-800",
             // fadeIn && "animate-fade",
           )}
+        />
+      ) : isIFrame(project.data.hero) ? (
+        <iframe
+          src={project.data.hero.split(".iframe")[0]}
+          class={twMerge(
+            "pointer-events-none aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom md:w-full md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg dark:border-neutral-800",
+            // fadeIn && "animate-fade",
+          )}
+          loading="eager"
         />
       ) : null
     }
