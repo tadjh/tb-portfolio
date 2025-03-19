@@ -53,7 +53,7 @@ const videos = import.meta.glob<{ default: string }>(
         <iframe
           src={project.data.hero.split(".iframe")[0]}
           class={twMerge(
-            "pointer-events-none aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom md:w-full md:rounded-b-none xl:-mx-8 xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg dark:border-neutral-800",
+            "pointer-events-none aspect-video w-full rounded-b-lg rounded-t-lg border-2 border-b-0 border-neutral-300 object-cover object-bottom md:w-full md:rounded-b-none xl:-mx-8 xl:w-screen xl:max-w-screen-lg xl:rounded-b-lg xl:rounded-t-lg dark:border-neutral-800",
             // fadeIn && "animate-fade",
           )}
           loading="eager"
