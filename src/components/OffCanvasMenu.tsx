@@ -31,7 +31,9 @@ export default function OffCanvasMenu({ children }: OffCanvasMenuProps) {
         onClick={toggleOpen}
         className={twMerge(
           "relative z-50 h-6 w-6 cursor-pointer transition hover:scale-110 active:-rotate-90 md:h-8 md:w-8",
-          isOpen ? "scale-125 text-white/90" : "hover:text-orange-tadjh",
+          isOpen
+            ? "scale-125 text-white/90"
+            : "text-black/90 hover:text-orange-tadjh dark:text-white/90",
         )}
       />
     </nav>

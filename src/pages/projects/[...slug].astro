@@ -47,12 +47,18 @@ const { Content, remarkPluginFrontmatter } = await project.render();
     >
       {
         remarkPluginFrontmatter.lastModified ? (
-          <span title={`Originally published on ${project.data.pubDate}`}>
+          <span
+            title={`Originally published on ${project.data.pubDate}`}
+            class="text-black md:text-white dark:text-white"
+          >
             Updated on
             <FormattedDate date={remarkPluginFrontmatter.lastModified} />
           </span>
         ) : (
-          <span title={`Published on ${project.data.pubDate}`}>
+          <span
+            title={`Published on ${project.data.pubDate}`}
+            class="text-black md:text-white dark:text-white"
+          >
             Published on
             <FormattedDate date={project.data.pubDate} />
           </span>
@@ -67,6 +73,7 @@ const { Content, remarkPluginFrontmatter } = await project.render();
               rel="noreferrer"
               title="View the source code on Github"
               aria-label="View the source code on Github"
+              class="md:text-white"
             >
               <FontAwesomeIcon
                 icon={faGithub}
@@ -83,7 +90,7 @@ const { Content, remarkPluginFrontmatter } = await project.render();
               rel="noreferrer"
               title="Visit this project's webpage"
               aria-label="Visit this project's webpage"
-              class="group"
+              class="group md:text-white"
             >
               <FontAwesomeIcon
                 icon={faArrowUpRightFromSquare}

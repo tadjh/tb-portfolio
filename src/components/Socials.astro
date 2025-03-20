@@ -1,6 +1,10 @@
 ---
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  faBluesky,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { twMerge } from "tailwind-merge";
 
@@ -16,13 +20,16 @@ const socials: SocialLink[] = [
     url: "https://github.com/tadjh",
     icon: faGithub,
     title: "Tadjh on Github",
-    // className: "hover:text-neutral-800 active:text-neutral-800",
   },
   {
-    url: "https://twitter.com/tadjh_",
-    icon: faXTwitter,
-    title: "Tadjh on X (Twitter)",
-    // className: "hover:text-neutral-100 active:text-neutral-100",
+    url: "https://bsky.app/profile/tadjh.com",
+    icon: faBluesky,
+    title: "Tadjh on Bluesky",
+  },
+  {
+    url: "https://www.instagram.com/tadjh_",
+    icon: faInstagram,
+    title: "Tadjh on Instagram",
   },
 ];
 ---

@@ -31,13 +31,16 @@ const projects = (
               project.data.containerClass,
             )}
           >
-            <StyledLink href={`/projects/${project.slug}/#main`}>
+            <StyledLink
+              href={`/projects/${project.slug}/#main`}
+              class="md:text-white"
+            >
               {project.data.title}
             </StyledLink>
           </h3>
           <StyledLink
             href={`/projects/${project.slug}/#main`}
-            class="rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 px-4 py-2 font-display text-base font-bold text-white shadow-2xl transition-transform hover:scale-110 group-hover:-translate-y-0 group-hover:scale-110 md:text-xl"
+            class="whitespace-nowrap rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 px-4 py-2 font-display text-base font-bold text-white shadow-2xl transition-transform hover:scale-110 group-hover:-translate-y-0 group-hover:scale-110 md:text-xl"
           >
             Read More
           </StyledLink>
