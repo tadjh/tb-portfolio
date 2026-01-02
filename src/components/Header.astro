@@ -33,11 +33,13 @@ const { level } = Astro.props;
 <header
   class="not-prose flex w-full flex-row justify-center gap-x-2 bg-gradient-to-t from-transparent to-neutral-100 p-4 md:gap-x-6 md:p-8 dark:to-neutral-800/50"
 >
-  <AnimatedHeader client:load
-    ><AnimatedLogo />
+  <div class="flex flex-row gap-x-2 md:gap-x-4 lg:gap-x-5">
+    <AnimatedHeader client:idle>
+      <AnimatedLogo />
+    </AnimatedHeader>
     <SiteTitle level={level} />
-  </AnimatedHeader>
-  <OffCanvasMenu client:load>
+  </div>
+  <OffCanvasMenu client:idle>
     <div class="flex flex-1 items-center">
       <ul class="flex flex-col gap-y-2 md:gap-y-4">
         {

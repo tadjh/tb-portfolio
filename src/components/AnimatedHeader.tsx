@@ -27,10 +27,7 @@ export default function AnimatedHeader({
   });
 
   return (
-    <div
-      ref={headerRef}
-      className="flip-container flex flex-row gap-x-2 md:gap-x-4 lg:gap-x-5"
-    >
+    <div ref={headerRef} className="flip-container">
       {children}
     </div>
   );
