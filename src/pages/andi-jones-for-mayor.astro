@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import Landing from "../layouts/Landing.astro";
-import profilePicture from "../assets/images/Andi-Jones-Profile-Picture-1310x1832px.png";
-import taglinePicture from "../assets/images/How-Could-Andi-Jones-Do-This-2190x1168px.png";
-import courtHousePicture from "../assets/images/Court-House.jpg";
-import parksAndRecPicture from "../assets/images/Parks-and-Rec-Department.jpg";
-import policeDeptPicture from "../assets/images/Police-Department.jpg";
-import signaturePicture from "../assets/images/Andi-Jones-signature.png";
 import chibiPicture from "../assets/images/Andi-Jones-Chibi-Square.png";
 import chairPicture from "../assets/images/Andi-Jones-Leaning-Back-In-Chair.png";
 import logoLight from "../assets/images/Andi-Jones-Logo.png";
+import profilePicture from "../assets/images/Andi-Jones-Profile-Picture-1310x1832px.png";
+import signaturePicture from "../assets/images/Andi-Jones-signature.png";
+import courtHousePicture from "../assets/images/Court-House.jpg";
+import taglinePicture from "../assets/images/How-Could-Andi-Jones-Do-This-2190x1168px.png";
+import parksAndRecPicture from "../assets/images/Parks-and-Rec-Department.jpg";
+import policeDeptPicture from "../assets/images/Police-Department.jpg";
+import Landing from "../layouts/Landing.astro";
 ---
 
 <Landing
@@ -36,14 +36,35 @@ import logoLight from "../assets/images/Andi-Jones-Logo.png";
     </div>
     <div class="flex items-center justify-center bg-[#151e42] py-4 text-white">
       <ul class="flex flex-col gap-6 text-lg font-bold uppercase md:flex-row">
-        <li><a href="#my-plans" class="hover:underline">My Plans</a></li>
-        <li><a href="#platform" class="hover:underline">Platform</a></li>
         <li>
-          <a href="#qualifications" class="hover:underline">Qualifications</a>
+          <a
+            href="#my-plans"
+            class="hover:underline"
+            aria-label="Link to My Plans">My Plans</a>
         </li>
-        <li><a href="#legacy" class="hover:underline">Legacy</a></li>
         <li>
-          <a href="#accomplishments" class="hover:underline">Accomplishments</a>
+          <a
+            href="#platform"
+            class="hover:underline"
+            aria-label="Link to Platform">Platform</a>
+        </li>
+        <li>
+          <a
+            href="#qualifications"
+            class="hover:underline"
+            aria-label="Link to Qualifications">Qualifications</a
+          >
+        </li>
+        <li>
+          <a href="#legacy" class="hover:underline" aria-label="Link to Legacy"
+            >Legacy</a>
+        </li>
+        <li>
+          <a
+            href="#accomplishments"
+            class="hover:underline"
+            aria-label="Link to Accomplishments">Accomplishments</a
+          >
         </li>
       </ul>
     </div>
@@ -443,14 +464,35 @@ import logoLight from "../assets/images/Andi-Jones-Logo.png";
         class="mb-6 w-full max-w-lg"
       />
       <ul class="flex flex-col gap-6 text-lg text-white md:flex-row">
-        <li><a href="#my-plans" class="hover:underline">My Plans</a></li>
-        <li><a href="#platform" class="hover:underline">Platform</a></li>
         <li>
-          <a href="#qualifications" class="hover:underline">Qualifications</a>
+          <a
+            href="#my-plans"
+            class="hover:underline"
+            aria-label="Link to My Plans">My Plans</a>
         </li>
-        <li><a href="#legacy" class="hover:underline">Legacy</a></li>
         <li>
-          <a href="#accomplishments" class="hover:underline">Accomplishments</a>
+          <a
+            href="#platform"
+            class="hover:underline"
+            aria-label="Link to Platform">Platform</a>
+        </li>
+        <li>
+          <a
+            href="#qualifications"
+            class="hover:underline"
+            aria-label="Link to Qualifications">Qualifications</a
+          >
+        </li>
+        <li>
+          <a href="#legacy" class="hover:underline" aria-label="Link to Legacy"
+            >Legacy</a>
+        </li>
+        <li>
+          <a
+            href="#accomplishments"
+            class="hover:underline"
+            aria-label="Link to Accomplishments">Accomplishments</a
+          >
         </li>
       </ul>
       <div class="mt-6 text-center font-bold text-white">

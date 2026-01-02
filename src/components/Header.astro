@@ -44,7 +44,11 @@ const { level } = Astro.props;
           routes.map(({ url, title }) => {
             return (
               <li class="font-display text-3xl font-bold uppercase md:text-5xl">
-                <StyledLink href={url} class="underline-offset-2">
+                <StyledLink
+                  href={url}
+                  class="underline-offset-2"
+                  aria-label={`Link to ${title}`}
+                >
                   {title}
                 </StyledLink>
               </li>

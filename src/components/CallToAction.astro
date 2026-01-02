@@ -1,10 +1,10 @@
 ---
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import profilePicturePortrait from "../assets/images/tadjh-profile-4x5.jpg";
-import StyledLink from "./StyledLink.astro";
-import Socials from "./Socials.astro";
 import { Image } from "astro:assets";
+import profilePicturePortrait from "../assets/images/tadjh-profile-4x5.jpg";
+import Socials from "./Socials.astro";
+import StyledLink from "./StyledLink.astro";
 ---
 
 <div
@@ -20,6 +20,7 @@ import { Image } from "astro:assets";
         target="_blank"
         rel="noreferrer"
         class="group font-display text-xl font-bold text-white md:text-3xl"
+        aria-label="Email Tadjh"
       >
         <FontAwesomeIcon
           icon={faEnvelope}
@@ -32,7 +33,12 @@ import { Image } from "astro:assets";
       A full-stack software engineer with a voracious appetite for learning
       where I hope to apply my skills in developing, problem solving and user
       experience on real products that make a difference in people's lives.
-      <StyledLink href="/about" inline class="text-white">
+      <StyledLink
+        href="/about"
+        inline
+        class="text-white"
+        aria-label="Learn More about Tadjh"
+      >
         Learn More &rarr;
       </StyledLink>
     </p>
