@@ -94,7 +94,9 @@ It was near end where I thought back long and hard about the essence of Bingo th
 So I used my audio engineering background to create sound effects for every action a player takes within the app. Hearing a marker sound while crossing out a numbered box suddenly felt tactile and responsive. I added the remaining count of balls to the UI with it color coded green to yellow to red in order to give the player an indicator of how few balls were left and how dire their situation may be. I produced an instrumental 8-bit Gameboy-esque B-I-N-G-O jingle that played only on the winner's phone while an <mark>HTML</mark> Canvas plays animated confetti falling on their mobile device. Suddenly winning the game felt like a momentous occasion and I knew I had finally fully captured the essence.
 
 <figure className="flex flex-col items-center">
-  <BingoJingle client:only="react" />
+  <BingoJingle client:visible>
+    <div slot="fallback">Loading...</div>
+  </BingoJingle>
   <figcaption>Listen to the "Bingo Theme" by Tadjh Brooks</figcaption>
 </figure>
 

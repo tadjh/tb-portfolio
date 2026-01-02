@@ -3,11 +3,11 @@ import bingoJingle from "../assets/audio/Bingo_Theme_by_Tadjh_Brooks.mp3";
 import Audio from "./Audio";
 import Confetti from "./Confetti";
 
-interface BingoJinglesProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface BingoJingleProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 let lowerVolume = false;
 
-export default function BingoJingles({ ...props }: BingoJinglesProps) {
+export default function BingoJingle({ ...props }: BingoJingleProps) {
   const [playing, setPlaying] = useState(false);
   const ref = useRef<HTMLAudioElement | null>(null);
   const playRef = useRef(false);
