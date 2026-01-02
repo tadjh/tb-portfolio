@@ -3,16 +3,13 @@ import type { HTMLAttributes } from "astro/types";
 import { twMerge } from "tailwind-merge";
 
 interface Props extends HTMLAttributes<"a"> {
-  href: string;
   inline?: boolean;
-  children: any;
 }
 
-const { href, class: className, inline = false, ...props } = Astro.props;
+const { class: className, inline = false, ...props } = Astro.props;
 ---
 
 <a
-  href={href}
   class={twMerge(
     "cursor-pointer text-black underline decoration-transparent transition-colors hover:decoration-current active:underline active:decoration-current dark:text-white",
     // "hover:text-blue-600 active:text-blue-gulf dark:hover:text-blue-gulf",
