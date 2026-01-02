@@ -1,6 +1,5 @@
 import { animate, motion, useMotionValue, useTransform } from "framer-motion";
-import React from "react";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface CounterProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number;
@@ -36,7 +35,7 @@ export default function Counter({ value, delay, duration = 3 }: CounterProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="text-right font-mono"
+      className="text-right"
       ref={ref}
     >
       {rounded}

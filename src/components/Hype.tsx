@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import React from "react";
-import Counter from "./Counter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import React from "react";
 import { composeKey } from "../utils";
+import Counter from "./Counter";
 
 interface HypeProps extends React.HTMLAttributes<HTMLDivElement> {
   items: { icon?: IconDefinition; value: number; label: string }[];
@@ -30,7 +30,7 @@ export default function Hype({ items }: HypeProps) {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="flex items-center justify-center gap-x-2 rounded-lg bg-orange-tadjh px-3 py-1.5 font-mono text-lg text-white/90 md:gap-x-3 md:text-2xl"
+          className="flex items-center justify-center gap-x-2 rounded-lg bg-orange-tadjh px-3 py-1.5 text-lg text-white/90 md:gap-x-3 md:text-2xl"
         >
           {item.icon && (
             <FontAwesomeIcon
