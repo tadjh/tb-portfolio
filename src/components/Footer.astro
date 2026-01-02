@@ -15,7 +15,7 @@ const { minimal } = Astro.props;
 >
   {!minimal && <CallToAction />}
   <div class="mb-10 flex w-full max-w-5xl justify-end">
-    <Theme client:only="react" />
+    <Theme client:visible />
     <Copyright />
   </div>
 </footer>

@@ -1,13 +1,22 @@
-import { useEffect, useState } from "react";
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 
 export default function Theme() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "dark");
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") ?? "dark";
+    }
+    return "dark";
+  });
 
   function handleClick() {
     const nextTheme = theme === "light" ? "dark" : "light";
-    localStorage.setItem("theme", nextTheme);
+
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", nextTheme);
+    }
+
     setTheme(nextTheme);
   }
 
