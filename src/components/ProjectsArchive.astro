@@ -26,6 +26,7 @@ const projects = (
       <Hero project={project}>
         <div class="flex flex-row items-center justify-between gap-3">
           <h3
+            id={project.slug}
             class={twMerge(
               "text-xl font-bold md:text-4xl",
               project.data.containerClass,
@@ -40,11 +41,11 @@ const projects = (
             </StyledLink>
           </h3>
           <StyledLink
-            aria-label={`Read more about ${project.data.title}`}
+            aria-describedby={project.slug}
             href={`/projects/${project.slug}/#main`}
             class="whitespace-nowrap rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 px-4 py-2 font-display text-base font-bold text-white shadow-2xl transition-transform hover:scale-110 group-hover:-translate-y-0 group-hover:scale-110 md:text-xl"
           >
-            Read More
+            Read More <span class="sr-only">about {project.data.title}</span>
           </StyledLink>
         </div>
         {project.data.categories && (
