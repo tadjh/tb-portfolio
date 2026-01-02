@@ -35,7 +35,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Poppins", ...defaultTheme.fontFamily.sans],
-        display: ["Montserrat", ...defaultTheme.fontFamily.sans],
+        display: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
         mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono],
       },
       keyframes: {
