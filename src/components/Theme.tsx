@@ -3,29 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 
 export default function Theme() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") ?? "dark";
-    }
-    return "dark";
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window === "undefined") return "dark";
+    const stored = localStorage.getItem("theme");
+    if (stored === "light" || stored === "dark") return stored;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   });
 
   function handleClick() {
-    const nextTheme = theme === "light" ? "dark" : "light";
-
-    if (typeof window !== "undefined") {
-      localStorage.setItem("theme", nextTheme);
-    }
-
-    setTheme(nextTheme);
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   }
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (
