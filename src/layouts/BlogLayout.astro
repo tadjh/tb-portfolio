@@ -1,7 +1,7 @@
 ---
 import { twMerge } from "tailwind-merge";
-import Layout from "./Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Layout from "./Layout.astro";
 
 interface Props {
   frontmatter: {
@@ -16,7 +16,7 @@ const { frontmatter } = Astro.props;
 
 <Layout {...frontmatter} minimal={true}>
   <Breadcrumbs current={frontmatter.title} />
-  <article class={twMerge("mx-auto [&>div]:my-8", frontmatter.class)}>
+  <article class={twMerge("font-fade mx-auto [&>div]:my-8", frontmatter.class)}>
     <slot />
   </article>
 </Layout>

@@ -166,8 +166,27 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
       background: transparent !important;
     }
   }
+
+  .font-fade {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+  }
+
+  .fonts-loaded .font-fade {
+    opacity: 1;
+  }
 </style>
 <script is:inline>
+  const KEY = "__f1770308414"; // Font hash
+  (() => {
+    if (!("fonts" in document)) return;
+
+    document.fonts.ready.then(() => {
+      sessionStorage.setItem(KEY, "1");
+      document.documentElement.classList.add("fonts-loaded");
+    });
+  })();
+
   (function () {
     function getTheme() {
       try {
@@ -182,8 +201,13 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
     }
 
     function applyTheme(doc) {
-      const root = doc.documentElement;
-      root.classList.toggle("dark", getTheme() === "dark");
+      doc.documentElement.classList.toggle("dark", getTheme() === "dark");
+    }
+
+    function applyFonts(doc) {
+      if (sessionStorage.getItem(KEY) === "1") {
+        doc.documentElement.classList.add("fonts-loaded");
+      }
     }
 
     applyTheme(document);
@@ -191,6 +215,10 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
     // Apply before the new page is painted
     document.addEventListener("astro:before-swap", (e) => {
       applyTheme(e.newDocument);
+      applyFonts(e.newDocument);
     });
+
+    // Saftey net
+    // document.addEventListener("astro:after-swap", () => applyTo(document));
   })();
 </script>
