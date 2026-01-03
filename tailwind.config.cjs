@@ -20,6 +20,7 @@ module.exports = {
       colors: {
         orange: {
           tadjh: "#f26522",
+          tadjhDark: "#CD470A",
         },
         blue: {
           gulf: "#c9dfec",

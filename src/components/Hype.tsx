@@ -30,7 +30,7 @@ export default function Hype({ items }: HypeProps) {
             hidden: { opacity: 0, y: 100 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="flex items-center justify-center gap-x-2 rounded-lg bg-orange-tadjh px-3 py-1.5 text-lg text-white/90 md:gap-x-3 md:text-2xl"
+          className="bg-orange-tadjhDark flex items-center justify-center gap-x-2 rounded-lg px-3 py-1.5 text-lg text-white/90 md:gap-x-3 md:text-2xl"
         >
           {item.icon && (
             <FontAwesomeIcon
