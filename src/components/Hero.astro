@@ -8,9 +8,10 @@ import Video from "./Video.astro";
 interface Props {
   project: CollectionEntry<"projects">;
   children: any;
+  lazy?: boolean;
 }
 
-const { project } = Astro.props;
+const { project, lazy } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
@@ -19,6 +20,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 const videos = import.meta.glob<{ default: string }>(
   "/src/assets/videos/*.{mp4,}",
 );
+
+const loading = lazy ? "lazy" : "eager";
 ---
 
 <div
@@ -39,11 +42,11 @@ const videos = import.meta.glob<{ default: string }>(
             "aspect-video w-full animate-fade rounded-lg border-2 border-neutral-300 object-cover object-bottom md:w-auto md:rounded-b-none xl:max-w-screen-lg xl:rounded-b-lg dark:border-neutral-800",
             // fadeIn && "animate-fade",
           )}
-          loading="eager"
+          loading={loading}
         />
       ) : isVideo(project.data.hero) ? (
         <Video
-          autoplay
+          autoPlay
           muted
           loop
           media={videos[project.data.hero]()}
@@ -51,6 +54,7 @@ const videos = import.meta.glob<{ default: string }>(
             "aspect-video w-full animate-fade rounded-lg border-2 border-neutral-300 object-cover object-bottom md:w-auto md:rounded-b-none xl:max-w-screen-lg xl:rounded-b-lg dark:border-neutral-800",
             // fadeIn && "animate-fade",
           )}
+          loading={loading}
         />
       ) : isIFrame(project.data.hero) ? (
         <iframe
@@ -59,7 +63,7 @@ const videos = import.meta.glob<{ default: string }>(
             "pointer-events-none aspect-video w-full animate-fade rounded-lg border-2 border-neutral-300 object-cover object-bottom md:w-full md:rounded-b-none xl:w-screen xl:max-w-screen-lg xl:rounded-b-lg dark:border-neutral-800",
             // fadeIn && "animate-fade",
           )}
-          loading="eager"
+          loading={loading}
         />
       ) : null
     }
@@ -78,7 +82,7 @@ const videos = import.meta.glob<{ default: string }>(
               "rounded-full drop-shadow-2xl",
               project.data.iconClass,
             )}
-            loading="eager"
+            loading={loading}
           />
         </div>
       )

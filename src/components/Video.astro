@@ -1,20 +1,15 @@
 ---
 import VideoClient from "./Video.tsx";
 interface Props extends React.MediaHTMLAttributes<HTMLVideoElement> {
-  autoplay?: boolean;
   class: string;
   media: Promise<{ default: string }> | string;
+  loading?: "lazy" | "eager";
+  autoplay?: boolean;
 }
 
-let { media, class: className, autoplay, autoPlay, ...props } = Astro.props;
+let { media, class: className, autoplay, ...props } = Astro.props;
 media = typeof media === "string" ? media : (await media).default;
 // TODO Handle client:visible
 ---
 
-<VideoClient
-  media={media}
-  autoPlay={autoplay || autoPlay}
-  className={className}
-  {...props}
-  client:visible
-/>
+<VideoClient media={media} className={className} {...props} client:visible />
