@@ -30,7 +30,7 @@ const loading = lazy ? "lazy" : "eager";
   transition:name={`${project.slug}-hero`}
 >
   <div
-    class="relative z-10 rounded-lg xl:-mx-8"
+    class="relative z-10 aspect-video rounded-lg xl:-mx-8"
     style={{ background: project.data.background }}
   >
     {
@@ -44,6 +44,7 @@ const loading = lazy ? "lazy" : "eager";
             // fadeIn && "animate-fade",
           )}
           loading={loading}
+          fetchpriority={loading === "eager" ? "high" : "auto"}
         />
       ) : isVideo(project.data.hero) ? (
         <Video
@@ -67,6 +68,7 @@ const loading = lazy ? "lazy" : "eager";
           loading={loading}
           referrerpolicy="no-referrer"
           allow="fullscreen"
+          placeholder="Click to load ChatJack live"
         />
       ) : null
     }
@@ -85,10 +87,11 @@ const loading = lazy ? "lazy" : "eager";
               "rounded-full drop-shadow-2xl",
               project.data.iconClass,
             )}
-            width={96}
-            height={96}
+            width={144}
+            height={144}
             sizes="(min-width: 768px) 96px, 64px"
             loading={loading}
+            fetchpriority={loading === "eager" ? "high" : "auto"}
           />
         </div>
       )
