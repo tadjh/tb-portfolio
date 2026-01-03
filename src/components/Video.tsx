@@ -8,7 +8,7 @@ interface VideoProps extends React.MediaHTMLAttributes<HTMLVideoElement> {
 
 export default function Video({
   media,
-  rootMargin = "300px 0px",
+  rootMargin = "300px",
   loading,
   ...props
 }: VideoProps) {
@@ -56,6 +56,8 @@ export default function Video({
         for (const e of entries) {
           if (e.target !== el) continue;
 
+          console.log("isIntersecting", e.isIntersecting);
+
           if (e.isIntersecting) {
             load();
             handleVisibility(true);
@@ -64,7 +66,7 @@ export default function Video({
           }
         }
       },
-      { rootMargin, threshold: 0.1 },
+      { rootMargin },
     );
 
     io.observe(el);

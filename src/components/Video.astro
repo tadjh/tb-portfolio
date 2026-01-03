@@ -12,4 +12,9 @@ media = typeof media === "string" ? media : (await media).default;
 // TODO Handle client:visible
 ---
 
-<VideoClient media={media} className={className} {...props} client:visible />
+<VideoClient
+  media={media}
+  className={className}
+  {...props}
+  client:visible={{ rootMargin: "300px" }}
+/>
