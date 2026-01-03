@@ -44,6 +44,9 @@ const loading = lazy ? "lazy" : "eager";
             // fadeIn && "animate-fade",
           )}
           loading={loading}
+          width={1280}
+          height={720}
+          sizes="(min-width: 768px) 1440px, 1024px"
           fetchpriority={loading === "eager" ? "high" : "auto"}
         />
       ) : isVideo(project.data.hero) ? (
@@ -87,8 +90,8 @@ const loading = lazy ? "lazy" : "eager";
               "rounded-full drop-shadow-2xl",
               project.data.iconClass,
             )}
-            width={144}
-            height={144}
+            width={116}
+            height={116}
             sizes="(min-width: 768px) 96px, 64px"
             loading={loading}
             fetchpriority={loading === "eager" ? "high" : "auto"}
