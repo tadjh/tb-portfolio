@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import Video from "./Video.astro";
-import { twMerge } from "tailwind-merge";
 import type { CollectionEntry } from "astro:content";
+import { twMerge } from "tailwind-merge";
 import { isIFrame, isImage, isVideo } from "../utils";
+import Video from "./Video.astro";
 
 interface Props {
   project: CollectionEntry<"projects">;

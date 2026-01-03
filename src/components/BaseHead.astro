@@ -29,18 +29,9 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="color-scheme" content="dark light" />
-<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
 <link rel="icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 <link rel="sitemap" href="/sitemap-index.xml" />
-
-<!-- Font preloads -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&family=Poppins:wght@400&display=swap"
-  rel="stylesheet"
-/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -117,16 +108,6 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
     background: var(--progress-color);
   }
 
-  @media (prefers-color-scheme: dark) {
-    html {
-      @apply bg-neutral-900;
-    }
-
-    html.light {
-      @apply bg-white;
-    }
-  }
-
   @media (prefers-reduced-motion: no-preference) {
     .animate-fadeInView {
       scale: 0.8;
@@ -182,25 +163,6 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
   @media (max-width: 767px) {
     .no-bg {
       background: transparent !important;
-    }
-  }
-
-  #sigT {
-    --final-stroke-width: 300px;
-    --write-dash-offset: 1415.7935791015625;
-    stroke-dasharray: var(--write-dash-offset);
-    stroke-dashoffset: var(--write-dash-offset);
-    stroke-width: 0px;
-  }
-
-  #sigT.animate-write {
-    animation: 1.5s ease write forwards;
-  }
-
-  @keyframes writeT {
-    to {
-      stroke-width: var(--final-stroke-width);
-      stroke-dashoffset: 0;
     }
   }
 </style>
