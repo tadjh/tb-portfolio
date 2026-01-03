@@ -11,7 +11,7 @@ export default function OffCanvasMenu({ children }: OffCanvasMenuProps) {
   const buttonRef = useRef<SVGSVGElement | null>(null);
 
   function toggleOpen() {
-    toggleScrollbar(1000);
+    toggleScrollbar(800);
     setIsOpen((prevState) => !prevState);
   }
 
