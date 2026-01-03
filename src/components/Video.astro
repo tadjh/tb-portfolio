@@ -1,4 +1,5 @@
 ---
+import { twMerge } from "tailwind-merge";
 import VideoClient from "./Video.tsx";
 interface Props extends React.MediaHTMLAttributes<HTMLVideoElement> {
   class: string;
@@ -14,7 +15,7 @@ media = typeof media === "string" ? media : (await media).default;
 
 <VideoClient
   media={media}
-  className={className}
+  className={twMerge("m-0", className)}
   {...props}
   client:visible={{ rootMargin: "300px" }}
 />

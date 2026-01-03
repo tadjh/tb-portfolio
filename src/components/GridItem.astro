@@ -2,13 +2,13 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { twMerge } from "tailwind-merge";
-import Card from "./Card.astro";
-import StyledLink from "./StyledLink.astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import Video from "./Video.astro";
+import { twMerge } from "tailwind-merge";
 import { isImage, isVideo } from "../utils";
+import Card from "./Card.astro";
+import StyledLink from "./StyledLink.astro";
+import Video from "./Video.astro";
 
 interface Props {
   isWide: boolean;
@@ -48,7 +48,7 @@ const videos = import.meta.glob<{ default: string }>(
       ) : isVideo(project.data.hero) ? (
         <div class="absolute top-0 w-full opacity-80">
           <Video
-            autoplay
+            autoPlay
             muted
             loop
             media={videos[project.data.hero]()}

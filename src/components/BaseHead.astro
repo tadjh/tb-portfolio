@@ -80,6 +80,10 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
     @apply prose prose-neutral lg:prose-xl dark:prose-invert prose-headings:font-display prose-img:rounded-lg prose-video:rounded-lg md:prose-h1:text-center md:prose-img:-mx-[38px] md:prose-img:max-w-[728px] md:prose-video:-mx-[38px] md:prose-video:max-w-[728px] lg:prose-img:-mx-[72px] lg:prose-img:max-w-[960px] lg:prose-video:-mx-[72px] lg:prose-video:max-w-[960px] xl:prose-img:-mx-[104px] xl:prose-img:max-w-screen-lg xl:prose-video:-mx-[104px] xl:prose-video:max-w-screen-lg;
   }
 
+  figure {
+    @apply flex flex-col items-center;
+  }
+
   progress[value] {
     --progress-color: rgb(242 101 34);
     --progress-background: rgb(128, 128, 128);

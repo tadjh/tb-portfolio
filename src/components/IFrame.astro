@@ -1,0 +1,83 @@
+---
+import { twMerge } from "tailwind-merge";
+
+interface Props extends astroHTML.JSX.IframeHTMLAttributes {
+  src: string;
+  class?: string;
+  loading?: "lazy" | "eager";
+  rootMargin?: string;
+  teardownForBfcache?: boolean;
+}
+
+const {
+  src,
+  class: className = "",
+  loading = "lazy",
+  rootMargin = "300px 0px",
+  teardownForBfcache = true,
+  ...props
+} = Astro.props;
+
+const shouldEager = loading === "eager";
+const id = `iframe-${crypto.randomUUID()}`;
+---
+
+<iframe
+  id={id}
+  {...props}
+  class={twMerge(className)}
+  src={shouldEager ? src : "about:blank"}
+  data-src={shouldEager ? undefined : src}
+  data-lazy={shouldEager ? undefined : "true"}
+  data-bfcache-teardown={teardownForBfcache ? "true" : "false"}
+/>
+
+{!shouldEager && (
+  <script is:inline>
+    (() => {
+      const el = document.getElementById(JSON.stringify(id));
+      if (!el) return;
+
+      const load = () => {
+        if (el.src && el.src !== "about:blank") return;
+        const real = el.getAttribute("data-src");
+        if (!real) return;
+        el.src = real;
+        el.removeAttribute("data-src");
+      };
+
+      if (!("IntersectionObserver" in window)) {
+        load();
+        return;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          load();
+          io.disconnect();
+        }
+      }, { rootMargin: "300px 0px" });
+
+      io.observe(el);
+    })();
+  </script>
+)}
+
+{teardownForBfcache && (
+  <script is:inline>
+    (() => {
+      const id = JSON.stringify(id);
+      const teardown = () => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (el.getAttribute("data-bfcache-teardown") !== "true") return;
+        // terminate any active connections in the subframe (e.g., WebSocket)
+        el.src = "about:blank";
+      };
+
+      window.addEventListener("pagehide", teardown);
+      document.addEventListener("astro:before-swap", teardown);
+    })();
+  </script>
+)}

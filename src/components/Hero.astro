@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { twMerge } from "tailwind-merge";
 import { isIFrame, isImage, isVideo } from "../utils";
+import IFrame from "./IFrame.astro";
 import Video from "./Video.astro";
 
 interface Props {
@@ -57,14 +58,15 @@ const loading = lazy ? "lazy" : "eager";
           loading={loading}
         />
       ) : isIFrame(project.data.hero) ? (
-        <iframe
+        <IFrame
           src={project.data.hero.split(".iframe")[0]}
           class={twMerge(
             "pointer-events-none aspect-video w-full animate-fade rounded-lg border-2 border-neutral-300 object-cover object-bottom md:w-full md:rounded-b-none xl:w-screen xl:max-w-screen-lg xl:rounded-b-lg dark:border-neutral-800",
-            // fadeIn && "animate-fade",
           )}
           title={`${project.data.title} Hero Video`}
           loading={loading}
+          referrerpolicy="no-referrer"
+          allow="fullscreen"
         />
       ) : null
     }
@@ -83,6 +85,9 @@ const loading = lazy ? "lazy" : "eager";
               "rounded-full drop-shadow-2xl",
               project.data.iconClass,
             )}
+            width={96}
+            height={96}
+            sizes="(min-width: 768px) 96px, 64px"
             loading={loading}
           />
         </div>

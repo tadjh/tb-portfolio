@@ -56,8 +56,6 @@ export default function Video({
         for (const e of entries) {
           if (e.target !== el) continue;
 
-          console.log("isIntersecting", e.isIntersecting);
-
           if (e.isIntersecting) {
             load();
             handleVisibility(true);
