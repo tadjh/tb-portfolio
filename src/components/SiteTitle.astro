@@ -1,28 +1,28 @@
 ---
 export interface Props {
-  level?: "h1" | "h2";
+  level?: "h1";
 }
 
-const { level = "h2" } = Astro.props;
+const { level } = Astro.props;
 ---
 
 <div>
   {
     level === "h1" ? (
-      <h1 class="flex flex-col font-display text-5xl font-black leading-[0.78] md:text-[68px] lg:text-[84px] xl:text-[104px]">
+      <h1 class="flex flex-col text-5xl font-black leading-[0.78] md:text-[68px] lg:text-[84px] xl:text-[104px]">
         <span>Tadjh</span>
         <span>Brooks</span>
       </h1>
     ) : (
-      <h2 class="flex flex-col font-display text-5xl font-black leading-[0.78] md:text-[68px] lg:text-[84px] xl:text-[104px]">
+      <div class="flex flex-col font-display text-5xl font-black leading-[0.78] text-neutral-900 md:text-[68px] lg:text-[84px] xl:text-[104px] dark:text-white">
         <span>Tadjh</span>
         <span>Brooks</span>
-      </h2>
+      </div>
     )
   }
-  <h3
+  <p
     class="font-display text-base font-light uppercase text-black md:text-xl md:tracking-widest lg:text-2xl lg:tracking-[0.18rem] xl:text-3xl xl:tracking-[0.2rem] dark:text-white"
   >
     Software Engineer
-  </h3>
+  </p>
 </div>
