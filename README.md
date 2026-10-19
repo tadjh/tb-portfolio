@@ -1,6 +1,6 @@
 # Tadjh Brooks Portfolio
 
-![Portfolio Preview](https://tadjh.com)
+Live at [tadjh.com](https://tadjh.com).
 
 A modern, interactive portfolio website showcasing software engineering projects and creative work. Built with Astro and React, featuring smooth animations, multimedia content, and a focus on user experience.
 
@@ -38,21 +38,16 @@ A modern, interactive portfolio website showcasing software engineering projects
 ### Deployment & Tools
 
 - **[Netlify](https://netlify.com/)** - Hosting and deployment
-- **[PNPM](https://pnpm.io/)** - Fast package manager with workspace support
-- **ESLint** - Code linting
-- **Prettier** - Code formatting
+- **[PNPM](https://pnpm.io/)** - Fast, disk-efficient package manager
+- **[Prettier](https://prettier.io/)** - Code formatting, with the Astro and Tailwind plugins
 
 ## 📁 Project Structure
 
 ```
 tb-portfolio/
-├── apps/
-│   ├── docs/          # Documentation site
-│   └── web/           # Main portfolio website
-├── packages/
-│   ├── eslint-config-custom/  # Shared ESLint configuration
-│   └── ui/            # Shared UI components
+├── plugins/           # Remark plugins used by MDX
 ├── public/            # Static assets
+├── scripts/           # Build helper scripts
 ├── src/
 │   ├── assets/        # Images, audio, videos, 3D models
 │   ├── components/    # Reusable Astro/React components
@@ -63,6 +58,7 @@ tb-portfolio/
 │   ├── types/         # TypeScript type definitions
 │   └── utils/         # Utility functions
 ├── astro.config.mjs   # Astro configuration
+├── prettier.config.cjs # Prettier configuration
 ├── tailwind.config.cjs # Tailwind CSS configuration
 └── package.json       # Project dependencies
 ```
@@ -71,7 +67,7 @@ tb-portfolio/
 
 ### Prerequisites
 
-- **Node.js** 18+ and **PNPM** 8+
+- **Node.js** 22 (pinned in `.nvmrc`) and **PNPM** 10
 - **Git** for version control
 
 ### Installation
@@ -148,13 +144,12 @@ Projects and blog posts are written in MDX format in the `src/content/` director
 
 - Modify `tailwind.config.cjs` for custom design tokens
 - Update `src/components/Theme.tsx` for theme logic
-- Customize fonts in `src/layouts/Layout.astro`
+- Customize fonts in `src/components/BaseHead.astro`
 
 ### Components
 
 - Interactive components in `src/components/` (React)
 - Static components in `src/components/` (Astro)
-- Shared UI components in `packages/ui/`
 
 ## 🤝 Contributing
 
