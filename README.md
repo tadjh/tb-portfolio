@@ -96,13 +96,15 @@ tb-portfolio/
 
 ## 📜 Available Scripts
 
-| Command            | Description                             |
-| ------------------ | --------------------------------------- |
-| `pnpm dev`         | Start development server                |
-| `pnpm build`       | Build for production with type checking |
-| `pnpm preview`     | Preview production build locally        |
-| `pnpm astro check` | Run Astro's type checking               |
-| `pnpm astro sync`  | Generate TypeScript types               |
+| Command             | Description                             |
+| ------------------- | --------------------------------------- |
+| `pnpm dev`          | Start development server                |
+| `pnpm build`        | Build for production with type checking |
+| `pnpm preview`      | Preview production build locally        |
+| `pnpm format`       | Format all files with Prettier          |
+| `pnpm format:check` | Check formatting without writing        |
+| `pnpm astro check`  | Run Astro's type checking               |
+| `pnpm astro sync`   | Generate TypeScript types               |
 
 ## 🌐 Deployment
 
