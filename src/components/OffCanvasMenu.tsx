@@ -19,7 +19,7 @@ export default function OffCanvasMenu({ children }: OffCanvasMenuProps) {
     <nav>
       <div
         className={twMerge(
-          "to-orange-tadjhDark group fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-gradient-to-br from-orange-500 p-10 text-white transition-transform duration-1000",
+          "group fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-gradient-to-br from-orange-500 to-orange-tadjhDark p-10 text-white transition-transform duration-1000",
           isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
