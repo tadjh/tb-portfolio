@@ -26,31 +26,32 @@ const id = `iframe-${crypto.randomUUID()}`;
   <iframe
     id={id}
     {...props}
-    class={twMerge("w-full h-full", className)}
+    class={twMerge("h-full w-full", className)}
     src={eager ? src : "about:blank"}
     data-src={eager ? undefined : src}
-    data-bfcache-teardown={teardownForBfcache ? "true" : "false"}
-  />
+    data-bfcache-teardown={teardownForBfcache ? "true" : "false"}></iframe>
 
-  {!eager && (
-    <button
-      type="button"
-      aria-controls={id}
-      class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-black/40 text-white backdrop-blur transition hover:bg-black/50"
-      data-iframe-trigger
-    >
-      {placeholder}
-    </button>
-  )}
+  {
+    !eager && (
+      <button
+        type="button"
+        aria-controls={id}
+        class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-black/40 text-white backdrop-blur transition hover:bg-black/50"
+        data-iframe-trigger
+      >
+        {placeholder}
+      </button>
+    )
+  }
 </div>
 
-{!eager && (
-  <script is:inline>
-    (() => {
-      const iframe = document.getElementById(`${JSON.stringify(id)}`);
-      const btn = iframe?.parentElement?.querySelector("[data-iframe-trigger]");
-      if (!iframe || !btn) return;
+<script define:vars={{ id, eager, teardownForBfcache }}>
+  (() => {
+    const iframe = document.getElementById(id);
+    if (!iframe) return;
 
+    const btn = iframe.parentElement?.querySelector("[data-iframe-trigger]");
+    if (!eager && btn) {
       btn.addEventListener("click", () => {
         const src = iframe.getAttribute("data-src");
         if (!src) return;
@@ -58,16 +59,9 @@ const id = `iframe-${crypto.randomUUID()}`;
         iframe.removeAttribute("data-src");
         btn.remove();
       });
-    })();
-  </script>
-)}
+    }
 
-{teardownForBfcache && (
-  <script is:inline>
-    (() => {
-      const iframe = document.getElementById(`${JSON.stringify(id)}`);
-      if (!iframe) return;
-
+    if (teardownForBfcache) {
       const teardown = () => {
         if (iframe.getAttribute("data-bfcache-teardown") !== "true") return;
         iframe.src = "about:blank";
@@ -75,6 +69,6 @@ const id = `iframe-${crypto.randomUUID()}`;
 
       window.addEventListener("pagehide", teardown);
       document.addEventListener("astro:before-swap", teardown);
-    })();
-  </script>
-)}
+    }
+  })();
+</script>
