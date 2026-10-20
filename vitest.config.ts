@@ -7,7 +7,14 @@ export default getViteConfig({
     coverage: {
       provider: "v8",
       include: ["src/**/*.{ts,tsx,js}"],
-      exclude: ["src/env.d.ts"],
+      // Vendored shadcn components and type-only files aren't under test
+      exclude: [
+        "src/components/ui/**",
+        "src/types/**",
+        "src/env.d.ts",
+        "src/content.config.ts",
+      ],
+      reportOnFailure: true,
       reporter: ["text", "text-summary", "json-summary", "html"],
     },
   },

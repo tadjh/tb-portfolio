@@ -1,4 +1,5 @@
-import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { GET } from "@/pages/rss.xml.js";
 
 vi.mock("astro:content", () => ({
   getCollection: async () => [
@@ -30,9 +31,8 @@ vi.mock("astro:content", () => ({
   ],
 }));
 
+// GET reads import.meta.env.PROD per call, so vi.stubEnv applies without a reload
 async function feed() {
-  vi.resetModules();
-  const { GET } = await import("@/pages/rss.xml.js");
   const res = await GET({ site: new URL("https://tadjh.com") });
   return res.text();
 }
@@ -42,12 +42,6 @@ function links(xml: string) {
 }
 
 describe("/rss.xml", () => {
-  // The feed globs and compiles every MDX page on first import, which can
-  // take several seconds on a cold cache, so warm it outside the tests
-  beforeAll(async () => {
-    await import("@/pages/rss.xml.js");
-  }, 30_000);
-
   afterEach(() => {
     vi.unstubAllEnvs();
   });
@@ -55,13 +49,20 @@ describe("/rss.xml", () => {
   it("lists projects and standalone pages, newest first", async () => {
     vi.stubEnv("PROD", false);
     const xml = await feed();
-    expect(links(xml)).toEqual([
-      "https://tadjh.com/", // channel link
+    const items = links(xml).slice(1); // skip the channel link
+    // Only the mocked projects are fixed; real pages with a pubDate may sit
+    // anywhere between them, so check relative order, not exact positions
+    const projects = items.filter((link) => link.includes("/projects/"));
+    expect(projects).toEqual([
       "https://tadjh.com/projects/draft-project/",
       "https://tadjh.com/projects/new-project/",
-      "https://tadjh.com/about/",
       "https://tadjh.com/projects/old-project/",
     ]);
+    expect(items).toContain("https://tadjh.com/about/");
+    const dates = [...xml.matchAll(/<pubDate>(.*?)<\/pubDate>/g)].map((m) =>
+      Date.parse(m[1]),
+    );
+    expect(dates).toEqual([...dates].sort((a, b) => b - a));
   });
 
   it("leaves out draft projects in production", async () => {

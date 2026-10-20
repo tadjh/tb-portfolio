@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { CollectionEntry } from "astro:content";
-import { findProjectByShortlink } from "@/utils/shortlink";
+import { findProjectByShortlink, isPublished } from "@/utils/projects";
 
 function project(
   id: string,
@@ -31,5 +31,19 @@ describe("findProjectByShortlink", () => {
 
   it("shows drafts outside production", () => {
     expect(findProjectByShortlink(projects, "wip", false)?.id).toBe("wip");
+  });
+});
+
+describe("isPublished", () => {
+  it("hides drafts in production", () => {
+    expect(isPublished({ data: { draft: true } } as never, true)).toBe(false);
+  });
+
+  it("shows drafts outside production", () => {
+    expect(isPublished({ data: { draft: true } } as never, false)).toBe(true);
+  });
+
+  it("shows non-drafts everywhere", () => {
+    expect(isPublished({ data: {} } as never, true)).toBe(true);
   });
 });

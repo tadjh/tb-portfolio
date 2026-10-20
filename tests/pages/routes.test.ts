@@ -5,11 +5,12 @@ import { GET as donate } from "@/pages/donate/[project]";
 import { GET as music } from "@/pages/music/index";
 import { GET as robots } from "@/pages/robots.txt";
 
-// Just enough of Astro's APIContext for these routes
+// Just enough of Astro's APIContext for these routes. The redirect has no
+// default status, so tests only pass when the route sets one explicitly.
 function context(params: Record<string, string> = {}) {
   return {
     params,
-    redirect: (location: string, status = 302) =>
+    redirect: (location: string, status?: number) =>
       new Response(null, { status, headers: { Location: location } }),
   } as unknown as APIContext;
 }
@@ -35,11 +36,14 @@ describe("redirect routes", () => {
     );
   });
 
-  it("/donate/<unknown> redirects home", async () => {
-    const res = await donate(context({ project: "nope" }));
-    expect(res.status).toBe(302);
-    expect(res.headers.get("Location")).toBe("https://tadjh.com");
-  });
+  it.each(["nope", "constructor", "toString", "__proto__"])(
+    "/donate/%s redirects home",
+    async (project) => {
+      const res = await donate(context({ project }));
+      expect(res.status).toBe(302);
+      expect(res.headers.get("Location")).toBe("https://tadjh.com");
+    },
+  );
 });
 
 describe("/robots.txt", () => {
