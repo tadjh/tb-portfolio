@@ -31,16 +31,49 @@ jobs:
             REPO: ${{ github.repository }}
             PR NUMBER: ${{ github.event.pull_request.number }}
 
-            Review this PR for tadjh.com, an Astro 4 + React + Tailwind 3 + MDX
-            portfolio deployed on Netlify. Focus on:
+            You are reviewing a PR for tadjh.com, a personal portfolio site.
+            Stack: Astro 4 (`output: "hybrid"`, Netlify adapter), React islands,
+            Tailwind 3, MDX content collections, TypeScript (strict), pnpm, Node 22.
+            CI already runs `pnpm format:check` and `pnpm build` (which includes
+            `astro check`), so don't comment on formatting or type errors CI will catch.
 
-            1. Correctness and anything that would break `pnpm build` (which runs `astro check`).
-            2. Performance: layout shift (CLS), image and video sizes, lazy loading,
-               and keeping heavy libraries (three, framer-motion) inside client islands.
-            3. Accessibility: semantic HTML, alt text, contrast, keyboard navigation.
-            4. Content: project MDX frontmatter must match `src/content/config.ts`.
+            Read the diff with `gh pr diff`, then open the surrounding files when you
+            need context. Only report problems you can point to in the changed lines
+            or that the change directly causes. Don't speculate.
 
-            Use inline comments for specific issues and one top-level comment for a
-            short summary. Skip style nits that Prettier already enforces.
+            Look for, in priority order:
+
+            1. Bugs: broken links or routes, wrong imports, hydration mismatches,
+               SSR-unsafe code (`window`/`document` outside `useEffect` or client-only
+               code), content that won't render, and regressions to `rss.xml.js`,
+               `robots.txt.ts`, the sitemap filter or the `/p/[shortlink]` redirects.
+            2. Performance (this site has had a lot of CLS and load-time tuning):
+               - Images and video without explicit width/height or aspect ratio (layout shift).
+               - Images not going through `astro:assets` (`<Image>`/`<Picture>`) or
+                 oversized source assets added under `src/assets/`.
+               - Heavy libraries (three, framer-motion, canvas-confetti) imported in
+                 Astro frontmatter or eagerly, rather than in a lazily hydrated island.
+               - `client:load` where `client:visible` or `client:idle` would do.
+               - New fonts or render-blocking scripts or styles.
+            3. Accessibility: missing or meaningless alt text, non-semantic interactive
+               elements, missing labels on icon-only buttons and links, focus handling
+               in menus and modals, `prefers-reduced-motion` for new animations, and
+               contrast in both light and dark mode (`darkMode: "selector"`).
+            4. Content: project MDX frontmatter must match the zod schema in
+               `src/content/config.ts`. Unfinished projects should use `draft: true`.
+               Check `hero`, `pubDate` and any `repository`/`website` URLs.
+            5. SEO/meta: titles, descriptions and canonical/OG data in `BaseHead.astro`
+               for new pages.
+
+            How to report:
+            - One inline comment per real issue, on the exact line. Start it with a
+              severity: **Blocker** (breaks the site or build), **Should fix**, or
+              **Nit**. Say what's wrong, why it matters here, and give a concrete fix
+              (a suggestion block when it's small).
+            - Keep Nits to a minimum. Skip taste-only preferences.
+            - Finish with one short top-level comment: a one-line verdict
+              (Looks good / Fix before merging), then a bullet per Blocker or Should
+              fix. If you found nothing worth flagging, say so in one line. Don't
+              summarize what the PR does.
           claude_args: |
-            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
+            --allowedTools "Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
