@@ -10,11 +10,14 @@ interface Props extends React.MediaHTMLAttributes<HTMLVideoElement> {
 
 let { media, class: className, autoplay, ...props } = Astro.props;
 media = typeof media === "string" ? media : (await media).default;
+// client:load, not client:visible: Astro 7's ClientRouter re-creates <video>
+// elements after islands start, so a visible observer would watch a detached
+// node. Video.tsx already defers loading the file until it is in view.
 ---
 
 <VideoClient
   media={media}
   className={twMerge("m-0", className)}
   {...props}
-  client:visible={{ rootMargin: "300px" }}
+  client:load
 />
