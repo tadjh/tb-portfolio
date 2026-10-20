@@ -1,3 +1,4 @@
+import "../config/fontawesome";
 import type { SceneHandle } from "./modelScene";
 import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -98,7 +99,7 @@ export default function ModelViewer({
       {...props}
     >
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 hidden h-full w-full -translate-x-1/2 -translate-y-1/2 select-none flex-col items-center justify-center" //flex
+        className="pointer-events-none absolute top-1/2 left-1/2 hidden h-full w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center select-none" //flex
       >
         <label htmlFor="model-viewer-progress">Initializing...</label>
         <progress id="model-viewer-progress" ref={progress} value={0} max={100}>
@@ -108,7 +109,7 @@ export default function ModelViewer({
       </div>
       <a
         href={isFullscreen ? "#fullscreen" : "#model-viewer"}
-        className="absolute bottom-0 right-0 cursor-pointer p-4 text-neutral-500 transition-transform group-hover:scale-110"
+        className="absolute right-0 bottom-0 cursor-pointer p-4 text-neutral-500 transition-transform group-hover:scale-110"
         onClick={handleFullscreen}
         title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
         aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}

@@ -4,8 +4,10 @@ import {
   type HTMLMotionProps,
 } from "framer-motion";
 
-interface StaggerProps<T>
-  extends ForwardRefComponent<HTMLDivElement, HTMLMotionProps<"div">> {
+interface StaggerProps<T> extends ForwardRefComponent<
+  HTMLDivElement,
+  HTMLMotionProps<"div">
+> {
   items: T[];
 }
 

@@ -1,5 +1,6 @@
 ---
 import { twMerge } from "tailwind-merge";
+import { Button } from "./ui/button";
 
 interface Props extends astroHTML.JSX.IframeHTMLAttributes {
   src: string;
@@ -33,14 +34,15 @@ const id = `iframe-${crypto.randomUUID()}`;
 
   {
     !eager && (
-      <button
-        type="button"
+      <Button
+        variant="overlay"
+        size="none"
         aria-controls={id}
-        class="absolute inset-0 z-10 flex items-center justify-center rounded-lg bg-black/40 text-white backdrop-blur transition hover:bg-black/50"
+        className="absolute inset-0 z-10 whitespace-normal"
         data-iframe-trigger
       >
         {placeholder}
-      </button>
+      </Button>
     )
   }
 </div>
