@@ -51,7 +51,7 @@ const { Content, remarkPluginFrontmatter } = await render(project);
             title={`Originally published on ${project.data.pubDate}`}
             class="text-black md:text-white dark:text-white"
           >
-            Updated on
+            Updated on{" "}
             <FormattedDate date={remarkPluginFrontmatter.lastModified} />
           </span>
         ) : (

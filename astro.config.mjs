@@ -9,7 +9,6 @@ import { lastModified } from "./plugins/remark.mjs";
 
 export default defineConfig({
   site: "https://tadjh.com",
-  compressHTML: true,
   adapter: netlify({ imageCDN: false }),
   markdown: { processor: unified({ remarkPlugins: [lastModified] }) },
   integrations: [
