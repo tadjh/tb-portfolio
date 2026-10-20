@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { twMerge } from "tailwind-merge";
 import Hero from "./Hero.astro";
 import StyledLink from "./StyledLink.astro";
-import TagList from "./TagList.astro";
+import TagList from "./TagList";
 
 const projects = (
   await getCollection("projects", ({ data }) => {
