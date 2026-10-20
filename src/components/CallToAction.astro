@@ -8,11 +8,13 @@ import StyledLink from "./StyledLink.astro";
 ---
 
 <div
-  class="relative z-10 mx-auto grid max-w-5xl grid-cols-1 overflow-hidden rounded-lg bg-gradient-to-br from-orange-tadjh to-orange-tadjhDark text-white shadow-2xl md:grid-cols-2"
+  class="relative z-10 mx-auto grid max-w-5xl grid-cols-1 overflow-hidden rounded-lg bg-linear-to-br from-orange-tadjh to-orange-tadjhDark text-white shadow-2xl md:grid-cols-2"
 >
-  <div class="order-2 flex flex-col gap-y-8 p-6 md:order-none md:p-10">
+  <div class="order-2 flex flex-col gap-y-8 p-6 md:order-0 md:p-10">
     <div class="flex flex-1 flex-col gap-y-8">
-      <h2 class="text-5xl font-bold leading-[0.78] text-white md:text-6xl">
+      <h2
+        class="text-5xl leading-[0.78] font-bold text-white md:text-6xl md:leading-none"
+      >
         Hi I'm Tadjh
       </h2>
       <StyledLink
@@ -54,7 +56,7 @@ import StyledLink from "./StyledLink.astro";
     </div>
     <Socials />
   </div>
-  <div class="relative order-1 min-h-96 overflow-hidden bg-white md:order-none">
+  <div class="relative order-1 min-h-96 overflow-hidden bg-white md:order-0">
     <div class="absolute inset-0 box-border h-full w-full">
       <Image
         src={profilePicturePortrait}

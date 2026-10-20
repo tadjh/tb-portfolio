@@ -21,13 +21,13 @@ import Landing from "../layouts/Landing.astro";
     <div
       class="mx-auto flex w-11/12 flex-col-reverse justify-between pt-4 md:flex-row md:items-center"
     >
-      <div class="relative z-[1]">
+      <div class="relative z-1">
         <Image
           src={profilePicture}
           alt="Andi Jones For Mayor of Los Santos 2023"
         />
       </div>
-      <div class="mt-4 md:-ml-28 md:mt-0">
+      <div class="mt-4 md:mt-0 md:-ml-28">
         <Image
           src={taglinePicture}
           alt="How could Andi Jones do this? Let me tell you how!"
@@ -74,9 +74,11 @@ import Landing from "../layouts/Landing.astro";
   </header>
   <main id="top" class="mx-auto max-w-4xl px-4">
     <section id="my-plans" class="py-6">
-      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
+      <h2
+        class="my-6 text-3xl leading-[0.78] font-bold uppercase md:text-6xl md:leading-none"
+      >
         <i
-          class="mr-4 mt-1 inline-block aspect-square w-6 bg-contain bg-no-repeat md:w-10"
+          class="mt-1 mr-4 inline-block aspect-square w-6 bg-contain bg-no-repeat md:w-10"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
             ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -89,9 +91,9 @@ import Landing from "../layouts/Landing.astro";
       <Image
         src={parksAndRecPicture}
         alt="Court House"
-        class="mb-6 rounded shadow-lg"
+        class="mb-6 rounded-sm shadow-lg"
       />
-      <h3 class="my-6 text-4xl font-bold leading-[0.78]">
+      <h3 class="my-6 text-4xl leading-[0.78] font-bold">
         Revive the Parks and Rec Department
       </h3>
       <p class="mb-6">
@@ -102,9 +104,9 @@ import Landing from "../layouts/Landing.astro";
       <Image
         src={courtHousePicture}
         alt="Court House"
-        class="mb-6 rounded shadow-lg"
+        class="mb-6 rounded-sm shadow-lg"
       />
-      <h3 class="my-6 text-4xl font-bold leading-[0.78]">
+      <h3 class="my-6 text-4xl leading-[0.78] font-bold">
         Implement Several New Governmental Departments
       </h3>
       <p class="mb-6">
@@ -124,7 +126,7 @@ import Landing from "../layouts/Landing.astro";
         finished by the time I (hopefully) take office.
       </p>
       <h4
-        class="mx-auto my-6 max-w-3xl border-b border-t border-blue-950 py-8 text-center text-3xl font-bold leading-[0.78]"
+        class="mx-auto my-6 max-w-3xl border-t border-b border-blue-950 py-8 text-center text-3xl leading-[0.78] font-bold"
       >
         Weekly town hall meetings to keep up-to-date with the concerns of
         citizens.
@@ -133,9 +135,9 @@ import Landing from "../layouts/Landing.astro";
       <Image
         src={policeDeptPicture}
         alt="Court House"
-        class="mb-6 rounded shadow-lg"
+        class="mb-6 rounded-sm shadow-lg"
       />
-      <h3 class="my-6 text-4xl font-bold leading-[0.78]">
+      <h3 class="my-6 text-4xl leading-[0.78] font-bold">
         Meet Consistently With All Governmental Positions
       </h3>
       <p class="mb-6">
@@ -160,9 +162,11 @@ import Landing from "../layouts/Landing.astro";
       </p>
     </section>
     <section id="platform" class="py-6">
-      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
+      <h2
+        class="my-6 text-3xl leading-[0.78] font-bold uppercase md:text-6xl md:leading-none"
+      >
         <i
-          class="mr-4 mt-1 inline-block aspect-square w-6 bg-contain bg-no-repeat md:w-10"
+          class="mt-1 mr-4 inline-block aspect-square w-6 bg-contain bg-no-repeat md:w-10"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
             ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -181,8 +185,8 @@ import Landing from "../layouts/Landing.astro";
         First and foremost, <strong>civilians</strong> would be my focus for this
         term, and have been my focus for the past few months. I want to run not only
         more of my own events that are civilian friendly and open to everyone, but
-        also support those who have ideas of their own and help however I can to
-        make their ideas a reality through the revival of the
+        also support those who have ideas of their own and help however I can to make
+        their ideas a reality through the revival of the
         <strong>Parks & Recreation</strong> department. I would like to implement
         several government departments specifically designed for interesting <strong
           >new jobs</strong
@@ -199,9 +203,9 @@ import Landing from "../layouts/Landing.astro";
         in the loop as to what we can do to help, not simply rely on digital interaction
         via automated forms. In addition, I will be holding a weekly town hall to
         hear from the citizens, as well as, at a different time, hold an open floor
-        for businesses or events that are seeking funding to present their ideas
-        in front of a panel who are ready and willing to help those that they feel
-        could bring something <strong>unique and wonderful</strong> to the city.
+        for businesses or events that are seeking funding to present their ideas in
+        front of a panel who are ready and willing to help those that they feel could
+        bring something <strong>unique and wonderful</strong> to the city.
       </p>
       <p class="mb-6">
         When it comes to governmental entities, I have always loved checking in
@@ -216,9 +220,9 @@ import Landing from "../layouts/Landing.astro";
         Above all else, I know I can promise <strong>
           efficiency, organization, and hard work
         </strong> in my term. I hold myself to a higher standard than what’s probably
-        realistic, but I love to help people, and I will always do everything in
-        my power to perform quick, efficient, and detailed work in my efforts to
-        make this city <strong>a better place to live</strong>.
+        realistic, but I love to help people, and I will always do everything in my
+        power to perform quick, efficient, and detailed work in my efforts to make
+        this city <strong>a better place to live</strong>.
       </p>
       <p class="mb-6">
         This platform will be subject to additions as the campaign moves forward
@@ -230,9 +234,11 @@ import Landing from "../layouts/Landing.astro";
       </p>
     </section>
     <section id="qualifications" class="py-6">
-      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
+      <h2
+        class="my-6 text-3xl leading-[0.78] font-bold uppercase md:text-6xl md:leading-none"
+      >
         <i
-          class="mr-4 mt-1 inline-block aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:w-10"
+          class="mt-1 mr-4 inline-block aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:w-10"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
             ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -250,8 +256,8 @@ import Landing from "../layouts/Landing.astro";
         </li>
         <li class="mb-2">
           <strong>Built the Mayor’s office</strong> from the ground up, turning it
-          into a workable station to benefit not only the Mayors that came after
-          me, but to <strong>benefit all citizens.</strong>.
+          into a workable station to benefit not only the Mayors that came after me,
+          but to <strong>benefit all citizens.</strong>.
         </li>
         <li class="mb-2">
           Knowledge of how the State Account operates, including incoming and
@@ -296,9 +302,11 @@ import Landing from "../layouts/Landing.astro";
       </ul>
     </section>
     <section id="legacy" class="py-6">
-      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
+      <h2
+        class="my-6 text-3xl leading-[0.78] font-bold uppercase md:text-6xl md:leading-none"
+      >
         <i
-          class="mr-4 mt-1 inline-block aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:w-10"
+          class="mt-1 mr-4 inline-block aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:w-10"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
             ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -360,9 +368,11 @@ import Landing from "../layouts/Landing.astro";
       </ul>
     </section>
     <section id="accomplishments" class="py-6">
-      <h2 class="my-6 text-3xl font-bold uppercase leading-[0.78] md:text-6xl">
+      <h2
+        class="my-6 text-3xl leading-[0.78] font-bold uppercase md:text-6xl md:leading-none"
+      >
         <i
-          class="mr-4 mt-1 hidden aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:inline-block md:w-10"
+          class="mt-1 mr-4 hidden aspect-square w-6 bg-contain bg-no-repeat text-blue-950 md:inline-block md:w-10"
           ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
             ><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
             <path
@@ -509,7 +519,7 @@ import Landing from "../layouts/Landing.astro";
   </footer>
   <a
     href="#top"
-    class="fixed bottom-2 right-4 z-50 flex items-center rounded bg-[#00ccff] px-2 uppercase text-white drop-shadow-2xl"
+    class="fixed right-4 bottom-2 z-50 flex items-center rounded-sm bg-[#00ccff] px-2 text-white uppercase drop-shadow-2xl"
   >
     <div class="mr-1 -translate-y-0.5 text-3xl">&uarr;</div>
     <div class="font-bold">Top</div>

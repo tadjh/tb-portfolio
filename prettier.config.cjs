@@ -12,4 +12,5 @@ module.exports = {
     },
   ],
   tailwindFunctions: ["twMerge"],
+  tailwindStylesheet: "./src/styles/tailwind.css",
 };

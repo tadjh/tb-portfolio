@@ -15,7 +15,7 @@ const { label, class: className, ...props } = Astro.props;
   class={twMerge("relative flex animate-revealRight self-start", className)}
 >
   <div
-    class="absolute top-full hidden h-0 w-0 translate-y-[3px] border-b-[15px] border-r-[20px] border-b-transparent border-r-blue-mirage md:block"
+    class="absolute top-full hidden h-0 w-0 translate-y-[3px] border-r-20 border-b-15 border-r-blue-mirage border-b-transparent md:block"
   >
   </div>
   <div
@@ -24,13 +24,11 @@ const { label, class: className, ...props } = Astro.props;
       clipPath: "polygon(95% 0%, 100% 50%, 95% 100%, 0% 100%, 0% 0%)",
     }}
   >
-    <span class="h-full bg-black/[0.08] p-2 font-display font-bold"
-      >{label}:</span
-    >
+    <span class="h-full bg-black/8 p-2 font-display font-bold">{label}:</span>
     <slot />
   </div>
   <div
-    class="absolute left-0 top-1 h-full w-full origin-top-left scale-x-[1.005] bg-blue-mirage pr-4 text-black/90"
+    class="absolute top-1 left-0 h-full w-full origin-top-left scale-x-[1.005] bg-blue-mirage pr-4 text-black/90"
     style={{
       clipPath: "polygon(95% 0%, 100% 50%, 95% 100%, 0% 100%, 0% 0%)",
     }}

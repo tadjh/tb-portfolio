@@ -19,6 +19,6 @@ export const projects: Project[] = [
     repository: "https://github.com/tadjh/np-faction-relations",
     link: "https://np-faction-relations.web.app/",
     // color: "#C9DFEC",
-    // className: "!text-black/90 [&>*]:group-hover:!text-black/90",
+    // className: "text-black/90! group-hover:*:text-black/90!",
   },
 ];

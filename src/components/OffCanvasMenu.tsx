@@ -1,3 +1,4 @@
+import "../config/fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
@@ -19,7 +20,7 @@ export default function OffCanvasMenu({ children }: OffCanvasMenuProps) {
     <nav>
       <div
         className={twMerge(
-          "group fixed left-0 top-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-gradient-to-br from-orange-500 to-orange-tadjhDark p-10 text-white transition-transform duration-1000",
+          "group fixed top-0 left-0 z-40 flex h-screen w-screen flex-col items-center gap-y-8 bg-linear-to-br from-orange-500 to-orange-tadjhDark p-10 text-white transition-transform duration-1000",
           isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
