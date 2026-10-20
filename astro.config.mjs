@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -11,7 +11,6 @@ export default defineConfig({
   adapter: netlify({ imageCDN: false }),
   markdown: { remarkPlugins: [lastModified] },
   integrations: [
-    tailwind(),
     react(),
     mdx(),
     sitemap({
@@ -20,6 +19,7 @@ export default defineConfig({
   ],
   prefetch: true,
   vite: {
+    plugins: [tailwindcss()],
     assetsInclude: ["**/*.glb", "**/*.mp3"],
   },
 });

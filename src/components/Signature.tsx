@@ -37,7 +37,7 @@ export default function Signature({ className, ...props }: SignatureProps) {
           clipPath="url(#clipInside)"
           stroke="currentColor"
           strokeWidth={0}
-          className="animation-delay-500 stroke-dasharray-[--write-dash-offset] stroke-dashoffset-[--write-dash-offset] [--final-stroke-width:50] [--write-dash-offset:1415.7935791015625]"
+          className="[--final-stroke-width:50] [--write-dash-offset:1415.7935791015625] animation-delay-500 stroke-dasharray-(--write-dash-offset) stroke-dashoffset-(--write-dash-offset)"
         ></path>
         <path
           id="sigB"
@@ -46,7 +46,7 @@ export default function Signature({ className, ...props }: SignatureProps) {
           clipPath="url(#clipInsideB)"
           stroke="currentColor"
           strokeWidth={0}
-          className="animation-delay-500 stroke-dasharray-[--write-dash-offset] stroke-dashoffset-[--write-dash-offset] [--final-stroke-width:50] [--write-dash-offset:2965.799560546875]"
+          className="[--final-stroke-width:50] [--write-dash-offset:2965.799560546875] animation-delay-500 stroke-dasharray-(--write-dash-offset) stroke-dashoffset-(--write-dash-offset)"
         ></path>
         <path
           id="sigTail"
@@ -55,7 +55,7 @@ export default function Signature({ className, ...props }: SignatureProps) {
           fill="transparent"
           stroke="currentColor"
           strokeWidth={20}
-          className="animation-delay-[1100] stroke-dasharray-[--write-dash-offset] stroke-dashoffset-[--write-dash-offset] [--final-stroke-width:20] [--write-dash-offset:2494.217529296875]"
+          className="[--final-stroke-width:20] [--write-dash-offset:2494.217529296875] animation-delay-1100 stroke-dasharray-(--write-dash-offset) stroke-dashoffset-(--write-dash-offset)"
         ></path>
         <clipPath id="clipInside">
           <use xlinkHref="#sigT"></use>
