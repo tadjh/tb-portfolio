@@ -10,7 +10,6 @@ interface Props extends React.MediaHTMLAttributes<HTMLVideoElement> {
 
 let { media, class: className, autoplay, ...props } = Astro.props;
 media = typeof media === "string" ? media : (await media).default;
-// TODO Handle client:visible
 ---
 
 <VideoClient

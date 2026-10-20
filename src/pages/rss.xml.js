@@ -1,7 +1,19 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config/constants";
-// TODO Add rest of pages
+
+// Standalone pages opt into the feed with a `pubDate` in their frontmatter
+const pages = Object.values(
+  import.meta.glob("./**/*.{md,mdx}", { eager: true }),
+)
+  .filter((page) => page.frontmatter?.pubDate)
+  .map((page) => ({
+    title: page.frontmatter.title,
+    pubDate: new Date(page.frontmatter.pubDate),
+    description: page.frontmatter.description,
+    link: page.url.endsWith("/") ? page.url : `${page.url}/`,
+  }));
+
 export async function GET(context) {
   const projects = await getCollection("projects");
   return rss({
@@ -14,7 +26,9 @@ export async function GET(context) {
         title: post.data.title,
         pubDate: post.data.pubDate,
         description: post.data.description,
-        link: `/projects/${post.slug}/`,
-      })),
+        link: `/projects/${post.id}/`,
+      }))
+      .concat(pages)
+      .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf()),
   });
 }

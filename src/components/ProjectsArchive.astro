@@ -26,14 +26,14 @@ const projects = (
       <Hero project={project} lazy={index > 0}>
         <div class="font-fade flex flex-row items-center justify-between gap-3">
           <h3
-            id={project.slug}
+            id={project.id}
             class={twMerge(
               "text-xl font-bold md:text-4xl",
               project.data.containerClass,
             )}
           >
             <StyledLink
-              href={`/projects/${project.slug}/#main`}
+              href={`/projects/${project.id}/#main`}
               class="md:text-white"
               aria-label={`Link to ${project.data.title} project page`}
             >
@@ -41,9 +41,9 @@ const projects = (
             </StyledLink>
           </h3>
           <StyledLink
-            aria-describedby={project.slug}
-            href={`/projects/${project.slug}/#main`}
-            class="to-orange-tadjhDark w-[148px] whitespace-nowrap rounded-lg bg-gradient-to-br from-orange-500 px-4 py-2 font-display text-base font-bold text-white shadow-2xl transition-transform hover:scale-110 group-hover:-translate-y-0 group-hover:scale-110 md:text-xl"
+            aria-describedby={project.id}
+            href={`/projects/${project.id}/#main`}
+            class="w-[148px] whitespace-nowrap rounded-lg bg-gradient-to-br from-orange-500 to-orange-tadjhDark px-4 py-2 font-display text-base font-bold text-white shadow-2xl transition-transform hover:scale-110 group-hover:-translate-y-0 group-hover:scale-110 md:text-xl"
           >
             Read More <span class="sr-only">about {project.data.title}</span>
           </StyledLink>

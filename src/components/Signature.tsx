@@ -20,7 +20,7 @@ export default function Signature({ className, ...props }: SignatureProps) {
   return (
     <div
       className={twMerge(
-        "drop-shadow-beefy w-64 p-2 text-white md:w-96",
+        "w-64 p-2 text-white drop-shadow-beefy md:w-96",
         className,
       )}
       {...props}
