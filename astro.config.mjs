@@ -4,12 +4,14 @@ import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import netlify from "@astrojs/netlify";
+import { unified } from "@astrojs/markdown-remark";
 import { lastModified } from "./plugins/remark.mjs";
 
 export default defineConfig({
   site: "https://tadjh.com",
+  compressHTML: true,
   adapter: netlify({ imageCDN: false }),
-  markdown: { remarkPlugins: [lastModified] },
+  markdown: { processor: unified({ remarkPlugins: [lastModified] }) },
   integrations: [
     react(),
     mdx(),
