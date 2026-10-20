@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import Hero from "./Hero.astro";
 import StyledLink from "./StyledLink.astro";
 import TagList from "./TagList";
+import { buttonVariants } from "./ui/button";
 
 const projects = (
   await getCollection("projects", ({ data }) => {
@@ -40,13 +41,16 @@ const projects = (
               {project.data.title}
             </StyledLink>
           </h3>
-          <StyledLink
+          <a
             aria-describedby={project.id}
             href={`/projects/${project.id}/#main`}
-            class="w-[148px] rounded-lg bg-linear-to-br from-orange-500 to-orange-tadjhDark px-4 py-2 font-display text-base font-bold whitespace-nowrap text-white shadow-2xl transition-transform group-hover:translate-y-0 group-hover:scale-110 hover:scale-110 md:text-xl"
+            class={buttonVariants({
+              className: "group-hover:translate-y-0 group-hover:scale-110",
+            })}
+            data-astro-prefetch
           >
             Read More <span class="sr-only">about {project.data.title}</span>
-          </StyledLink>
+          </a>
         </div>
         {project.data.categories && (
           <TagList label="Categories" tags={project.data.categories} />
