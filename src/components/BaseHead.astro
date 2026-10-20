@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../config/constants";
 import profilePic from "../assets/images/tadjh-profile-square.jpg";
 import "@fontsource-variable/montserrat";
@@ -52,7 +52,7 @@ title = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<ViewTransitions />
+<ClientRouter />
 
 <style is:global>
   html {

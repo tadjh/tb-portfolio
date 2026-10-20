@@ -5,7 +5,7 @@ import StyledLink from "../../components/StyledLink.astro";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import Layout from "../../layouts/Layout.astro";
 import TagList from "../../components/TagList.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Hero from "../../components/Hero.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
   return projects
     .filter((project) => !(import.meta.env.PROD && project.data.draft))
     .map((project) => ({
-      params: { slug: project.slug },
+      params: { slug: project.id },
       props: project,
     }));
 }
@@ -26,7 +26,7 @@ type Props = CollectionEntry<"projects">;
 
 const project = Astro.props;
 
-const { Content, remarkPluginFrontmatter } = await project.render();
+const { Content, remarkPluginFrontmatter } = await render(project);
 ---
 
 <Layout
