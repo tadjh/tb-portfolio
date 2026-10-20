@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook-astro/framework";
-import Breadcrumbs from "./Breadcrumbs.astro";
+import type { Meta, StoryObj } from "@storybook/react";
+import Breadcrumbs from "./Breadcrumbs";
 
 const meta = {
   title: "Components/Breadcrumbs",
   component: Breadcrumbs,
+  parameters: { renderer: "react" },
   args: { current: "About" },
 } satisfies Meta<typeof Breadcrumbs>;
 

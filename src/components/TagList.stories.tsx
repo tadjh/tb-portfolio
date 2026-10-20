@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from "@storybook-astro/framework";
-import TagList from "./TagList.astro";
+import type { Meta, StoryObj } from "@storybook/react";
+import TagList from "./TagList";
 
 const meta = {
   title: "Components/TagList",
   component: TagList,
+  parameters: { renderer: "react" },
   args: {
     label: "Skills",
     tags: ["React", "Typescript", "Socket.io", "TailwindCSS", "Cypress"],

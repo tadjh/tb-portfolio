@@ -10,13 +10,11 @@ const { level } = Astro.props;
   {
     level === "h1" ? (
       <h1 class="flex flex-col text-5xl leading-[0.78] font-black md:text-[68px] lg:text-[84px] xl:text-[104px]">
-        <span>Tadjh</span>
-        <span>Brooks</span>
+        <span>Tadjh</span> <span>Brooks</span>
       </h1>
     ) : (
       <div class="flex flex-col font-display text-5xl leading-[0.78] font-black text-neutral-900 md:text-[68px] lg:text-[84px] xl:text-[104px] dark:text-white">
-        <span>Tadjh</span>
-        <span>Brooks</span>
+        <span>Tadjh</span> <span>Brooks</span>
       </div>
     )
   }
