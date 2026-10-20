@@ -13,7 +13,7 @@ interface OffCanvasMenuProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function OffCanvasMenu({ children }: OffCanvasMenuProps) {
   return (
-    <nav>
+    <div>
       <Sheet>
         <SheetTrigger
           aria-label="Open menu"
@@ -30,9 +30,11 @@ export default function OffCanvasMenu({ children }: OffCanvasMenuProps) {
           <SheetDescription className="sr-only">
             Site navigation and social links
           </SheetDescription>
-          {children}
+          <nav aria-label="Main" className="contents">
+            {children}
+          </nav>
         </SheetContent>
       </Sheet>
-    </nav>
+    </div>
   );
 }

@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @import "@fortawesome/fontawesome-svg-core/styles.css" layer(base);
 
 @config "../../tailwind.config.cjs";
