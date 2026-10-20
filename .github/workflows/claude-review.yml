@@ -32,7 +32,7 @@ jobs:
             PR NUMBER: ${{ github.event.pull_request.number }}
 
             You are reviewing a PR for tadjh.com, a personal portfolio site.
-            Stack: Astro 6 (Netlify adapter), React islands, Tailwind 4, MDX content
+            Stack: Astro 7 (Netlify adapter), React islands, Tailwind 4, MDX content
             collections, TypeScript (strict), pnpm, Node 22.
             CI already runs `pnpm format:check`, `pnpm test:coverage` (Vitest) and
             `pnpm build` (which includes `astro check`), so don't comment on

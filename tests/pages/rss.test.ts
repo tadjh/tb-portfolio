@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 
 vi.mock("astro:content", () => ({
   getCollection: async () => [
@@ -42,6 +42,12 @@ function links(xml: string) {
 }
 
 describe("/rss.xml", () => {
+  // The feed globs and compiles every MDX page on first import, which can
+  // take several seconds on a cold cache, so warm it outside the tests
+  beforeAll(async () => {
+    await import("@/pages/rss.xml.js");
+  }, 30_000);
+
   afterEach(() => {
     vi.unstubAllEnvs();
   });
