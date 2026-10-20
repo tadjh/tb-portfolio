@@ -59,7 +59,9 @@
     .animate-fadeInView {
       scale: 0.8;
       opacity: 0;
-      animation: fadeInView linear forwards;
+      animation-name: fadeInView;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
       animation-timeline: view();
       animation-range: entry 25% entry 125%;
     }
@@ -74,7 +76,9 @@
     .animate-slideFromRight {
       translate: 25% 0%;
       opacity: 0;
-      animation: slideFromRight linear forwards;
+      animation-name: slideFromRight;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
       animation-timeline: view();
       animation-range: entry 50% entry 150%;
     }
@@ -89,7 +93,9 @@
     .animate-slideFromLeft {
       translate: -25% 0%;
       opacity: 0;
-      animation: slideFromLeft linear forwards;
+      animation-name: slideFromLeft;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
       animation-timeline: view();
       animation-range: entry 50% entry 150%;
     }
