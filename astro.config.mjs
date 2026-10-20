@@ -8,8 +8,7 @@ import { lastModified } from "./plugins/remark.mjs";
 
 export default defineConfig({
   site: "https://tadjh.com",
-  output: "hybrid",
-  adapter: netlify(),
+  adapter: netlify({ imageCDN: false }),
   markdown: { remarkPlugins: [lastModified] },
   integrations: [
     tailwind(),

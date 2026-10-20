@@ -26,7 +26,7 @@ export async function GET(context) {
         title: post.data.title,
         pubDate: post.data.pubDate,
         description: post.data.description,
-        link: `/projects/${post.slug}/`,
+        link: `/projects/${post.id}/`,
       }))
       .concat(pages)
       .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf()),
