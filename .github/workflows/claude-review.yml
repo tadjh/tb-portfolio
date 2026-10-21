@@ -32,10 +32,13 @@ jobs:
             PR NUMBER: ${{ github.event.pull_request.number }}
 
             You are reviewing a PR for tadjh.com, a personal portfolio site.
-            Stack: Astro 4 (`output: "hybrid"`, Netlify adapter), React islands,
-            Tailwind 3, MDX content collections, TypeScript (strict), pnpm, Node 22.
-            CI already runs `pnpm format:check` and `pnpm build` (which includes
-            `astro check`), so don't comment on formatting or type errors CI will catch.
+            Stack: Astro 7 (Netlify adapter), React islands, Tailwind 4, MDX content
+            collections, TypeScript (strict), pnpm, Node 22.
+            CI already runs `pnpm format:check`, `pnpm test:coverage` (Vitest) and
+            `pnpm build` (which includes `astro check`), so don't comment on
+            formatting or type errors CI will catch. Do flag new logic in
+            `src/utils/` or `src/pages/**/*.ts` that ships without a test, and new
+            components in `src/components/` that ship without a `.stories` file.
 
             Read the diff with `gh pr diff`, then open the surrounding files when you
             need context. Only report problems you can point to in the changed lines
@@ -60,7 +63,7 @@ jobs:
                in menus and modals, `prefers-reduced-motion` for new animations, and
                contrast in both light and dark mode (`darkMode: "selector"`).
             4. Content: project MDX frontmatter must match the zod schema in
-               `src/content/config.ts`. Unfinished projects should use `draft: true`.
+               `src/content.config.ts`. Unfinished projects should use `draft: true`.
                Check `hero`, `pubDate` and any `repository`/`website` URLs.
             5. SEO/meta: titles, descriptions and canonical/OG data in `BaseHead.astro`
                for new pages.
