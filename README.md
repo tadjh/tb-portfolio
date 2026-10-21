@@ -40,6 +40,7 @@ A modern, interactive portfolio website showcasing software engineering projects
 - **[Netlify](https://netlify.com/)** - Hosting and deployment
 - **[PNPM](https://pnpm.io/)** - Fast, disk-efficient package manager
 - **[Prettier](https://prettier.io/)** - Code formatting, with the Astro and Tailwind plugins
+- **[Vitest](https://vitest.dev/)** - Unit tests with v8 coverage, in `tests/`
 
 ## 📁 Project Structure
 
@@ -103,6 +104,9 @@ tb-portfolio/
 | `pnpm preview`         | Preview production build locally        |
 | `pnpm format`          | Format all files with Prettier          |
 | `pnpm format:check`    | Check formatting without writing        |
+| `pnpm test`            | Run the Vitest suite once               |
+| `pnpm test:watch`      | Run tests in watch mode                 |
+| `pnpm test:coverage`   | Run tests with a coverage report        |
 | `pnpm astro check`     | Run Astro's type checking               |
 | `pnpm astro sync`      | Generate TypeScript types               |
 | `pnpm storybook`       | Start Storybook on port 6006            |

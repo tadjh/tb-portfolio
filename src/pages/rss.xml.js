@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config/constants";
+import { isPublished } from "../utils/projects";
 
 // Standalone pages opt into the feed with a `pubDate` in their frontmatter
 const pages = Object.values(
@@ -21,7 +22,7 @@ export async function GET(context) {
     description: SITE_DESCRIPTION,
     site: context.site,
     items: projects
-      .filter((project) => !(import.meta.env.PROD && project.data.draft))
+      .filter((project) => isPublished(project, import.meta.env.PROD))
       .map((post) => ({
         title: post.data.title,
         pubDate: post.data.pubDate,

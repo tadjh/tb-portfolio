@@ -26,6 +26,9 @@ pnpm-debug.log*
 
 # deployment
 .netlify
+# test coverage
+coverage/
+
 # storybook
 storybook-static/
 *storybook.log

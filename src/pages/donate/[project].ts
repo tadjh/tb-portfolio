@@ -9,9 +9,9 @@ const projects = {
 
 export const GET: APIRoute = ({ params, redirect }) => {
   const project = params.project as keyof typeof projects;
-  if (project in projects) {
+  if (Object.hasOwn(projects, project)) {
     return redirect(projects[project], 307);
   }
   // If the project is not found, redirect to the main donation page
-  return redirect("https://tadjh.com");
+  return redirect("https://tadjh.com", 302);
 };

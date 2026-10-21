@@ -11,11 +11,12 @@ import Hero from "../../components/Hero.astro";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import { twMerge } from "tailwind-merge";
 import GoToTop from "../../components/GoToTop.astro";
+import { isPublished } from "../../utils/projects";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects
-    .filter((project) => !(import.meta.env.PROD && project.data.draft))
+    .filter((project) => isPublished(project, import.meta.env.PROD))
     .map((project) => ({
       params: { slug: project.id },
       props: project,
