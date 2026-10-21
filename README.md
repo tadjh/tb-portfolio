@@ -96,15 +96,17 @@ tb-portfolio/
 
 ## 📜 Available Scripts
 
-| Command             | Description                             |
-| ------------------- | --------------------------------------- |
-| `pnpm dev`          | Start development server                |
-| `pnpm build`        | Build for production with type checking |
-| `pnpm preview`      | Preview production build locally        |
-| `pnpm format`       | Format all files with Prettier          |
-| `pnpm format:check` | Check formatting without writing        |
-| `pnpm astro check`  | Run Astro's type checking               |
-| `pnpm astro sync`   | Generate TypeScript types               |
+| Command                | Description                             |
+| ---------------------- | --------------------------------------- |
+| `pnpm dev`             | Start development server                |
+| `pnpm build`           | Build for production with type checking |
+| `pnpm preview`         | Preview production build locally        |
+| `pnpm format`          | Format all files with Prettier          |
+| `pnpm format:check`    | Check formatting without writing        |
+| `pnpm astro check`     | Run Astro's type checking               |
+| `pnpm astro sync`      | Generate TypeScript types               |
+| `pnpm storybook`       | Start Storybook on port 6006            |
+| `pnpm build-storybook` | Build a static Storybook                |
 
 ## 🌐 Deployment
 
@@ -152,6 +154,7 @@ Projects and blog posts are written in MDX format in the `src/content/` director
 
 - Interactive components in `src/components/` (React)
 - Static components in `src/components/` (Astro)
+- Every component has a `*.stories.ts(x)` file next to it. Astro stories use [`@storybook-astro/framework`](https://storybook-astro.org); React stories set `parameters: { renderer: "react" }`. Shared fixtures and module mocks live in `.storybook/`.
 
 ## 🤝 Contributing
 

@@ -12,7 +12,7 @@ interface Props {
   image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 
 let {
   title,
